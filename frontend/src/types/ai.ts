@@ -11,6 +11,7 @@ export interface ParsedIntent {
   filters: Record<string, any>;
   clarification_needed?: boolean;
   clarification_question?: string;
+  type?: string;
 }
 
 export interface SuggestedAction {
@@ -49,10 +50,13 @@ export interface AnomalyAlert {
   id: string;
   resource_type: string;
   resource_id: string;
+  record_type?: string;
+  record_id?: string;
   anomaly_type: string;
   score: number;
   description: string;
   explanation: string;
+  reasons?: string[];
   detected_at: string;
   resolved?: boolean;
 }
@@ -88,6 +92,13 @@ export interface SemanticSearchResult {
   metadata?: Record<string, any>;
 }
 
+export interface SemanticSearchRequest {
+  query: string;
+  resource_types?: string[];
+  limit?: number;
+  offset?: number;
+}
+
 export interface ExperienceRecommendation {
   assumption_type: string;
   segment?: string;
@@ -115,4 +126,47 @@ export interface AIFeatureStatus {
     document_extraction: boolean;
     experience_recommendations: boolean;
   };
+}
+
+export interface AIFeatures {
+  smart_import: boolean;
+  natural_language: boolean;
+  anomaly_detection: boolean;
+  narrative_generation: boolean;
+  semantic_search: boolean;
+  document_extraction: boolean;
+  experience_recommendations: boolean;
+}
+
+export interface NaturalLanguageQuery {
+  query: string;
+  context?: Record<string, any>;
+}
+
+export interface QueryFeedback {
+  query_id: string;
+  helpful: boolean;
+  feedback?: string;
+}
+
+export interface QueryHistoryItem {
+  id: string;
+  query: string;
+  result: NLQueryResponse;
+  timestamp: string;
+}
+
+export interface ColumnMappingSuggestion {
+  source_column: string;
+  suggested_field: string;
+  confidence: number;
+  type?: string;
+}
+
+export interface DataQualityIssue {
+  row_number: number;
+  column: string;
+  issue_type: string;
+  description: string;
+  severity: 'error' | 'warning' | 'info';
 }

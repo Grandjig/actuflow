@@ -218,6 +218,7 @@ export interface ScheduledJob {
   config: Record<string, any>;
   is_active: boolean;
   last_run?: string;
+  last_run_status?: string;
   next_run?: string;
   created_by_id: string;
   created_at: string;
@@ -261,4 +262,108 @@ export interface AuditLog {
   old_values?: Record<string, any>;
   new_values?: Record<string, any>;
   ip_address?: string;
+}
+
+export interface Comment {
+  id: string;
+  resource_type: string;
+  resource_id: string;
+  author_id: string;
+  author_name?: string;
+  content: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface DashboardConfig {
+  id: string;
+  name: string;
+  description?: string;
+  owner_id: string;
+  widgets: WidgetConfig[];
+  layout?: Record<string, any>;
+  is_default: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface WidgetConfig {
+  id: string;
+  type: string;
+  title: string;
+  config: Record<string, any>;
+  position?: { x: number; y: number };
+  size?: { width: number; height: number };
+}
+
+export interface ExperienceAnalysis {
+  id: string;
+  name: string;
+  description?: string;
+  experience_period_start: string;
+  experience_period_end: string;
+  expected_data?: Record<string, any>;
+  actual_data?: Record<string, any>;
+  analysis_results?: Record<string, any>;
+  status: string;
+  created_by_id: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ReportTemplate {
+  id: string;
+  name: string;
+  description?: string;
+  template_type: string;
+  template_config: Record<string, any>;
+  status: string;
+  created_by_id: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface GeneratedReport {
+  id: string;
+  template_id: string;
+  template_name?: string;
+  name: string;
+  parameters?: Record<string, any>;
+  status: string;
+  output_format?: string;
+  file_path?: string;
+  error_message?: string;
+  created_by_id: string;
+  created_at: string;
+  updated_at: string;
+  completed_at?: string;
+}
+
+export interface Document {
+  id: string;
+  filename: string;
+  file_type: string;
+  file_path: string;
+  file_size: number;
+  resource_type?: string;
+  resource_id?: string;
+  uploaded_by_id: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface DataImport {
+  id: string;
+  filename: string;
+  import_type: string;
+  status: string;
+  total_rows?: number;
+  successful_rows?: number;
+  failed_rows?: number;
+  import_mapping?: Record<string, any>;
+  error_details?: any[];
+  created_by_id: string;
+  created_at: string;
+  updated_at: string;
+  completed_at?: string;
 }

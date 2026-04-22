@@ -213,3 +213,50 @@ export interface AutomationRuleCreateRequest {
   action_config: Record<string, any>;
   is_active?: boolean;
 }
+
+// Additional API Types
+export interface PaginationParams extends ListParams {
+  [key: string]: any;
+}
+
+export interface AuditLogFilters extends ListParams {
+  resource_type?: string;
+  action?: string;
+  user_id?: string;
+  date_from?: string;
+  date_to?: string;
+}
+
+export interface ModelFilters extends ListParams {
+  model_type?: string;
+  line_of_business?: string;
+  status?: string;
+}
+
+export interface TaskFilters extends ListParams {
+  task_type?: string;
+  status?: string;
+  priority?: string;
+}
+
+export interface SearchRequest {
+  query: string;
+  resource_types?: string[];
+  limit?: number;
+  offset?: number;
+  filters?: Record<string, any>;
+}
+
+export interface SearchResponse {
+  query: string;
+  total: number;
+  results: any[];
+  took?: number;
+}
+
+export interface TokenResponse {
+  access_token: string;
+  refresh_token: string;
+  token_type: string;
+  expires_in: number;
+}

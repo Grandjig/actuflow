@@ -82,4 +82,35 @@ export const patch = <T>(url: string, data?: any) =>
 export const del = <T>(url: string) =>
  apiClient.delete<T>(url).then((res) => res.data);
 
+// File operations
+export const uploadFile = async (url: string, file: File, additionalData?: Record<string, any>) => {
+ const formData = new FormData();
+ formData.append('file', file);
+ 
+ if (additionalData) {
+ Object.entries(additionalData).forEach(([key, value]) => {
+ formData.append(key, value as string);
+ });
+ }
+ 
+ return apiClient.post(url, formData, {
+ headers: {
+ 'Content-Type': 'multipart/form-data',
+ },
+ }).then((res) => res.data);
+};
+
+export const downloadFile = async (url: string, filename: string) => {
+ const response = await apiClient.get(url, {
+ responseType: 'blob',
+ });
+ 
+ const blob = new Blob([response.data]);
+ const link = document.createElement('a');
+ link.href = window.URL.createObjectURL(blob);
+ link.download = filename;
+ link.click();
+ window.URL.revokeObjectURL(link.href);
+};
+
 export default apiClient;
