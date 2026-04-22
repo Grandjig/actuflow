@@ -1,65 +1,50 @@
+/**
+ * Notifications hooks.
+ */
+
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { useEffect } from 'react';
-import * as notificationsApi from '@/api/notifications';
-import { useNotificationStore } from '@/stores/notificationStore';
+import {
+  getNotifications,
+  getUnreadCount,
+  markAsRead,
+  markAllAsRead,
+} from '@/api/notifications';
 
-export function useNotifications(params?: notificationsApi.NotificationListParams) {
-  const { setNotifications, setUnreadCount, setLoading } = useNotificationStore();
-
-  const query = useQuery({
+export function useNotifications(params?: Record<string, unknown>) {
+  return useQuery({
     queryKey: ['notifications', params],
-    queryFn: () => notificationsApi.getNotifications(params),
-    refetchInterval: 60000, // Refetch every minute
+    queryFn: () => getNotifications(params),
   });
-
-  useEffect(() => {
-    setLoading(query.isLoading);
-    if (query.data) {
-      setNotifications(query.data.items);
-    }
-  }, [query.data, query.isLoading, setNotifications, setLoading]);
-
-  // Also fetch unread count
-  const countQuery = useQuery({
-    queryKey: ['notifications', 'unread-count'],
-    queryFn: () => notificationsApi.getUnreadCount(),
-    refetchInterval: 30000, // Refetch every 30 seconds
-  });
-
-  useEffect(() => {
-    if (countQuery.data) {
-      setUnreadCount(countQuery.data.count);
-    }
-  }, [countQuery.data, setUnreadCount]);
-
-  return {
-    ...query,
-    unreadCount: countQuery.data?.count || 0,
-  };
 }
 
-export function useMarkNotificationRead() {
+export function useUnreadCount() {
+  return useQuery({
+    queryKey: ['notificationsUnreadCount'],
+    queryFn: getUnreadCount,
+    refetchInterval: 30000, // Refresh every 30 seconds
+  });
+}
+
+export function useMarkAsRead() {
   const queryClient = useQueryClient();
-  const { markAsRead } = useNotificationStore();
 
   return useMutation({
-    mutationFn: notificationsApi.markAsRead,
-    onSuccess: (_, id) => {
-      markAsRead(id);
+    mutationFn: markAsRead,
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['notifications'] });
+      queryClient.invalidateQueries({ queryKey: ['notificationsUnreadCount'] });
     },
   });
 }
 
-export function useMarkAllNotificationsRead() {
+export function useMarkAllAsRead() {
   const queryClient = useQueryClient();
-  const { markAllAsRead } = useNotificationStore();
 
   return useMutation({
-    mutationFn: notificationsApi.markAllAsRead,
+    mutationFn: markAllAsRead,
     onSuccess: () => {
-      markAllAsRead();
       queryClient.invalidateQueries({ queryKey: ['notifications'] });
+      queryClient.invalidateQueries({ queryKey: ['notificationsUnreadCount'] });
     },
   });
 }

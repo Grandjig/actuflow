@@ -10,16 +10,17 @@ import { Spin } from 'antd';
 import MainLayout from './layouts/MainLayout';
 
 // Lazy load pages
-const Login = lazy(() => import('./pages/Login'));
+const Login = lazy(() => import('./pages/auth/Login'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const PolicyList = lazy(() => import('./pages/policies/PolicyList'));
 const PolicyDetail = lazy(() => import('./pages/policies/PolicyDetail'));
 const ClaimList = lazy(() => import('./pages/claims/ClaimList'));
 const ClaimDetail = lazy(() => import('./pages/claims/ClaimDetail'));
-const AssumptionSetDetail = lazy(() => import('./pages/assumptions/AssumptionSetDetail'));
 const CalculationList = lazy(() => import('./pages/calculations/CalculationList'));
 const CalculationDetail = lazy(() => import('./pages/calculations/CalculationDetail'));
 const CalculationCreate = lazy(() => import('./pages/calculations/CalculationCreate'));
+const AssumptionSetList = lazy(() => import('./pages/assumptions/AssumptionSetList'));
+const AssumptionSetDetail = lazy(() => import('./pages/assumptions/AssumptionSetDetail'));
 const ProfileSettings = lazy(() => import('./pages/settings/ProfileSettings'));
 const GeneratedReportList = lazy(() => import('./pages/reports/GeneratedReportList'));
 const ReportTemplateList = lazy(() => import('./pages/reports/ReportTemplateList'));
@@ -79,15 +80,6 @@ export const router = createBrowserRouter([
         ],
       },
       {
-        path: 'assumptions',
-        children: [
-          {
-            path: ':id',
-            element: withSuspense(AssumptionSetDetail),
-          },
-        ],
-      },
-      {
         path: 'calculations',
         children: [
           {
@@ -101,6 +93,19 @@ export const router = createBrowserRouter([
           {
             path: ':id',
             element: withSuspense(CalculationDetail),
+          },
+        ],
+      },
+      {
+        path: 'assumptions',
+        children: [
+          {
+            index: true,
+            element: withSuspense(AssumptionSetList),
+          },
+          {
+            path: ':id',
+            element: withSuspense(AssumptionSetDetail),
           },
         ],
       },

@@ -1,42 +1,33 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { assumptionsApi } from '@/api/assumptions';
-import type { AssumptionSetFilters } from '@/types/api';
+/**
+ * Assumptions hooks.
+ */
 
-export function useAssumptionSets(params: AssumptionSetFilters = {}) {
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import {
+  getAssumptionSets,
+  getAssumptionSet,
+  createAssumptionSet,
+  updateAssumptionSet,
+  deleteAssumptionSet,
+  cloneAssumptionSet,
+  submitForApproval,
+  approveAssumptionSet,
+  rejectAssumptionSet,
+} from '@/api/assumptions';
+import type { AssumptionSet } from '@/types/models';
+
+export function useAssumptionSets(params?: Record<string, unknown>) {
   return useQuery({
-    queryKey: ['assumption-sets', params],
-    queryFn: () => assumptionsApi.list(params),
+    queryKey: ['assumptionSets', params],
+    queryFn: () => getAssumptionSets(params),
   });
 }
 
 export function useAssumptionSet(id: string) {
   return useQuery({
-    queryKey: ['assumption-sets', id],
-    queryFn: () => assumptionsApi.get(id),
+    queryKey: ['assumptionSet', id],
+    queryFn: () => getAssumptionSet(id),
     enabled: !!id,
-  });
-}
-
-export function useApprovedAssumptionSets() {
-  return useQuery({
-    queryKey: ['assumption-sets', 'approved'],
-    queryFn: () => assumptionsApi.getApproved(),
-  });
-}
-
-export function useAssumptionTables(setId: string) {
-  return useQuery({
-    queryKey: ['assumption-sets', setId, 'tables'],
-    queryFn: () => assumptionsApi.getTables(setId),
-    enabled: !!setId,
-  });
-}
-
-export function useAssumptionRecommendations(setId: string) {
-  return useQuery({
-    queryKey: ['assumption-sets', setId, 'recommendations'],
-    queryFn: () => assumptionsApi.getExperienceRecommendations(setId),
-    enabled: !!setId,
   });
 }
 
@@ -44,9 +35,9 @@ export function useCreateAssumptionSet() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: assumptionsApi.create,
+    mutationFn: createAssumptionSet,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['assumption-sets'] });
+      queryClient.invalidateQueries({ queryKey: ['assumptionSets'] });
     },
   });
 }
@@ -55,11 +46,10 @@ export function useUpdateAssumptionSet() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: ({ id, data }: { id: string; data: any }) =>
-      assumptionsApi.update(id, data),
-    onSuccess: (_, { id }) => {
-      queryClient.invalidateQueries({ queryKey: ['assumption-sets'] });
-      queryClient.invalidateQueries({ queryKey: ['assumption-sets', id] });
+    mutationFn: ({ id, data }: { id: string; data: Partial<AssumptionSet> }) =>
+      updateAssumptionSet(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['assumptionSets'] });
     },
   });
 }
@@ -68,21 +58,32 @@ export function useDeleteAssumptionSet() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: assumptionsApi.delete,
+    mutationFn: deleteAssumptionSet,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['assumption-sets'] });
+      queryClient.invalidateQueries({ queryKey: ['assumptionSets'] });
     },
   });
 }
 
-export function useSubmitAssumptionSet() {
+export function useCloneAssumptionSet() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: assumptionsApi.submit,
-    onSuccess: (_, id) => {
-      queryClient.invalidateQueries({ queryKey: ['assumption-sets'] });
-      queryClient.invalidateQueries({ queryKey: ['assumption-sets', id] });
+    mutationFn: ({ id, name }: { id: string; name: string }) =>
+      cloneAssumptionSet(id, name),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['assumptionSets'] });
+    },
+  });
+}
+
+export function useSubmitForApproval() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: submitForApproval,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['assumptionSets'] });
     },
   });
 }
@@ -92,10 +93,9 @@ export function useApproveAssumptionSet() {
 
   return useMutation({
     mutationFn: ({ id, notes }: { id: string; notes?: string }) =>
-      assumptionsApi.approve(id, notes),
-    onSuccess: (_, { id }) => {
-      queryClient.invalidateQueries({ queryKey: ['assumption-sets'] });
-      queryClient.invalidateQueries({ queryKey: ['assumption-sets', id] });
+      approveAssumptionSet(id, notes),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['assumptionSets'] });
     },
   });
 }
@@ -104,11 +104,10 @@ export function useRejectAssumptionSet() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: ({ id, reason }: { id: string; reason: string }) =>
-      assumptionsApi.reject(id, reason),
-    onSuccess: (_, { id }) => {
-      queryClient.invalidateQueries({ queryKey: ['assumption-sets'] });
-      queryClient.invalidateQueries({ queryKey: ['assumption-sets', id] });
+    mutationFn: ({ id, notes }: { id: string; notes: string }) =>
+      rejectAssumptionSet(id, notes),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['assumptionSets'] });
     },
   });
 }

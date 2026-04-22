@@ -49,8 +49,6 @@ export async function getClaimStats(): Promise<Record<string, unknown>> {
   return get('/claims/stats');
 }
 
-export async function getClaimAnomalies(
-  params?: Record<string, unknown>
-): Promise<PaginatedResponse<Claim>> {
-  return get('/claims/anomalies', params);
+export async function getClaimAnomalies(): Promise<Claim[]> {
+  return get('/claims/anomalies');
 }

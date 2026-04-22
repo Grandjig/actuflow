@@ -10,20 +10,30 @@ import {
   AlertOutlined,
 } from '@ant-design/icons';
 import { useQuery } from '@tanstack/react-query';
-import RecentCalculationsWidget from '@/components/widgets/RecentCalculationsWidget';
-import ScheduledJobsWidget from '@/components/widgets/ScheduledJobsWidget';
 import { getPolicyStats } from '@/api/policies';
 import { getClaimStats } from '@/api/claims';
+import RecentCalculationsWidget from '@/components/widgets/RecentCalculationsWidget';
+import ScheduledJobsWidget from '@/components/widgets/ScheduledJobsWidget';
 
 const { Title } = Typography;
 
+interface PolicyStats {
+  active_count?: number;
+  policyholder_count?: number;
+  calculations_this_month?: number;
+}
+
+interface ClaimStats {
+  open_count?: number;
+}
+
 export default function Dashboard() {
-  const { data: policyStats } = useQuery({
+  const { data: policyStats } = useQuery<PolicyStats>({
     queryKey: ['policyStats'],
     queryFn: getPolicyStats,
   });
 
-  const { data: claimStats } = useQuery({
+  const { data: claimStats } = useQuery<ClaimStats>({
     queryKey: ['claimStats'],
     queryFn: getClaimStats,
   });

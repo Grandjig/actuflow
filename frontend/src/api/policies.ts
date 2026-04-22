@@ -12,6 +12,8 @@ interface PaginatedResponse<T> {
   page_size: number;
 }
 
+// Policies
+
 export async function getPolicies(
   params?: Record<string, unknown>
 ): Promise<PaginatedResponse<Policy>> {
@@ -44,7 +46,10 @@ export async function getPolicyStats(): Promise<Record<string, unknown>> {
 export async function exportPolicies(
   params?: Record<string, unknown>
 ): Promise<Blob> {
-  const response = await fetch(`/api/v1/policies/export?${new URLSearchParams(params as Record<string, string>)}`, {
+  const queryString = params 
+    ? new URLSearchParams(params as Record<string, string>).toString()
+    : '';
+  const response = await fetch(`/api/v1/policies/export?${queryString}`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('access_token')}`,
     },
