@@ -1,0 +1,58 @@
+{
+  "timestamp": "20260422T133734",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\hsh.txt",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\hsh.txt"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docs\\deployment-render.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\deployment-render.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\runtime.txt",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\runtime.txt"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\Procfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\Procfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\requirements.txt",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\requirements.txt"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\.github\\workflows\\deploy-gh-pages.yml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\deploy-gh-pages.yml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\package.json",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\package.json"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\render.yaml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\render.yaml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\celery_app.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\celery_app.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\tasks\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\tasks\\calculation_tasks.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\calculation_tasks.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\tasks\\report_tasks.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\report_tasks.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\tasks\\import_tasks.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\043_20260422T133734\\import_tasks.py"
+    }
+  ],
+  "prompt": "delete the files that need deleting and full steps of deploying to render for backend"
+}

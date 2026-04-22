@@ -1,116 +1,85 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios';
-import { useAuthStore } from '@/stores/authStore';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+// For GitHub Pages deployment, API URL must be absolute
+// Set VITE_API_URL in your environment or GitHub repository variables
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
-const client = axios.create({
-  baseURL: `${API_URL}/api/v1`,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+export const apiClient = axios.create({
+ baseURL: `${API_BASE_URL}/api/v1`,
+ headers: {
+ 'Content-Type': 'application/json',
+ },
+ timeout: 30000,
 });
 
-// Request interceptor - add auth token
-client.interceptors.request.use(
-  (config) => {
-    const token = useAuthStore.getState().token;
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  },
-  (error) => Promise.reject(error)
+// Request interceptor for auth token
+apiClient.interceptors.request.use(
+ (config) => {
+ const token = localStorage.getItem('access_token');
+ if (token) {
+ config.headers.Authorization = `Bearer ${token}`;
+ }
+ return config;
+ },
+ (error) => Promise.reject(error)
 );
 
-// Response interceptor - handle errors and token refresh
-client.interceptors.response.use(
-  (response) => response,
-  async (error: AxiosError) => {
-    const originalRequest = error.config as AxiosRequestConfig & { _retry?: boolean };
+// Response interceptor for error handling
+apiClient.interceptors.response.use(
+ (response) => response,
+ async (error: AxiosError) => {
+ const originalRequest = error.config as AxiosRequestConfig & { _retry?: boolean };
 
-    // Handle 401 - try to refresh token
-    if (error.response?.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true;
+ // Handle 401 - try refresh token
+ if (error.response?.status === 401 && !originalRequest._retry) {
+ originalRequest._retry = true;
 
-      try {
-        await useAuthStore.getState().refreshAuth();
-        const token = useAuthStore.getState().token;
-        if (token && originalRequest.headers) {
-          originalRequest.headers.Authorization = `Bearer ${token}`;
-        }
-        return client(originalRequest);
-      } catch (refreshError) {
-        useAuthStore.getState().logout();
-        window.location.href = '/login';
-        return Promise.reject(refreshError);
-      }
-    }
+ const refreshToken = localStorage.getItem('refresh_token');
+ if (refreshToken) {
+ try {
+ const response = await axios.post(`${API_BASE_URL}/api/v1/auth/refresh`, {
+ refresh_token: refreshToken,
+ });
 
-    // Extract error message
-    const message =
-      (error.response?.data as any)?.detail ||
-      error.message ||
-      'An unexpected error occurred';
+ const { access_token, refresh_token: newRefreshToken } = response.data;
+ localStorage.setItem('access_token', access_token);
+ localStorage.setItem('refresh_token', newRefreshToken);
 
-    return Promise.reject(new Error(message));
-  }
+ if (originalRequest.headers) {
+ originalRequest.headers.Authorization = `Bearer ${access_token}`;
+ }
+ return apiClient(originalRequest);
+ } catch (refreshError) {
+ // Refresh failed - clear tokens and redirect to login
+ localStorage.removeItem('access_token');
+ localStorage.removeItem('refresh_token');
+ window.location.href = '/login';
+ return Promise.reject(refreshError);
+ }
+ }
+
+ // No refresh token - redirect to login
+ window.location.href = '/login';
+ }
+
+ return Promise.reject(error);
+ }
 );
 
-// Generic request methods
-export async function get<T>(url: string, params?: Record<string, unknown>): Promise<T> {
-  const response = await client.get<T>(url, { params });
-  return response.data;
-}
+// Helper functions
+export const get = <T>(url: string, params?: Record<string, any>) =>
+ apiClient.get<T>(url, { params }).then((res) => res.data);
 
-export async function post<T>(url: string, data?: unknown): Promise<T> {
-  const response = await client.post<T>(url, data);
-  return response.data;
-}
+export const post = <T>(url: string, data?: any) =>
+ apiClient.post<T>(url, data).then((res) => res.data);
 
-export async function put<T>(url: string, data?: unknown): Promise<T> {
-  const response = await client.put<T>(url, data);
-  return response.data;
-}
+export const put = <T>(url: string, data?: any) =>
+ apiClient.put<T>(url, data).then((res) => res.data);
 
-export async function del<T>(url: string): Promise<T> {
-  const response = await client.delete<T>(url);
-  return response.data;
-}
+export const patch = <T>(url: string, data?: any) =>
+ apiClient.patch<T>(url, data).then((res) => res.data);
 
-export async function patch<T>(url: string, data?: unknown): Promise<T> {
-  const response = await client.patch<T>(url, data);
-  return response.data;
-}
+export const del = <T>(url: string) =>
+ apiClient.delete<T>(url).then((res) => res.data);
 
-// File upload
-export async function uploadFile<T>(
-  url: string,
-  file: File,
-  additionalData?: Record<string, string>,
-  onProgress?: (progress: number) => void
-): Promise<T> {
-  const formData = new FormData();
-  formData.append('file', file);
-
-  if (additionalData) {
-    Object.entries(additionalData).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
-  }
-
-  const response = await client.post<T>(url, formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-    onUploadProgress: (progressEvent) => {
-      if (onProgress && progressEvent.total) {
-        const progress = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-        onProgress(progress);
-      }
-    },
-  });
-
-  return response.data;
-}
-
-export default client;
+export default apiClient;
