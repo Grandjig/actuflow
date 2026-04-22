@@ -1,0 +1,10 @@
+{
+  "timestamp": "20260422T153856",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\routes.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\050_20260422T153856\\routes.tsx"
+    }
+  ],
+  "prompt": "Unexpected Application Error!\nrequire is not defined\nReferenceError: require is not defined\n    at default (https://actuflow-57n3.vercel.app/assets/index-D1LkugNt.js:34:12700)\n    at Ju (https://actuflow-57n3.vercel.app/assets/vendor-OmTtLG1X.js:30:16996)\n    at nu (https://actuflow-57n3.vercel.app/assets/vendor-OmTtLG1X.js:32:3139)\n    at md (https://actuflow-57n3.vercel.app/assets/vendor-OmTtLG1X.js:32:44448)\n    at dd (https://actuflow-57n3.vercel.app/assets/vendor-OmTtLG1X.js:32:39699)\n    at um (https://actuflow-57n3.vercel.app/assets/vendor-OmTtLG1X.js:32:39627)\n    at Ei (https://actuflow-57n3.vercel.app/assets/vendor-OmTtLG1X.js:32:39481)\n    at pu (https://actuflow-57n3.vercel.app/assets/vendor-OmTtLG1X.js:32:35863)\n    at Fs (https://actuflow-57n3.vercel.app/assets/vendor-OmTtLG1X.js:32:36665)\n    at sn (https://actuflow-57n3.vercel.app/assets/vendor-OmTtLG1X.js:30:3272      it had deployed,,,,under repots we have this error....under both templates and genertated reports"
+}

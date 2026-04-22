@@ -1,0 +1,56 @@
+# Render Blueprint - deploy all services with one click
+# Usage: Go to Render Dashboard -> New -> Blueprint -> Connect repo
+# https://render.com/docs/blueprint-spec
+
+services:
+  # Main API Service
+  - type: web
+    name: actuflow-api
+    runtime: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt && alembic upgrade head
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false  # Set manually with Neon connection string
+      - key: REDIS_URL
+        sync: false  # Set manually with Upstash connection string
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+      - key: ALLOWED_ORIGINS
+        sync: false  # Set to your GitHub Pages URL
+      - key: AI_ENABLED
+        value: false
+      - key: PROJECT_NAME
+        value: ActuFlow
+
+  # Background Worker (Optional - for calculations)
+  - type: worker
+    name: actuflow-worker
+    runtime: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: celery -A app.celery_app worker --loglevel=info --concurrency=2
+    envVars:
+      - key: DATABASE_URL
+        fromService:
+          name: actuflow-api
+          type: web
+          envVarKey: DATABASE_URL
+      - key: REDIS_URL
+        fromService:
+          name: actuflow-api
+          type: web
+          envVarKey: REDIS_URL
+      - key: SECRET_KEY
+        fromService:
+          name: actuflow-api
+          type: web
+          envVarKey: SECRET_KEY

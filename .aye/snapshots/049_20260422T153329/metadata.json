@@ -1,0 +1,14 @@
+{
+  "timestamp": "20260422T153329",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\render.yaml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\049_20260422T153329\\render.yaml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\vercel.json",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\049_20260422T153329\\vercel.json"
+    }
+  ],
+  "prompt": "okay....because this is getting out of fucking hand. i ahve github pages enabled.....give the directions for deploying on render....if possible all from the terminal"
+}
