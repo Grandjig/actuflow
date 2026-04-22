@@ -1,35 +1,49 @@
+/**
+ * Comments API functions.
+ */
+
 import { get, post, put, del } from './client';
-import type { SuccessResponse } from '@/types/api';
 import type { Comment } from '@/types/models';
 
-export interface CommentCreateData {
-  content: string;
-  resource_type: string;
-  resource_id: string;
-  parent_comment_id?: string;
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
 }
 
-export interface CommentThread {
-  comment: Comment;
-  replies: Comment[];
+export async function getComments(
+  resourceType: string,
+  resourceId: string
+): Promise<Comment[]> {
+  return get(`/comments`, { resource_type: resourceType, resource_id: resourceId });
 }
 
-export const commentsApi = {
-  list: (resourceType: string, resourceId: string) =>
-    get<Comment[]>('/comments', { resource_type: resourceType, resource_id: resourceId }),
+export async function createComment(
+  resourceType: string,
+  resourceId: string,
+  content: string,
+  parentCommentId?: string
+): Promise<Comment> {
+  return post('/comments', {
+    resource_type: resourceType,
+    resource_id: resourceId,
+    content,
+    parent_comment_id: parentCommentId,
+  });
+}
 
-  getThreads: (resourceType: string, resourceId: string) =>
-    get<CommentThread[]>('/comments/threads', { resource_type: resourceType, resource_id: resourceId }),
+export async function updateComment(
+  id: string,
+  content: string
+): Promise<Comment> {
+  return put(`/comments/${id}`, { content });
+}
 
-  create: (data: CommentCreateData) => 
-    post<Comment>('/comments', data),
+export async function deleteComment(id: string): Promise<void> {
+  return del(`/comments/${id}`);
+}
 
-  update: (id: string, content: string) => 
-    put<Comment>(`/comments/${id}`, { content }),
-
-  resolve: (id: string) =>
-    put<Comment>(`/comments/${id}/resolve`),
-
-  delete: (id: string) => 
-    del<SuccessResponse>(`/comments/${id}`),
-};
+export async function resolveComment(id: string): Promise<Comment> {
+  return put(`/comments/${id}/resolve`);
+}

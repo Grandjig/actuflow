@@ -1,78 +1,117 @@
+/**
+ * Scheduled jobs dashboard widget.
+ */
+
+import { Card, List, Tag, Typography, Space, Button, Empty, Tooltip } from 'antd';
+import {
+  ClockCircleOutlined,
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  RightOutlined,
+  PlayCircleOutlined,
+} from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import { Card, List, Typography, Tag, Button, Space, Progress } from 'antd';
-import { ClockCircleOutlined, PlayCircleOutlined } from '@ant-design/icons';
-import dayjs from 'dayjs';
+import { useScheduledJobs, useTriggerJobNow } from '@/hooks/useAutomation';
 import type { ScheduledJob } from '@/types/models';
+import { formatDateTime } from '@/utils/helpers';
 
-interface ScheduledJobsWidgetProps {
-  jobs: ScheduledJob[];
-  loading?: boolean;
-}
+const { Text } = Typography;
 
-export default function ScheduledJobsWidget({ jobs, loading = false }: ScheduledJobsWidgetProps) {
+const jobTypeColors: Record<string, string> = {
+  calculation: 'blue',
+  report: 'green',
+  import: 'orange',
+  data_check: 'purple',
+};
+
+export default function ScheduledJobsWidget() {
   const navigate = useNavigate();
+  const { data, isLoading } = useScheduledJobs({ page_size: 5, is_active: true });
+  const triggerMutation = useTriggerJobNow();
 
-  const getStatusColor = (status: string | undefined) => {
-    if (!status) return 'default';
-    if (status === 'completed') return 'green';
-    if (status === 'running') return 'blue';
-    if (status === 'failed') return 'red';
-    return 'default';
+  const handleViewAll = () => {
+    navigate('/automation/jobs');
+  };
+
+  const handleTriggerNow = (e: React.MouseEvent, jobId: string) => {
+    e.stopPropagation();
+    triggerMutation.mutate(jobId);
   };
 
   return (
     <Card
-      title={
-        <Space>
-          <ClockCircleOutlined />
-          Scheduled Jobs
-        </Space>
-      }
+      title="Scheduled Jobs"
       extra={
-        <Button type="link" onClick={() => navigate('/automation/jobs')}>
-          Manage
+        <Button type="link" onClick={handleViewAll}>
+          View All <RightOutlined />
         </Button>
       }
-      loading={loading}
+      loading={isLoading}
     >
-      <List
-        dataSource={jobs.slice(0, 5)}
-        renderItem={(job) => (
-          <List.Item
-            style={{ cursor: 'pointer' }}
-            onClick={() => navigate(`/automation/jobs/${job.id}`)}
-          >
-            <List.Item.Meta
-              title={
-                <Space>
-                  {job.is_active ? (
-                    <PlayCircleOutlined style={{ color: '#52c41a' }} />
-                  ) : (
-                    <PlayCircleOutlined style={{ color: '#8c8c8c' }} />
-                  )}
-                  {job.name}
-                </Space>
-              }
-              description={
-                <Space direction="vertical" size={0}>
-                  <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                    Next: {job.next_run ? dayjs(job.next_run).format('MMM D, HH:mm') : 'Not scheduled'}
-                  </Typography.Text>
-                  {job.last_run && (
-                    <Typography.Text type="secondary" style={{ fontSize: 11 }}>
-                      Last: {dayjs(job.last_run).fromNow()} -{' '}
-                      <Tag color={getStatusColor(job.last_run_status)} style={{ fontSize: 10 }}>
-                        {job.last_run_status}
+      {!data?.items || data.items.length === 0 ? (
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description="No scheduled jobs"
+        />
+      ) : (
+        <List
+          dataSource={data.items}
+          renderItem={(item: ScheduledJob) => {
+            const lastRunStatus = item.last_run_status;
+
+            return (
+              <List.Item
+                onClick={() => navigate(`/automation/jobs/${item.id}`)}
+                style={{ cursor: 'pointer' }}
+                actions={[
+                  <Tooltip title="Run Now" key="run">
+                    <Button
+                      type="text"
+                      icon={<PlayCircleOutlined />}
+                      size="small"
+                      onClick={(e) => handleTriggerNow(e, item.id)}
+                      loading={triggerMutation.isPending}
+                    />
+                  </Tooltip>,
+                ]}
+              >
+                <List.Item.Meta
+                  title={
+                    <Space>
+                      <Tag color={jobTypeColors[item.job_type] || 'default'}>
+                        {item.job_type.toUpperCase()}
                       </Tag>
-                    </Typography.Text>
-                  )}
-                </Space>
-              }
-            />
-          </List.Item>
-        )}
-        locale={{ emptyText: 'No scheduled jobs' }}
-      />
+                      <span>{item.name}</span>
+                      {lastRunStatus && (
+                        lastRunStatus === 'completed' ? (
+                          <CheckCircleOutlined style={{ color: '#52c41a' }} />
+                        ) : (
+                          <CloseCircleOutlined style={{ color: '#ff4d4f' }} />
+                        )
+                      )}
+                    </Space>
+                  }
+                  description={
+                    <Space direction="vertical" size={0}>
+                      <Space>
+                        <ClockCircleOutlined />
+                        <Text type="secondary" style={{ fontSize: 12 }}>
+                          Next: {item.next_run ? formatDateTime(item.next_run) : 'Not scheduled'}
+                        </Text>
+                      </Space>
+                      {item.last_run && (
+                        <Text type="secondary" style={{ fontSize: 12 }}>
+                          Last: {formatDateTime(item.last_run)}
+                        </Text>
+                      )}
+                    </Space>
+                  }
+                />
+              </List.Item>
+            );
+          }}
+        />
+      )}
     </Card>
   );
 }

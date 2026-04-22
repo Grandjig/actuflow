@@ -1,21 +1,32 @@
-import { get, post, put } from './client';
-import type { PaginatedResponse } from '@/types/api';
+/**
+ * Notifications API functions.
+ */
+
+import { get, put } from './client';
 import type { Notification } from '@/types/models';
 
-export interface NotificationListParams {
-  page?: number;
-  page_size?: number;
-  is_read?: boolean;
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
 }
 
-export const getNotifications = (params?: NotificationListParams) =>
-  get<PaginatedResponse<Notification>>('/notifications', params);
+export async function getNotifications(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<Notification>> {
+  return get('/notifications', params);
+}
 
-export const getUnreadCount = () =>
-  get<{ count: number }>('/notifications/unread-count');
+export async function markAsRead(id: string): Promise<Notification> {
+  return put(`/notifications/${id}/read`);
+}
 
-export const markAsRead = (id: string) =>
-  put<Notification>(`/notifications/${id}/read`);
+export async function markAllAsRead(): Promise<void> {
+  return put('/notifications/read-all');
+}
 
-export const markAllAsRead = () =>
-  put<{ success: boolean }>('/notifications/read-all');
+export async function getUnreadCount(): Promise<number> {
+  const response = await get<{ count: number }>('/notifications/unread-count');
+  return response.count;
+}

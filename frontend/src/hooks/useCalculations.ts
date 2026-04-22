@@ -10,6 +10,7 @@ import {
   cancelCalculationRun,
   getCalculationResults,
   getCalculationProgress,
+  getCalculationSummary,
 } from '@/api/calculations';
 import type { CalculationRun, CalculationResult, CalculationProgress } from '@/types/models';
 
@@ -20,6 +21,9 @@ export function useCalculationRuns(params?: Record<string, unknown>) {
   });
 }
 
+// Alias for backwards compatibility
+export const useCalculations = useCalculationRuns;
+
 export function useCalculationRun(id: string) {
   return useQuery({
     queryKey: ['calculationRun', id],
@@ -27,6 +31,9 @@ export function useCalculationRun(id: string) {
     enabled: !!id,
   });
 }
+
+// Alias for backwards compatibility
+export const useCalculation = useCalculationRun;
 
 export function useCreateCalculationRun() {
   const queryClient = useQueryClient();
@@ -39,6 +46,9 @@ export function useCreateCalculationRun() {
   });
 }
 
+// Alias for backwards compatibility
+export const useCreateCalculation = useCreateCalculationRun;
+
 export function useCancelCalculationRun() {
   const queryClient = useQueryClient();
   
@@ -49,6 +59,9 @@ export function useCancelCalculationRun() {
     },
   });
 }
+
+// Alias for backwards compatibility
+export const useCancelCalculation = useCancelCalculationRun;
 
 export function useCalculationResults(runId: string, params?: Record<string, unknown>) {
   return useQuery({
@@ -74,4 +87,12 @@ export function useCalculationProgress(runId: string) {
   });
 
   return query;
+}
+
+export function useCalculationSummary(runId: string) {
+  return useQuery({
+    queryKey: ['calculationSummary', runId],
+    queryFn: () => getCalculationSummary(runId),
+    enabled: !!runId,
+  });
 }

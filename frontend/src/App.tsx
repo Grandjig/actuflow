@@ -1,33 +1,27 @@
-import { BrowserRouter, useRoutes } from 'react-router-dom';
-import { ConfigProvider, App as AntApp, theme } from 'antd';
+/**
+ * Main App component.
+ */
+
+import { RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useAuthStore } from '@/stores/authStore';
-import { useUIStore } from '@/stores/uiStore';
-import { routes } from './routes';
+import { ConfigProvider, App as AntApp } from 'antd';
+import { router } from './routes';
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 5 * 60 * 1000,
+      staleTime: 5 * 60 * 1000, // 5 minutes
       retry: 1,
       refetchOnWindowFocus: false,
     },
   },
 });
 
-function AppRoutes() {
-  const element = useRoutes(routes);
-  return element;
-}
-
-function App() {
-  const { theme: appTheme } = useUIStore();
-
+export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ConfigProvider
         theme={{
-          algorithm: appTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
           token: {
             colorPrimary: '#1890ff',
             borderRadius: 6,
@@ -35,13 +29,9 @@ function App() {
         }}
       >
         <AntApp>
-          <BrowserRouter>
-            <AppRoutes />
-          </BrowserRouter>
+          <RouterProvider router={router} />
         </AntApp>
       </ConfigProvider>
     </QueryClientProvider>
   );
 }
-
-export default App;

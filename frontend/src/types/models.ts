@@ -125,6 +125,7 @@ export interface Claim {
   incident_date?: string;
   claim_type: string;
   claim_amount: number;
+  claimed_amount?: number;
   status: ClaimStatus;
   settlement_date?: string;
   settlement_amount?: number;
@@ -160,6 +161,7 @@ export interface AssumptionSet {
   approved_by?: string;
   approval_date?: string;
   approval_notes?: string;
+  line_of_business?: string;
   tables?: AssumptionTable[];
   created_at: string;
   updated_at: string;
@@ -339,6 +341,7 @@ export interface ScheduledJob {
   config: Record<string, unknown>;
   is_active: boolean;
   last_run?: string;
+  last_run_status?: 'completed' | 'failed';
   next_run?: string;
   created_at: string;
   updated_at: string;
@@ -535,6 +538,23 @@ export interface Notification {
   resource_type?: string;
   resource_id?: string;
   created_at: string;
+}
+
+// ============================================
+// Comments
+// ============================================
+
+export interface Comment {
+  id: string;
+  resource_type: string;
+  resource_id: string;
+  user_id: string;
+  user?: User;
+  content: string;
+  parent_comment_id?: string;
+  is_resolved: boolean;
+  created_at: string;
+  updated_at: string;
 }
 
 // ============================================

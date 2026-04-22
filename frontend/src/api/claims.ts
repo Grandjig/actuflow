@@ -1,34 +1,56 @@
+/**
+ * Claims API functions.
+ */
+
 import { get, post, put, del } from './client';
-import type { PaginatedResponse } from '@/types/api';
-import type { ClaimListParams, ClaimCreateRequest, ClaimUpdateRequest } from '@/types/api';
 import type { Claim } from '@/types/models';
 
-export const claimsApi = {
-  list: (params?: ClaimListParams) =>
-    get<PaginatedResponse<Claim>>('/claims', params),
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
+}
 
-  get: (id: string) =>
-    get<Claim>(`/claims/${id}`),
+export async function getClaims(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<Claim>> {
+  return get('/claims', params);
+}
 
-  create: (data: ClaimCreateRequest) =>
-    post<Claim>('/claims', data),
+export async function getClaim(id: string): Promise<Claim> {
+  return get(`/claims/${id}`);
+}
 
-  update: (id: string, data: ClaimUpdateRequest) =>
-    put<Claim>(`/claims/${id}`, data),
+export async function createClaim(data: Partial<Claim>): Promise<Claim> {
+  return post('/claims', data);
+}
 
-  delete: (id: string) =>
-    del<void>(`/claims/${id}`),
+export async function updateClaim(
+  id: string,
+  data: Partial<Claim>
+): Promise<Claim> {
+  return put(`/claims/${id}`, data);
+}
 
-  getStats: () =>
-    get<{
-      total_claims: number;
-      open_claims: number;
-      total_claimed: number;
-      total_settled: number;
-      by_status: Record<string, number>;
-      by_type: Record<string, number>;
-    }>('/claims/stats'),
+export async function deleteClaim(id: string): Promise<void> {
+  return del(`/claims/${id}`);
+}
 
-  getAnomalies: (limit?: number) =>
-    get<Claim[]>('/claims/anomalies', { limit }),
-};
+export async function updateClaimStatus(
+  id: string,
+  status: string,
+  notes?: string
+): Promise<Claim> {
+  return put(`/claims/${id}/status`, { status, notes });
+}
+
+export async function getClaimStats(): Promise<Record<string, unknown>> {
+  return get('/claims/stats');
+}
+
+export async function getClaimAnomalies(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<Claim>> {
+  return get('/claims/anomalies', params);
+}

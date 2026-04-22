@@ -10,11 +10,16 @@ import { Spin } from 'antd';
 import MainLayout from './layouts/MainLayout';
 
 // Lazy load pages
-const Login = lazy(() => import('./pages/auth/Login'));
+const Login = lazy(() => import('./pages/Login'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const PolicyList = lazy(() => import('./pages/policies/PolicyList'));
 const PolicyDetail = lazy(() => import('./pages/policies/PolicyDetail'));
 const ClaimList = lazy(() => import('./pages/claims/ClaimList'));
+const ClaimDetail = lazy(() => import('./pages/claims/ClaimDetail'));
+const AssumptionSetDetail = lazy(() => import('./pages/assumptions/AssumptionSetDetail'));
+const CalculationList = lazy(() => import('./pages/calculations/CalculationList'));
+const CalculationDetail = lazy(() => import('./pages/calculations/CalculationDetail'));
+const CalculationCreate = lazy(() => import('./pages/calculations/CalculationCreate'));
 const ProfileSettings = lazy(() => import('./pages/settings/ProfileSettings'));
 const GeneratedReportList = lazy(() => import('./pages/reports/GeneratedReportList'));
 const ReportTemplateList = lazy(() => import('./pages/reports/ReportTemplateList'));
@@ -66,6 +71,36 @@ export const router = createBrowserRouter([
           {
             index: true,
             element: withSuspense(ClaimList),
+          },
+          {
+            path: ':id',
+            element: withSuspense(ClaimDetail),
+          },
+        ],
+      },
+      {
+        path: 'assumptions',
+        children: [
+          {
+            path: ':id',
+            element: withSuspense(AssumptionSetDetail),
+          },
+        ],
+      },
+      {
+        path: 'calculations',
+        children: [
+          {
+            index: true,
+            element: withSuspense(CalculationList),
+          },
+          {
+            path: 'new',
+            element: withSuspense(CalculationCreate),
+          },
+          {
+            path: ':id',
+            element: withSuspense(CalculationDetail),
           },
         ],
       },

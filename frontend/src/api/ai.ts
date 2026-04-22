@@ -1,48 +1,71 @@
+/**
+ * AI API functions.
+ */
+
 import { get, post } from './client';
-import type {
-  AIFeatures,
-  NaturalLanguageQuery,
-  ParsedIntent,
-  QueryFeedback,
-  QueryHistoryItem,
-  NarrativeRequest,
-  NarrativeResponse,
-  SemanticSearchRequest,
-  SemanticSearchResult,
-  DocumentExtractionResult,
-} from '@/types/ai';
 
-export const aiApi = {
-  // Features
-  getFeatures: () =>
-    get<AIFeatures>('/ai/features'),
+interface NaturalLanguageResponse {
+  intent: string;
+  results: Array<{
+    type: string;
+    id: string;
+    title: string;
+    description?: string;
+    score?: number;
+  }>;
+  message?: string;
+}
 
-  checkHealth: () =>
-    get<{ healthy: boolean }>('/ai/health'),
+export async function sendNaturalLanguageQuery(
+  query: string
+): Promise<NaturalLanguageResponse> {
+  return post('/ai/query', { query });
+}
 
-  // Natural Language Queries
-  query: (data: NaturalLanguageQuery) =>
-    post<ParsedIntent>('/ai/query', data),
+export async function getQueryHistory(): Promise<
+  Array<{
+    id: string;
+    query_text: string;
+    timestamp: string;
+  }>
+> {
+  return get('/ai/query-history');
+}
 
-  submitFeedback: (queryId: string, feedback: QueryFeedback) =>
-    post<{ message: string }>(`/ai/query/${queryId}/feedback`, feedback),
+export async function submitQueryFeedback(
+  queryId: string,
+  helpful: boolean
+): Promise<void> {
+  return post(`/ai/query/${queryId}/feedback`, { was_helpful: helpful });
+}
 
-  getQueryHistory: (limit?: number) =>
-    get<QueryHistoryItem[]>('/ai/query-history', { limit }),
+export async function extractDocumentData(
+  documentId: string
+): Promise<Record<string, unknown>> {
+  return post(`/ai/extract-document`, { document_id: documentId });
+}
 
-  // Narrative Generation
-  generateNarrative: (data: NarrativeRequest) =>
-    post<NarrativeResponse>('/ai/generate-narrative', data),
+export async function semanticSearch(
+  query: string,
+  resourceType?: string,
+  limit?: number
+): Promise<
+  Array<{
+    id: string;
+    type: string;
+    title: string;
+    score: number;
+  }>
+> {
+  return post('/search/semantic', { query, resource_type: resourceType, limit });
+}
 
-  // Semantic Search
-  search: (data: SemanticSearchRequest) =>
-    post<SemanticSearchResult[]>('/ai/search', data),
-
-  // Document Extraction (base64 encoded)
-  extractDocument: (contentBase64: string, filename: string, documentType?: string) =>
-    post<DocumentExtractionResult>('/extract/document-base64', {
-      content_base64: contentBase64,
-      filename,
-      document_type: documentType,
-    }),
-};
+export async function generateNarrative(
+  resourceType: string,
+  resourceId: string
+): Promise<{ narrative: string }> {
+  return post('/ai/generate-narrative', {
+    resource_type: resourceType,
+    resource_id: resourceId,
+  });
+}

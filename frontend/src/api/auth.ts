@@ -1,38 +1,71 @@
-import { post, get } from './client';
-import type { TokenResponse } from '@/types/api';
+/**
+ * Authentication API functions.
+ */
+
+import { apiClient } from './client';
 import type { User } from '@/types/models';
 
-export const authApi = {
-  login: async (email: string, password: string): Promise<TokenResponse> => {
-    const formData = new URLSearchParams();
-    formData.append('username', email);
-    formData.append('password', password);
+export interface LoginResponse {
+  access_token: string;
+  refresh_token: string;
+  token_type: string;
+  user: User;
+}
 
-    const response = await fetch(
-      `${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/v1/auth/login`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formData,
-      }
-    );
+export interface TokenRefreshResponse {
+  access_token: string;
+  refresh_token: string;
+}
 
-    if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.detail || 'Login failed');
-    }
+/**
+ * Login with email and password.
+ */
+export async function login(email: string, password: string): Promise<LoginResponse> {
+  const response = await apiClient.post<LoginResponse>('/auth/login', {
+    email,
+    password,
+  });
+  return response.data;
+}
 
-    return response.json();
-  },
+/**
+ * Logout current user.
+ */
+export async function logout(): Promise<void> {
+  try {
+    await apiClient.post('/auth/logout');
+  } catch {
+    // Ignore logout errors
+  }
+}
 
-  refresh: (refreshToken: string): Promise<TokenResponse> =>
-    post<TokenResponse>('/auth/refresh', { refresh_token: refreshToken }),
+/**
+ * Refresh access token.
+ */
+export async function refreshToken(refresh_token: string): Promise<TokenRefreshResponse> {
+  const response = await apiClient.post<TokenRefreshResponse>('/auth/refresh', {
+    refresh_token,
+  });
+  return response.data;
+}
 
-  logout: (): Promise<void> =>
-    post<void>('/auth/logout').catch(() => {}),
+/**
+ * Get current user profile.
+ */
+export async function getCurrentUser(): Promise<User> {
+  const response = await apiClient.get<User>('/auth/me');
+  return response.data;
+}
 
-  me: (): Promise<User> =>
-    get<User>('/auth/me'),
-};
+/**
+ * Update current user's password.
+ */
+export async function updatePassword(
+  currentPassword: string,
+  newPassword: string
+): Promise<void> {
+  await apiClient.post('/auth/change-password', {
+    current_password: currentPassword,
+    new_password: newPassword,
+  });
+}

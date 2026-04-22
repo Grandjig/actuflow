@@ -1,58 +1,98 @@
+/**
+ * Assumptions API functions.
+ */
+
 import { get, post, put, del } from './client';
-import type { PaginatedResponse } from '@/types/api';
-import type {
-  AssumptionSetFilters,
-  AssumptionSetCreateRequest,
-  AssumptionSetUpdateRequest,
-  AssumptionTableCreateRequest,
-} from '@/types/api';
-import type { AssumptionSet, AssumptionTable, ExperienceRecommendation } from '@/types/models';
+import type { AssumptionSet, AssumptionTable } from '@/types/models';
 
-export const assumptionsApi = {
-  list: (params?: AssumptionSetFilters) =>
-    get<PaginatedResponse<AssumptionSet>>('/assumption-sets', params),
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
+}
 
-  get: (id: string) =>
-    get<AssumptionSet>(`/assumption-sets/${id}`),
+// Assumption Sets
 
-  create: (data: AssumptionSetCreateRequest) =>
-    post<AssumptionSet>('/assumption-sets', data),
+export async function getAssumptionSets(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<AssumptionSet>> {
+  return get('/assumption-sets', params);
+}
 
-  update: (id: string, data: AssumptionSetUpdateRequest) =>
-    put<AssumptionSet>(`/assumption-sets/${id}`, data),
+export async function getAssumptionSet(id: string): Promise<AssumptionSet> {
+  return get(`/assumption-sets/${id}`);
+}
 
-  delete: (id: string) =>
-    del<void>(`/assumption-sets/${id}`),
+export async function createAssumptionSet(
+  data: Partial<AssumptionSet>
+): Promise<AssumptionSet> {
+  return post('/assumption-sets', data);
+}
 
-  getApproved: () =>
-    get<AssumptionSet[]>('/assumption-sets/approved'),
+export async function updateAssumptionSet(
+  id: string,
+  data: Partial<AssumptionSet>
+): Promise<AssumptionSet> {
+  return put(`/assumption-sets/${id}`, data);
+}
 
-  submit: (id: string) =>
-    post<AssumptionSet>(`/assumption-sets/${id}/submit`),
+export async function deleteAssumptionSet(id: string): Promise<void> {
+  return del(`/assumption-sets/${id}`);
+}
 
-  approve: (id: string, notes?: string) =>
-    post<AssumptionSet>(`/assumption-sets/${id}/approve`, { approval_notes: notes }),
+export async function cloneAssumptionSet(
+  id: string,
+  name: string
+): Promise<AssumptionSet> {
+  return post(`/assumption-sets/${id}/clone`, { name });
+}
 
-  reject: (id: string, reason: string) =>
-    post<AssumptionSet>(`/assumption-sets/${id}/reject`, { rejection_reason: reason }),
+export async function submitAssumptionSet(id: string): Promise<AssumptionSet> {
+  return post(`/assumption-sets/${id}/submit`);
+}
 
-  compare: (id: string, otherId: string) =>
-    get<any>(`/assumption-sets/${id}/compare/${otherId}`),
+export async function approveAssumptionSet(
+  id: string,
+  notes?: string
+): Promise<AssumptionSet> {
+  return post(`/assumption-sets/${id}/approve`, { notes });
+}
 
-  // Tables
-  getTables: (setId: string) =>
-    get<AssumptionTable[]>(`/assumption-sets/${setId}/tables`),
+export async function rejectAssumptionSet(
+  id: string,
+  reason: string
+): Promise<AssumptionSet> {
+  return post(`/assumption-sets/${id}/reject`, { reason });
+}
 
-  createTable: (setId: string, data: AssumptionTableCreateRequest) =>
-    post<AssumptionTable>(`/assumption-sets/${setId}/tables`, data),
+// Assumption Tables
 
-  updateTable: (setId: string, tableId: string, data: Partial<AssumptionTableCreateRequest>) =>
-    put<AssumptionTable>(`/assumption-sets/${setId}/tables/${tableId}`, data),
+export async function getAssumptionTable(
+  setId: string,
+  tableId: string
+): Promise<AssumptionTable> {
+  return get(`/assumption-sets/${setId}/tables/${tableId}`);
+}
 
-  deleteTable: (setId: string, tableId: string) =>
-    del<void>(`/assumption-sets/${setId}/tables/${tableId}`),
+export async function createAssumptionTable(
+  setId: string,
+  data: Partial<AssumptionTable>
+): Promise<AssumptionTable> {
+  return post(`/assumption-sets/${setId}/tables`, data);
+}
 
-  // AI Recommendations
-  getExperienceRecommendations: (setId: string) =>
-    get<ExperienceRecommendation[]>(`/assumption-sets/${setId}/recommendations`),
-};
+export async function updateAssumptionTable(
+  setId: string,
+  tableId: string,
+  data: Partial<AssumptionTable>
+): Promise<AssumptionTable> {
+  return put(`/assumption-sets/${setId}/tables/${tableId}`, data);
+}
+
+export async function deleteAssumptionTable(
+  setId: string,
+  tableId: string
+): Promise<void> {
+  return del(`/assumption-sets/${setId}/tables/${tableId}`);
+}

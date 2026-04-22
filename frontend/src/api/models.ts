@@ -1,63 +1,57 @@
+/**
+ * Model definitions API functions.
+ */
+
 import { get, post, put, del } from './client';
-import type { PaginatedResponse, ModelFilters, SuccessResponse } from '@/types/api';
 import type { ModelDefinition } from '@/types/models';
 
-export interface ModelCreateData {
-  name: string;
-  code: string;
-  version: string;
-  description?: string;
-  model_type: string;
-  line_of_business?: string;
-  regulatory_standard?: string;
-  configuration: Record<string, unknown>;
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
 }
 
-export interface ModelUpdateData {
-  name?: string;
-  description?: string;
-  configuration?: Record<string, unknown>;
-  status?: string;
+export async function getModelDefinitions(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<ModelDefinition>> {
+  return get('/models', params);
 }
 
-export interface ModelValidationResult {
-  is_valid: boolean;
-  errors: string[];
-  warnings: string[];
+export async function getModelDefinition(id: string): Promise<ModelDefinition> {
+  return get(`/models/${id}`);
 }
 
-export const modelsApi = {
-  list: (params?: ModelFilters) =>
-    get<PaginatedResponse<ModelDefinition>>('/models', params),
+export async function createModelDefinition(
+  data: Partial<ModelDefinition>
+): Promise<ModelDefinition> {
+  return post('/models', data);
+}
 
-  get: (id: string) => 
-    get<ModelDefinition>(`/models/${id}`),
+export async function updateModelDefinition(
+  id: string,
+  data: Partial<ModelDefinition>
+): Promise<ModelDefinition> {
+  return put(`/models/${id}`, data);
+}
 
-  create: (data: ModelCreateData) => 
-    post<ModelDefinition>('/models', data),
+export async function deleteModelDefinition(id: string): Promise<void> {
+  return del(`/models/${id}`);
+}
 
-  update: (id: string, data: ModelUpdateData) => 
-    put<ModelDefinition>(`/models/${id}`, data),
+export async function cloneModelDefinition(
+  id: string,
+  name: string
+): Promise<ModelDefinition> {
+  return post(`/models/${id}/clone`, { name });
+}
 
-  delete: (id: string) => 
-    del<SuccessResponse>(`/models/${id}`),
+export async function validateModelDefinition(
+  id: string
+): Promise<{ valid: boolean; errors: string[] }> {
+  return post(`/models/${id}/validate`);
+}
 
-  clone: (id: string, newCode: string, newName: string, newVersion: string) =>
-    post<ModelDefinition>(`/models/${id}/clone`, {
-      new_code: newCode,
-      new_name: newName,
-      new_version: newVersion,
-    }),
-
-  validate: (id: string) =>
-    post<ModelValidationResult>(`/models/${id}/validate`),
-
-  activate: (id: string) =>
-    post<ModelDefinition>(`/models/${id}/activate`),
-
-  getTemplates: () =>
-    get<ModelDefinition[]>('/models/templates'),
-
-  getActive: () =>
-    get<ModelDefinition[]>('/models/active'),
-};
+export async function getModelTemplates(): Promise<ModelDefinition[]> {
+  return get('/model-templates');
+}

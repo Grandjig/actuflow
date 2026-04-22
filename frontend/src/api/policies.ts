@@ -1,39 +1,78 @@
+/**
+ * Policy API functions.
+ */
+
 import { get, post, put, del } from './client';
-import type { PaginatedResponse } from '@/types/api';
-import type { PolicyListParams, PolicyCreateRequest, PolicyUpdateRequest } from '@/types/api';
-import type { Policy } from '@/types/models';
+import type { Policy, Policyholder } from '@/types/models';
 
-export const policiesApi = {
-  list: (params?: PolicyListParams) =>
-    get<PaginatedResponse<Policy>>('/policies', params),
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
+}
 
-  get: (id: string) =>
-    get<Policy>(`/policies/${id}`),
+export async function getPolicies(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<Policy>> {
+  return get('/policies', params);
+}
 
-  create: (data: PolicyCreateRequest) =>
-    post<Policy>('/policies', data),
+export async function getPolicy(id: string): Promise<Policy> {
+  return get(`/policies/${id}`);
+}
 
-  update: (id: string, data: PolicyUpdateRequest) =>
-    put<Policy>(`/policies/${id}`, data),
+export async function createPolicy(data: Partial<Policy>): Promise<Policy> {
+  return post('/policies', data);
+}
 
-  delete: (id: string) =>
-    del<void>(`/policies/${id}`),
+export async function updatePolicy(
+  id: string,
+  data: Partial<Policy>
+): Promise<Policy> {
+  return put(`/policies/${id}`, data);
+}
 
-  getStats: () =>
-    get<{
-      total_policies: number;
-      active_policies: number;
-      total_premium: number;
-      by_status: Record<string, number>;
-      by_product_type: Record<string, number>;
-    }>('/policies/stats'),
+export async function deletePolicy(id: string): Promise<void> {
+  return del(`/policies/${id}`);
+}
 
-  export: (params?: PolicyListParams) =>
-    get<Blob>('/policies/export', params),
+export async function getPolicyStats(): Promise<Record<string, unknown>> {
+  return get('/policies/stats');
+}
 
-  getHistory: (id: string) =>
-    get<any[]>(`/policies/${id}/history`),
+export async function exportPolicies(
+  params?: Record<string, unknown>
+): Promise<Blob> {
+  const response = await fetch(`/api/v1/policies/export?${new URLSearchParams(params as Record<string, string>)}`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+    },
+  });
+  return response.blob();
+}
 
-  getSimilar: (id: string) =>
-    get<Policy[]>(`/policies/${id}/similar`),
-};
+// Policyholders
+
+export async function getPolicyholders(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<Policyholder>> {
+  return get('/policyholders', params);
+}
+
+export async function getPolicyholder(id: string): Promise<Policyholder> {
+  return get(`/policyholders/${id}`);
+}
+
+export async function createPolicyholder(
+  data: Partial<Policyholder>
+): Promise<Policyholder> {
+  return post('/policyholders', data);
+}
+
+export async function updatePolicyholder(
+  id: string,
+  data: Partial<Policyholder>
+): Promise<Policyholder> {
+  return put(`/policyholders/${id}`, data);
+}

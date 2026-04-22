@@ -1,128 +1,141 @@
-import { ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Dropdown, List, Typography, Button, Empty, Tag, Badge } from 'antd';
-import {
-  BellOutlined,
-  CheckOutlined,
-  InfoCircleOutlined,
-  WarningOutlined,
-  ExclamationCircleOutlined,
-  CheckCircleOutlined,
-} from '@ant-design/icons';
+/**
+ * Notification dropdown component.
+ */
 
-import { useNotifications, useMarkNotificationRead, useMarkAllNotificationsRead } from '@/hooks/useNotifications';
-import { useNotificationStore } from '@/stores/notificationStore';
-import { formatRelativeTime } from '@/utils/formatters';
-import { getResourceUrl } from '@/utils/helpers';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {
+  Dropdown,
+  Badge,
+  Button,
+  List,
+  Typography,
+  Space,
+  Empty,
+  Spin,
+} from 'antd';
+import { BellOutlined, CheckOutlined } from '@ant-design/icons';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { getNotifications, markAsRead, markAllAsRead } from '@/api/notifications';
+import { getResourceUrl, getRelativeTime } from '@/utils/helpers';
 import type { Notification } from '@/types/models';
 
 const { Text } = Typography;
 
-interface NotificationDropdownProps {
-  children: ReactNode;
-}
-
-const typeIcons: Record<string, ReactNode> = {
-  info: <InfoCircleOutlined style={{ color: '#1890ff' }} />,
-  warning: <WarningOutlined style={{ color: '#faad14' }} />,
-  error: <ExclamationCircleOutlined style={{ color: '#ff4d4f' }} />,
-  success: <CheckCircleOutlined style={{ color: '#52c41a' }} />,
-  task: <CheckOutlined style={{ color: '#722ed1' }} />,
-  approval: <ExclamationCircleOutlined style={{ color: '#eb2f96' }} />,
-};
-
-export default function NotificationDropdown({ children }: NotificationDropdownProps) {
+export default function NotificationDropdown() {
   const navigate = useNavigate();
-  const { notifications, unreadCount, isLoading } = useNotificationStore();
-  const markRead = useMarkNotificationRead();
-  const markAllRead = useMarkAllNotificationsRead();
+  const queryClient = useQueryClient();
+  const [open, setOpen] = useState(false);
 
-  // Fetch notifications
-  useNotifications({ page_size: 10 });
+  const { data, isLoading } = useQuery({
+    queryKey: ['notifications', { limit: 10 }],
+    queryFn: () => getNotifications({ limit: 10 }),
+    enabled: open,
+  });
 
-  const handleClick = (notification: Notification) => {
+  const { data: unreadCount } = useQuery({
+    queryKey: ['notificationsUnreadCount'],
+    queryFn: () => getNotifications({ is_read: false, limit: 1 }).then((r) => r.total),
+    refetchInterval: 30000, // Refresh every 30 seconds
+  });
+
+  const markReadMutation = useMutation({
+    mutationFn: markAsRead,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['notifications'] });
+      queryClient.invalidateQueries({ queryKey: ['notificationsUnreadCount'] });
+    },
+  });
+
+  const markAllReadMutation = useMutation({
+    mutationFn: markAllAsRead,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['notifications'] });
+      queryClient.invalidateQueries({ queryKey: ['notificationsUnreadCount'] });
+    },
+  });
+
+  const handleNotificationClick = (notification: Notification) => {
     if (!notification.is_read) {
-      markRead.mutate(notification.id);
+      markReadMutation.mutate(notification.id);
     }
     if (notification.resource_type && notification.resource_id) {
-      const url = getResourceUrl(notification.resource_type, notification.resource_id);
-      navigate(url);
+      navigate(getResourceUrl(notification.resource_type, notification.resource_id));
     }
+    setOpen(false);
   };
 
   const content = (
-    <div style={{ width: 360 }}>
+    <div style={{ width: 350 }}>
       <div
         style={{
+          padding: '12px 16px',
+          borderBottom: '1px solid #f0f0f0',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '12px 16px',
-          borderBottom: '1px solid #f0f0f0',
         }}
       >
         <Text strong>Notifications</Text>
-        {unreadCount > 0 && (
-          <Button type="link" size="small" onClick={() => markAllRead.mutate()}>
+        {(unreadCount ?? 0) > 0 && (
+          <Button
+            type="link"
+            size="small"
+            onClick={() => markAllReadMutation.mutate()}
+            loading={markAllReadMutation.isPending}
+          >
             Mark all as read
           </Button>
         )}
       </div>
 
-      <div style={{ maxHeight: 400, overflow: 'auto' }}>
-        {notifications.length === 0 ? (
-          <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE}
-            description="No notifications"
-            style={{ padding: 24 }}
-          />
-        ) : (
-          <List
-            dataSource={notifications}
-            loading={isLoading}
-            renderItem={(notification) => (
-              <List.Item
-                style={{
-                  padding: '12px 16px',
-                  cursor: 'pointer',
-                  background: notification.is_read ? 'transparent' : '#f6ffed',
-                }}
-                onClick={() => handleClick(notification)}
-              >
-                <List.Item.Meta
-                  avatar={typeIcons[notification.type] || typeIcons.info}
-                  title={
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <Text strong={!notification.is_read}>{notification.title}</Text>
-                      {!notification.is_read && (
-                        <Badge status="processing" />
-                      )}
-                    </div>
-                  }
-                  description={
-                    <div>
-                      <div
-                        style={{
-                          fontSize: 12,
-                          color: '#666',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                          whiteSpace: 'nowrap',
-                        }}
-                      >
-                        {notification.message}
-                      </div>
-                      <Text type="secondary" style={{ fontSize: 11 }}>
-                        {formatRelativeTime(notification.created_at)}
-                      </Text>
-                    </div>
-                  }
-                />
-              </List.Item>
-            )}
-          />
-        )}
-      </div>
+      {isLoading ? (
+        <div style={{ padding: 20, textAlign: 'center' }}>
+          <Spin />
+        </div>
+      ) : data?.items && data.items.length > 0 ? (
+        <List
+          dataSource={data.items}
+          renderItem={(item: Notification) => (
+            <List.Item
+              onClick={() => handleNotificationClick(item)}
+              style={{
+                cursor: 'pointer',
+                backgroundColor: item.is_read ? 'transparent' : '#e6f7ff',
+                padding: '12px 16px',
+              }}
+            >
+              <List.Item.Meta
+                title={
+                  <Space>
+                    {!item.is_read && (
+                      <Badge status="processing" />
+                    )}
+                    <span>{item.title}</span>
+                  </Space>
+                }
+                description={
+                  <Space direction="vertical" size={0}>
+                    <Text type="secondary" style={{ fontSize: 12 }}>
+                      {item.message}
+                    </Text>
+                    <Text type="secondary" style={{ fontSize: 11 }}>
+                      {getRelativeTime(item.created_at)}
+                    </Text>
+                  </Space>
+                }
+              />
+            </List.Item>
+          )}
+          style={{ maxHeight: 400, overflow: 'auto' }}
+        />
+      ) : (
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description="No notifications"
+          style={{ padding: 20 }}
+        />
+      )}
 
       <div
         style={{
@@ -132,7 +145,7 @@ export default function NotificationDropdown({ children }: NotificationDropdownP
         }}
       >
         <Button type="link" onClick={() => navigate('/notifications')}>
-          View All Notifications
+          View all notifications
         </Button>
       </div>
     </div>
@@ -140,11 +153,15 @@ export default function NotificationDropdown({ children }: NotificationDropdownP
 
   return (
     <Dropdown
-      dropdownRender={() => content}
       trigger={['click']}
+      open={open}
+      onOpenChange={setOpen}
+      dropdownRender={() => content}
       placement="bottomRight"
     >
-      {children}
+      <Badge count={unreadCount ?? 0} size="small">
+        <Button type="text" icon={<BellOutlined />} />
+      </Badge>
     </Dropdown>
   );
 }

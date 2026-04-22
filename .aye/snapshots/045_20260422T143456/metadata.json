@@ -1,0 +1,130 @@
+{
+  "timestamp": "20260422T143456",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\App.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\App.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\types\\models.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\models.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\utils\\helpers.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\helpers.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\auth.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\auth.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\policies.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\policies.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\claims.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\claims.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\calculations.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\calculations.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\comments.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\comments.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\stores\\authStore.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\authStore.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useAuth.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\useAuth.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useCalculations.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\useCalculations.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useAutomation.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\useAutomation.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\index.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\index.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\Login.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\Login.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\auth\\ProtectedRoute.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\ProtectedRoute.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\ai\\AISearchBar.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\AISearchBar.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\NotificationDropdown.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\NotificationDropdown.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\notifications.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\notifications.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\ai.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\ai.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\widgets\\RecentCalculationsWidget.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\RecentCalculationsWidget.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\widgets\\ScheduledJobsWidget.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\ScheduledJobsWidget.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\claims\\ClaimDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\ClaimDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\assumptions\\AssumptionSetDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\AssumptionSetDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\assumptions.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\assumptions.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\calculations\\CalculationList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\CalculationList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\calculations\\CalculationDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\CalculationDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\calculations\\CalculationCreate.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\CalculationCreate.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\models.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\models.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\routes.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\routes.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\NotFound.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\NotFound.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\Dashboard.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\045_20260422T143456\\Dashboard.tsx"
+    }
+  ],
+  "prompt": "15:24:14.551 Running build in Washington, D.C., USA (East) \u2013 iad1\n15:24:14.552 Build machine configuration: 2 cores, 8 GB\n15:24:14.667 Cloning github.com/Grandjig/actuflow (Branch: main, Commit: 6b94d5e)\n15:24:14.668 Previous build caches not available.\n15:24:15.032 Cloning completed: 365.000ms\n15:24:15.183 Found .vercelignore\n15:24:15.261 Removed 838 ignored files defined in .vercelignore\n15:24:15.261   /.aye/chat_id.tmp\n15:24:15.261   /.aye/chroma_db/075e8c6e-b223-4022-bec9-6fd5f03f252b/data_level0.bin\n15:24:15.262   /.aye/chroma_db/075e8c6e-b223-4022-bec9-6fd5f03f252b/header.bin\n15:24:15.262   /.aye/chroma_db/075e8c6e-b223-4022-bec9-6fd5f03f252b/index_metadata.pickle\n15:24:15.262   /.aye/chroma_db/075e8c6e-b223-4022-bec9-6fd5f03f252b/length.bin\n15:24:15.262   /.aye/chroma_db/075e8c6e-b223-4022-bec9-6fd5f03f252b/link_lists.bin\n15:24:15.262   /.aye/file_index.json\n15:24:15.262   /.aye/snapshots/001_20260411T035618/context.md\n15:24:15.262   /.aye/snapshots/001_20260411T035618/metadata.json\n15:24:15.262   /.aye/snapshots/002_20260411T041108/context.md\n15:24:15.507 Running \"vercel build\"\n15:24:16.285 Vercel CLI 51.6.1\n15:24:17.140 Installing dependencies...\n15:24:54.703 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.\n15:24:54.959 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me\n15:24:55.032 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported\n15:24:55.218 npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead\n15:24:55.262 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead\n15:24:58.551 npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.\n15:25:00.801 \n15:25:00.811 added 383 packages in 43s\n15:25:00.812 \n15:25:00.812 69 packages are looking for funding\n15:25:00.812   run `npm fund` for details\n15:25:00.884 Running \"npm run build\"\n15:25:00.991 \n15:25:00.992 > actuflow-frontend@1.0.0 build\n15:25:00.992 > tsc && vite build\n15:25:00.993 \n15:25:06.043 src/App.tsx(6,10): error TS2724: '\"./routes\"' has no exported member named 'routes'. Did you mean 'router'?\n15:25:06.045 src/api/comments.ts(3,15): error TS2305: Module '\"@/types/models\"' has no exported member 'Comment'.\n15:25:06.045 src/components/ai/AISearchBar.tsx(15,10): error TS2305: Module '\"@/utils/helpers\"' has no exported member 'getResourceUrl'.\n15:25:06.045 src/components/auth/ProtectedRoute.tsx(19,34): error TS2554: Expected 1 arguments, but got 2.\n15:25:06.046 src/components/common/NotificationDropdown.tsx(16,10): error TS2305: Module '\"@/utils/helpers\"' has no exported member 'getResourceUrl'.\n15:25:06.046 src/components/widgets/RecentCalculationsWidget.tsx(5,10): error TS2724: '\"@/hooks/useCalculations\"' has no exported member named 'useCalculations'. Did you mean 'useCalculationRuns'?\n15:25:06.046 src/components/widgets/RecentCalculationsWidget.tsx(33,54): error TS18046: 'item' is of type 'unknown'.\n15:25:06.047 src/components/widgets/RecentCalculationsWidget.tsx(36,22): error TS18046: 'item' is of type 'unknown'.\n15:25:06.047 src/components/widgets/RecentCalculationsWidget.tsx(40,52): error TS18046: 'item' is of type 'unknown'.\n15:25:06.047 src/components/widgets/RecentCalculationsWidget.tsx(42,20): error TS18046: 'item' is of type 'unknown'.\n15:25:06.047 src/components/widgets/RecentCalculationsWidget.tsx(44,41): error TS18046: 'item' is of type 'unknown'.\n15:25:06.047 src/components/widgets/RecentCalculationsWidget.tsx(50,34): error TS18046: 'item' is of type 'unknown'.\n15:25:06.048 src/components/widgets/ScheduledJobsWidget.tsx(64,54): error TS2339: Property 'last_run_status' does not exist on type 'ScheduledJob'.\n15:25:06.048 src/components/widgets/ScheduledJobsWidget.tsx(65,30): error TS2339: Property 'last_run_status' does not exist on type 'ScheduledJob'.\n15:25:06.048 src/hooks/useAuth.ts(9,10): error TS2305: Module '\"@/api/auth\"' has no exported member 'login'.\n15:25:06.048 src/hooks/useAuth.ts(9,29): error TS2305: Module '\"@/api/auth\"' has no exported member 'logout'.\n15:25:06.048 src/hooks/useAuth.ts(9,50): error TS2305: Module '\"@/api/auth\"' has no exported member 'getCurrentUser'.\n15:25:06.048 src/hooks/useAutomation.ts(9,51): error TS2345: Argument of type 'ListParams' is not assignable to parameter of type 'Record<string, unknown>'.\n15:25:06.048   Index signature for type 'string' is missing in type 'ListParams'.\n15:25:06.048 src/hooks/useAutomation.ts(79,53): error TS2345: Argument of type 'ListParams' is not assignable to parameter of type 'Record<string, unknown>'.\n15:25:06.048   Index signature for type 'string' is missing in type 'ListParams'.\n15:25:06.048 src/hooks/useCalculations.ts(7,3): error TS2305: Module '\"@/api/calculations\"' has no exported member 'getCalculationRuns'.\n15:25:06.049 src/hooks/useCalculations.ts(8,3): error TS2305: Module '\"@/api/calculations\"' has no exported member 'getCalculationRun'.\n15:25:06.049 src/hooks/useCalculations.ts(9,3): error TS2305: Module '\"@/api/calculations\"' has no exported member 'createCalculationRun'.\n15:25:06.049 src/hooks/useCalculations.ts(10,3): error TS2305: Module '\"@/api/calculations\"' has no exported member 'cancelCalculationRun'.\n15:25:06.051 src/hooks/useCalculations.ts(11,3): error TS2305: Module '\"@/api/calculations\"' has no exported member 'getCalculationResults'.\n15:25:06.052 src/hooks/useCalculations.ts(12,3): error TS2305: Module '\"@/api/calculations\"' has no exported member 'getCalculationProgress'.\n15:25:06.052 src/pages/Login.tsx(11,11): error TS2339: Property 'login' does not exist on type 'AuthState'.\n15:25:06.052 src/pages/assumptions/AssumptionSetDetail.tsx(29,61): error TS2339: Property 'line_of_business' does not exist on type 'AssumptionSet'.\n15:25:06.052 src/pages/calculations/CalculationCreate.tsx(4,10): error TS2724: '\"@/hooks/useCalculations\"' has no exported member named 'useCreateCalculation'. Did you mean 'useCreateCalculationRun'?\n15:25:06.052 src/pages/calculations/CalculationDetail.tsx(29,3): error TS2724: '\"@/hooks/useCalculations\"' has no exported member named 'useCalculation'. Did you mean 'useCalculationRun'?\n15:25:06.052 src/pages/calculations/CalculationDetail.tsx(31,3): error TS2724: '\"@/hooks/useCalculations\"' has no exported member named 'useCalculationSummary'. Did you mean 'useCalculationRun'?\n15:25:06.052 src/pages/calculations/CalculationDetail.tsx(32,3): error TS2724: '\"@/hooks/useCalculations\"' has no exported member named 'useCancelCalculation'. Did you mean 'useCancelCalculationRun'?\n15:25:06.052 src/pages/calculations/CalculationDetail.tsx(86,56): error TS2554: Expected 1 arguments, but got 2.\n15:25:06.052 src/pages/calculations/CalculationList.tsx(7,10): error TS2724: '\"@/hooks/useCalculations\"' has no exported member named 'useCalculations'. Did you mean 'useCalculationRuns'?\n15:25:06.052 src/pages/calculations/CalculationList.tsx(44,71): error TS2339: Property 'id' does not exist on type 'string'.\n15:25:06.052 src/pages/claims/ClaimDetail.tsx(24,74): error TS2551: Property 'claimed_amount' does not exist on type 'Claim'. Did you mean 'claim_amount'?\n15:25:06.052 src/pages/claims/ClaimList.tsx(26,10): error TS2305: Module '\"@/api/claims\"' has no exported member 'getClaims'.\n15:25:06.052 src/pages/policies/PolicyDetail.tsx(24,10): error TS2305: Module '\"@/api/policies\"' has no exported member 'getPolicy'.\n15:25:06.052 src/pages/policies/PolicyDetail.tsx(144,27): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type 'Record<PolicyStatus, string>'.\n15:25:06.052 src/pages/policies/PolicyList.tsx(25,10): error TS2305: Module '\"@/api/policies\"' has no exported member 'getPolicies'.\n15:25:06.052 src/routes.tsx(19,47): error TS2307: Cannot find module './pages/reports/GeneratedReportList' or its corresponding type declarations.\n15:25:06.052 src/routes.tsx(20,46): error TS2307: Cannot find module './pages/reports/ReportTemplateList' or its corresponding type declarations.\n15:25:06.088 Error: Command \"npm run build\" exited with 2                    what the fuck now"
+}

@@ -1,50 +1,125 @@
-import { useState } from 'react';
+/**
+ * Login page component.
+ */
+
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Input, Button, Card, Typography, message } from 'antd';
+import { Form, Input, Button, Card, Typography, Alert, Space } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useAuthStore } from '@/stores/authStore';
 
 const { Title, Text } = Typography;
 
+interface LoginFormValues {
+  email: string;
+  password: string;
+}
+
 export default function Login() {
   const navigate = useNavigate();
-  const { login } = useAuthStore();
-  const [loading, setLoading] = useState(false);
+  const { login, isAuthenticated, isLoading, error } = useAuthStore();
+  const [form] = Form.useForm<LoginFormValues>();
 
-  const handleSubmit = async (values: { email: string; password: string }) => {
-    setLoading(true);
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/');
+    }
+  }, [isAuthenticated, navigate]);
+
+  const handleSubmit = async (values: LoginFormValues) => {
     try {
       await login(values.email, values.password);
-      message.success('Login successful');
       navigate('/');
-    } catch (error: any) {
-      message.error(error.message || 'Login failed');
-    } finally {
-      setLoading(false);
+    } catch {
+      // Error is handled by store
     }
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f0f2f5' }}>
-      <Card style={{ width: 400, boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
-        <div style={{ textAlign: 'center', marginBottom: 24 }}>
-          <Title level={2} style={{ margin: 0 }}>ActuFlow</Title>
-          <Text type="secondary">Actuarial Management Platform</Text>
-        </div>
-        <Form onFinish={handleSubmit} layout="vertical">
-          <Form.Item name="email" rules={[{ required: true, type: 'email' }]}>
-            <Input prefix={<UserOutlined />} placeholder="Email" size="large" />
-          </Form.Item>
-          <Form.Item name="password" rules={[{ required: true }]}>
-            <Input.Password prefix={<LockOutlined />} placeholder="Password" size="large" />
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit" loading={loading} block size="large">Login</Button>
-          </Form.Item>
-        </Form>
-        <div style={{ textAlign: 'center', color: '#999', fontSize: 12 }}>
-          Demo: admin@actuflow.com / admin123
-        </div>
+    <div
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      }}
+    >
+      <Card
+        style={{
+          width: 400,
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        }}
+      >
+        <Space direction="vertical" size="large" style={{ width: '100%' }}>
+          <div style={{ textAlign: 'center' }}>
+            <Title level={2} style={{ marginBottom: 8 }}>
+              ActuFlow
+            </Title>
+            <Text type="secondary">Sign in to your account</Text>
+          </div>
+
+          {error && (
+            <Alert
+              message="Login Failed"
+              description={error}
+              type="error"
+              showIcon
+            />
+          )}
+
+          <Form
+            form={form}
+            layout="vertical"
+            onFinish={handleSubmit}
+            autoComplete="off"
+          >
+            <Form.Item
+              name="email"
+              rules={[
+                { required: true, message: 'Please enter your email' },
+                { type: 'email', message: 'Please enter a valid email' },
+              ]}
+            >
+              <Input
+                prefix={<UserOutlined />}
+                placeholder="Email"
+                size="large"
+              />
+            </Form.Item>
+
+            <Form.Item
+              name="password"
+              rules={[
+                { required: true, message: 'Please enter your password' },
+              ]}
+            >
+              <Input.Password
+                prefix={<LockOutlined />}
+                placeholder="Password"
+                size="large"
+              />
+            </Form.Item>
+
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                size="large"
+                loading={isLoading}
+                block
+              >
+                Sign In
+              </Button>
+            </Form.Item>
+          </Form>
+
+          <div style={{ textAlign: 'center' }}>
+            <Text type="secondary">
+              Demo credentials: admin@actuflow.com / admin123
+            </Text>
+          </div>
+        </Space>
       </Card>
     </div>
   );

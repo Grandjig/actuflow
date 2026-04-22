@@ -192,3 +192,48 @@ export async function copyToClipboard(text: string): Promise<boolean> {
     return false;
   }
 }
+
+/**
+ * Get URL for a resource type and ID.
+ */
+export function getResourceUrl(resourceType: string, resourceId: string): string {
+  const routes: Record<string, string> = {
+    policy: '/policies',
+    policies: '/policies',
+    claim: '/claims',
+    claims: '/claims',
+    calculation: '/calculations',
+    calculations: '/calculations',
+    calculation_run: '/calculations',
+    assumption_set: '/assumptions',
+    assumptions: '/assumptions',
+    report: '/reports/generated',
+    reports: '/reports/generated',
+    task: '/tasks',
+    tasks: '/tasks',
+    user: '/settings/users',
+    users: '/settings/users',
+    document: '/documents',
+    documents: '/documents',
+  };
+  
+  const basePath = routes[resourceType.toLowerCase()] || `/${resourceType}s`;
+  return `${basePath}/${resourceId}`;
+}
+
+/**
+ * Get relative time string.
+ */
+export function getRelativeTime(date: string | Date): string {
+  const now = dayjs();
+  const then = dayjs(date);
+  const diffMinutes = now.diff(then, 'minute');
+  const diffHours = now.diff(then, 'hour');
+  const diffDays = now.diff(then, 'day');
+  
+  if (diffMinutes < 1) return 'just now';
+  if (diffMinutes < 60) return `${diffMinutes}m ago`;
+  if (diffHours < 24) return `${diffHours}h ago`;
+  if (diffDays < 7) return `${diffDays}d ago`;
+  return formatDate(date);
+}

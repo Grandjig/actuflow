@@ -1,41 +1,85 @@
-import { get, post, put, del } from './client';
-import type { PaginatedResponse } from '@/types/api';
-import type {
-  CalculationListParams,
-  CalculationCreateRequest,
-  CalculationProgress,
-  CalculationSummary,
-} from '@/types/api';
-import type { CalculationRun } from '@/types/models';
+/**
+ * Calculations API functions.
+ */
 
-export const calculationsApi = {
-  list: (params?: CalculationListParams) =>
-    get<PaginatedResponse<CalculationRun>>('/calculations', params),
+import { get, post, del } from './client';
+import type { CalculationRun, CalculationResult, CalculationProgress } from '@/types/models';
 
-  get: (id: string) =>
-    get<CalculationRun>(`/calculations/${id}`),
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
+}
 
-  create: (data: CalculationCreateRequest) =>
-    post<CalculationRun>('/calculations', data),
+export async function getCalculationRuns(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<CalculationRun>> {
+  return get('/calculations', params);
+}
 
-  cancel: (id: string) =>
-    post<CalculationRun>(`/calculations/${id}/cancel`),
+export async function getCalculationRun(id: string): Promise<CalculationRun> {
+  return get(`/calculations/${id}`);
+}
 
-  getProgress: (id: string) =>
-    get<CalculationProgress>(`/calculations/${id}/progress`),
+export async function createCalculationRun(
+  data: Record<string, unknown>
+): Promise<CalculationRun> {
+  return post('/calculations', data);
+}
 
-  getSummary: (id: string) =>
-    get<CalculationSummary>(`/calculations/${id}/summary`),
+export async function cancelCalculationRun(id: string): Promise<void> {
+  return del(`/calculations/${id}/cancel`);
+}
 
-  getResults: (id: string, params?: Record<string, unknown>) =>
-    get<PaginatedResponse<any>>(`/calculations/${id}/results`, params),
+export async function getCalculationProgress(
+  id: string
+): Promise<CalculationProgress> {
+  return get(`/calculations/${id}/progress`);
+}
 
-  getNarrative: (id: string) =>
-    get<{ narrative: string; generated: boolean }>(`/calculations/${id}/narrative`),
+export async function getCalculationResults(
+  runId: string,
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<CalculationResult>> {
+  return get(`/calculations/${runId}/results`, params);
+}
 
-  getAnomalies: (id: string) =>
-    get<any[]>(`/calculations/${id}/anomalies`),
+export async function getCalculationSummary(
+  runId: string
+): Promise<Record<string, unknown>> {
+  return get(`/calculations/${runId}/summary`);
+}
 
-  compare: (id1: string, id2: string) =>
-    get<any>('/calculations/compare', { run_id_1: id1, run_id_2: id2 }),
-};
+export async function getCalculationNarrative(runId: string): Promise<string> {
+  const response = await get<{ narrative: string }>(`/calculations/${runId}/narrative`);
+  return response.narrative;
+}
+
+export async function getCalculationAnomalies(
+  runId: string,
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<CalculationResult>> {
+  return get(`/calculations/${runId}/anomalies`, params);
+}
+
+export async function exportCalculationResults(
+  runId: string,
+  format: 'csv' | 'excel' = 'csv'
+): Promise<Blob> {
+  const response = await fetch(
+    `/api/v1/calculations/${runId}/results/export?format=${format}`,
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+      },
+    }
+  );
+  return response.blob();
+}
+
+export async function compareCalculations(
+  runIds: string[]
+): Promise<Record<string, unknown>> {
+  return post('/calculations/compare', { run_ids: runIds });
+}

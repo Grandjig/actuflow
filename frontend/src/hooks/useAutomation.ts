@@ -1,28 +1,45 @@
+/**
+ * Automation hooks.
+ */
+
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import * as automationApi from '@/api/automation';
-import type { ListParams } from '@/types/api';
+import {
+  getScheduledJobs,
+  getScheduledJob,
+  createScheduledJob,
+  updateScheduledJob,
+  deleteScheduledJob,
+  triggerJobNow,
+  getJobExecutions,
+  getAutomationRules,
+  getAutomationRule,
+  createAutomationRule,
+  updateAutomationRule,
+  deleteAutomationRule,
+} from '@/api/automation';
+import type { ScheduledJob, JobExecution, AutomationRule } from '@/types/models';
+
+interface ListParams {
+  page?: number;
+  page_size?: number;
+  search?: string;
+  [key: string]: unknown;
+}
 
 // Scheduled Jobs
-export function useScheduledJobs(params: ListParams = {}) {
+
+export function useScheduledJobs(params?: ListParams) {
   return useQuery({
-    queryKey: ['scheduled-jobs', params],
-    queryFn: () => automationApi.getScheduledJobs(params),
+    queryKey: ['scheduledJobs', params],
+    queryFn: () => getScheduledJobs(params as Record<string, unknown>),
   });
 }
 
 export function useScheduledJob(id: string) {
   return useQuery({
-    queryKey: ['scheduled-jobs', id],
-    queryFn: () => automationApi.getScheduledJob(id),
+    queryKey: ['scheduledJob', id],
+    queryFn: () => getScheduledJob(id),
     enabled: !!id,
-  });
-}
-
-export function useJobExecutions(jobId: string) {
-  return useQuery({
-    queryKey: ['scheduled-jobs', jobId, 'executions'],
-    queryFn: () => automationApi.getJobExecutions(jobId),
-    enabled: !!jobId,
   });
 }
 
@@ -30,9 +47,9 @@ export function useCreateScheduledJob() {
   const queryClient = useQueryClient();
   
   return useMutation({
-    mutationFn: automationApi.createScheduledJob,
+    mutationFn: createScheduledJob,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['scheduled-jobs'] });
+      queryClient.invalidateQueries({ queryKey: ['scheduledJobs'] });
     },
   });
 }
@@ -41,11 +58,10 @@ export function useUpdateScheduledJob() {
   const queryClient = useQueryClient();
   
   return useMutation({
-    mutationFn: ({ id, data }: { id: string; data: any }) =>
-      automationApi.updateScheduledJob(id, data),
-    onSuccess: (_, { id }) => {
-      queryClient.invalidateQueries({ queryKey: ['scheduled-jobs'] });
-      queryClient.invalidateQueries({ queryKey: ['scheduled-jobs', id] });
+    mutationFn: ({ id, data }: { id: string; data: Partial<ScheduledJob> }) =>
+      updateScheduledJob(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['scheduledJobs'] });
     },
   });
 }
@@ -54,9 +70,9 @@ export function useDeleteScheduledJob() {
   const queryClient = useQueryClient();
   
   return useMutation({
-    mutationFn: automationApi.deleteScheduledJob,
+    mutationFn: deleteScheduledJob,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['scheduled-jobs'] });
+      queryClient.invalidateQueries({ queryKey: ['scheduledJobs'] });
     },
   });
 }
@@ -65,25 +81,35 @@ export function useTriggerJobNow() {
   const queryClient = useQueryClient();
   
   return useMutation({
-    mutationFn: automationApi.triggerJobNow,
-    onSuccess: (_, jobId) => {
-      queryClient.invalidateQueries({ queryKey: ['scheduled-jobs', jobId, 'executions'] });
+    mutationFn: triggerJobNow,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['scheduledJobs'] });
+      queryClient.invalidateQueries({ queryKey: ['jobExecutions'] });
     },
   });
 }
 
-// Automation Rules
-export function useAutomationRules(params: ListParams = {}) {
+export function useJobExecutions(jobId: string, params?: ListParams) {
   return useQuery({
-    queryKey: ['automation-rules', params],
-    queryFn: () => automationApi.getAutomationRules(params),
+    queryKey: ['jobExecutions', jobId, params],
+    queryFn: () => getJobExecutions(jobId, params as Record<string, unknown>),
+    enabled: !!jobId,
+  });
+}
+
+// Automation Rules
+
+export function useAutomationRules(params?: ListParams) {
+  return useQuery({
+    queryKey: ['automationRules', params],
+    queryFn: () => getAutomationRules(params as Record<string, unknown>),
   });
 }
 
 export function useAutomationRule(id: string) {
   return useQuery({
-    queryKey: ['automation-rules', id],
-    queryFn: () => automationApi.getAutomationRule(id),
+    queryKey: ['automationRule', id],
+    queryFn: () => getAutomationRule(id),
     enabled: !!id,
   });
 }
@@ -92,9 +118,9 @@ export function useCreateAutomationRule() {
   const queryClient = useQueryClient();
   
   return useMutation({
-    mutationFn: automationApi.createAutomationRule,
+    mutationFn: createAutomationRule,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['automation-rules'] });
+      queryClient.invalidateQueries({ queryKey: ['automationRules'] });
     },
   });
 }
@@ -103,11 +129,10 @@ export function useUpdateAutomationRule() {
   const queryClient = useQueryClient();
   
   return useMutation({
-    mutationFn: ({ id, data }: { id: string; data: any }) =>
-      automationApi.updateAutomationRule(id, data),
-    onSuccess: (_, { id }) => {
-      queryClient.invalidateQueries({ queryKey: ['automation-rules'] });
-      queryClient.invalidateQueries({ queryKey: ['automation-rules', id] });
+    mutationFn: ({ id, data }: { id: string; data: Partial<AutomationRule> }) =>
+      updateAutomationRule(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['automationRules'] });
     },
   });
 }
@@ -116,15 +141,9 @@ export function useDeleteAutomationRule() {
   const queryClient = useQueryClient();
   
   return useMutation({
-    mutationFn: automationApi.deleteAutomationRule,
+    mutationFn: deleteAutomationRule,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['automation-rules'] });
+      queryClient.invalidateQueries({ queryKey: ['automationRules'] });
     },
-  });
-}
-
-export function useTestAutomationRule() {
-  return useMutation({
-    mutationFn: automationApi.testAutomationRule,
   });
 }
