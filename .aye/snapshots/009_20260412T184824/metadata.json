@@ -1,0 +1,154 @@
+{
+  "timestamp": "20260412T184824",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\Layout.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\Layout.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\Sidebar.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\Sidebar.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\Header.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\Header.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\NotificationDropdown.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\NotificationDropdown.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\ProtectedRoute.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\ProtectedRoute.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\PageHeader.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\PageHeader.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\DataTable.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\DataTable.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\FilterPanel.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\FilterPanel.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\StatusBadge.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\StatusBadge.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\LoadingSpinner.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\LoadingSpinner.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\EmptyState.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\EmptyState.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\ConfirmModal.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\ConfirmModal.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\charts\\LineChart.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\LineChart.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\charts\\BarChart.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\BarChart.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\charts\\PieChart.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\PieChart.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\ai\\AISearchBar.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\AISearchBar.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\ai\\NarrativeSummary.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\NarrativeSummary.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\ai\\AnomalyIndicator.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\AnomalyIndicator.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\ai\\DataQualityPanel.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\DataQualityPanel.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\ai\\ExperienceRecommendations.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\ExperienceRecommendations.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\widgets\\StatCard.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\StatCard.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\widgets\\RecentCalculationsWidget.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\RecentCalculationsWidget.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\widgets\\AnomalyAlertWidget.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\AnomalyAlertWidget.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\widgets\\ScheduledJobsWidget.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\ScheduledJobsWidget.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\Login.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\Login.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\Dashboard.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\Dashboard.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\NotFound.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\NotFound.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\policies\\PolicyList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\PolicyList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\policies\\PolicyDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\PolicyDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\policies\\PolicyCreate.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\PolicyCreate.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\calculations\\CalculationList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\CalculationList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\calculations\\CalculationDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\CalculationDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\calculations\\CalculationCreate.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\CalculationCreate.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\assumptions\\AssumptionSetList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\AssumptionSetList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\assumptions\\AssumptionSetDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\AssumptionSetDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\assumptions\\AssumptionSetCreate.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\AssumptionSetCreate.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\imports\\ImportWizard.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\009_20260412T184824\\ImportWizard.tsx"
+    }
+  ],
+  "prompt": "okay, lets keep on...next part or parts, depending on size"
+}

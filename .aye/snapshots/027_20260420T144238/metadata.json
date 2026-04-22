@@ -1,0 +1,86 @@
+{
+  "timestamp": "20260420T144238",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\notifications.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\notifications.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\utils\\constants.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\constants.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\usePolicies.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\usePolicies.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useCalculations.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\useCalculations.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useAuth.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\useAuth.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\ai\\AISearchBar.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\AISearchBar.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\types\\models.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\models.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\notifications.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\notifications.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\ai.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\ai.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\automation.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\automation.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\router.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\router.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\schemas\\notification.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\notification.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\ai_query_log.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\ai_query_log.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\automation_rule.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\automation_rule.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\job_execution.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\job_execution.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\scheduled_job.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\scheduled_job.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\services\\notification_service.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\notification_service.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\scripts\\seed_db.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\seed_db.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\.env.example",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\.env.example"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docker-compose.yml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\027_20260420T144238\\docker-compose.yml"
+    }
+  ],
+  "prompt": "okay, so what else....lets do that....i think i installed one or two things....i mean, i was able to open a webpage and a docs page....means docker had done one or two things....anyway, lets get this over and done with"
+}

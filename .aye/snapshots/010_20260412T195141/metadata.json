@@ -1,0 +1,118 @@
+{
+  "timestamp": "20260412T195141",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\main.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\main.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\App.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\App.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\routes.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\routes.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\vite-env.d.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\vite-env.d.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\stores\\authStore.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\authStore.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\stores\\uiStore.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\uiStore.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\stores\\notificationStore.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\notificationStore.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\stores\\aiStore.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\aiStore.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\types\\models.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\models.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\types\\api.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\api.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\types\\ui.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\ui.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\types\\ai.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\ai.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\utils\\formatters.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\formatters.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\utils\\validators.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\validators.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\utils\\constants.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\constants.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\utils\\helpers.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\helpers.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useDebounce.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\useDebounce.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useLocalStorage.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\useLocalStorage.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useWebSocket.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\useWebSocket.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\styles\\globals.css",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\globals.css"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\styles\\theme.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\theme.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\vite.config.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\vite.config.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\tsconfig.json",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\tsconfig.json"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\package.json",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\package.json"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\index.html",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\index.html"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\nginx.conf",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\nginx.conf"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\.eslintrc.cjs",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\010_20260412T195141\\.eslintrc.cjs"
+    }
+  ],
+  "prompt": "lets continue....@context.md. make sure that nothing is missed out"
+}

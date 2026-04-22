@@ -1,0 +1,250 @@
+version: '3.8'
+
+services:
+  # ===========================================================================
+  # Frontend
+  # ===========================================================================
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+    environment:
+      - VITE_API_URL=http://localhost:8000
+      - VITE_WS_URL=ws://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - actuflow-network
+
+  # ===========================================================================
+  # Backend API
+  # ===========================================================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/app:/app/app
+      - ./backend/migrations:/app/migrations
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://actuflow:actuflow@postgres:5432/actuflow
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - actuflow-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # ===========================================================================
+  # Calculation Engine (Celery Workers)
+  # ===========================================================================
+  calculation-worker:
+    build:
+      context: ./calculation_engine
+      dockerfile: Dockerfile
+    volumes:
+      - ./calculation_engine:/app
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://actuflow:actuflow@postgres:5432/actuflow
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - CELERY_RESULT_BACKEND=redis://redis:6379/2
+    command: celery -A celery_app worker --loglevel=info --concurrency=4
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - actuflow-network
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+
+  # ===========================================================================
+  # Celery Beat (Scheduler)
+  # ===========================================================================
+  celery-beat:
+    build:
+      context: ./calculation_engine
+      dockerfile: Dockerfile
+    volumes:
+      - ./calculation_engine:/app
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://actuflow:actuflow@postgres:5432/actuflow
+      - CELERY_BROKER_URL=redis://redis:6379/1
+    command: celery -A celery_app beat --loglevel=info
+    depends_on:
+      - calculation-worker
+    networks:
+      - actuflow-network
+
+  # ===========================================================================
+  # AI Service (Optional)
+  # ===========================================================================
+  ai-service:
+    build:
+      context: ./ai_service
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./ai_service:/app
+    env_file:
+      - .env
+    environment:
+      - AI_ENABLED=${AI_ENABLED:-true}
+    depends_on:
+      - redis
+    networks:
+      - actuflow-network
+    profiles:
+      - ai
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+
+  # ===========================================================================
+  # PostgreSQL Database
+  # ===========================================================================
+  postgres:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: actuflow
+      POSTGRES_PASSWORD: actuflow
+      POSTGRES_DB: actuflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - actuflow-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U actuflow -d actuflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ===========================================================================
+  # Redis
+  # ===========================================================================
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - actuflow-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ===========================================================================
+  # MinIO (S3-compatible Object Storage)
+  # ===========================================================================
+  minio:
+    image: minio/minio:latest
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - actuflow-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  # ===========================================================================
+  # Elasticsearch
+  # ===========================================================================
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - actuflow-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ===========================================================================
+  # Keycloak (Identity Provider)
+  # ===========================================================================
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0
+    ports:
+      - "8080:8080"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/actuflow
+      KC_DB_USERNAME: actuflow
+      KC_DB_PASSWORD: actuflow
+    command: start-dev
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - actuflow-network
+    profiles:
+      - auth
+
+# =============================================================================
+# Networks
+# =============================================================================
+networks:
+  actuflow-network:
+    driver: bridge
+
+# =============================================================================
+# Volumes
+# =============================================================================
+volumes:
+  postgres_data:
+  redis_data:
+  minio_data:
+  elasticsearch_data:

@@ -1,0 +1,117 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: actuflow-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-actuflow}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-actuflow_dev}
+      POSTGRES_DB: ${POSTGRES_DB:-actuflow}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-actuflow}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis
+  redis:
+    image: redis:7-alpine
+    container_name: actuflow-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: actuflow-backend
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-actuflow}:${POSTGRES_PASSWORD:-actuflow_dev}@postgres:5432/${POSTGRES_DB:-actuflow}
+      - REDIS_URL=redis://redis:6379/0
+      - JWT_SECRET=${JWT_SECRET:-dev-secret-change-in-prod}
+      - AI_ENABLED=${AI_ENABLED:-false}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Calculation Engine (Celery Worker)
+  calculation-engine:
+    build:
+      context: ./calculation_engine
+      dockerfile: Dockerfile
+    container_name: actuflow-calculation-engine
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-actuflow}:${POSTGRES_PASSWORD:-actuflow_dev}@postgres:5432/${POSTGRES_DB:-actuflow}
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ./calculation_engine:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Celery Beat (Scheduler)
+  celery-beat:
+    build:
+      context: ./calculation_engine
+      dockerfile: Dockerfile
+    container_name: actuflow-celery-beat
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-actuflow}:${POSTGRES_PASSWORD:-actuflow_dev}@postgres:5432/${POSTGRES_DB:-actuflow}
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ./calculation_engine:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: celery -A celery_app beat --loglevel=info
+    restart: unless-stopped
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: actuflow-frontend
+    environment:
+      - VITE_API_URL=http://localhost:8000
+      - VITE_WS_URL=ws://localhost:8000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  default:
+    name: actuflow-network

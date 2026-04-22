@@ -1,0 +1,102 @@
+{
+  "timestamp": "20260414T010612",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\assumptions.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\assumptions.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\models.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\models.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\calculations.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\calculations.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\tasks.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\tasks.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\notifications.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\notifications.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\audit.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\audit.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\search.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\search.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\ai.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\ai.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\scenarios.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\scenarios.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\reports.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\reports.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\dashboards.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\dashboards.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\imports.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\imports.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\automation.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\automation.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\experience.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\experience.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\scenario.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\scenario.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\scenario_result.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\scenario_result.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\report_template.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\report_template.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\generated_report.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\generated_report.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\dashboard_config.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\dashboard_config.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\data_import.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\data_import.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\document.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\document.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\comment.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\comment.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\ai_query_log.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\ai_query_log.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\experience_analysis.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\018_20260414T010612\\experience_analysis.py"
+    }
+  ],
+  "prompt": "okay, next...lets have it....how much more"
+}

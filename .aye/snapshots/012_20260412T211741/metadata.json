@@ -1,0 +1,74 @@
+{
+  "timestamp": "20260412T211741",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useAuth.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\useAuth.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useNotifications.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\useNotifications.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useWebSocket.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\useWebSocket.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useDebounce.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\useDebounce.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useLocalStorage.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\useLocalStorage.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useAutomation.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\useAutomation.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\Sidebar.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\Sidebar.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\Header.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\Header.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\nginx.conf",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\nginx.conf"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\scripts\\init_db.sql",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\init_db.sql"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\infrastructure\\keycloak\\realm-export.json",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\realm-export.json"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\stores\\notificationStore.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\notificationStore.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\types\\models.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\012_20260412T211741\\models.ts"
+    }
+  ],
+  "prompt": "okay, have you provided the remaining files? if you have not provide them"
+}

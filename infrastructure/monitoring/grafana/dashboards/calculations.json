@@ -1,0 +1,97 @@
+{
+  "dashboard": {
+    "title": "ActuFlow Calculations",
+    "tags": ["actuflow", "calculations"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "title": "Calculation Queue Depth",
+        "type": "graph",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+        "targets": [
+          {
+            "expr": "celery_queue_length{queue='calculations'}",
+            "legendFormat": "Queue Depth"
+          }
+        ]
+      },
+      {
+        "title": "Active Workers",
+        "type": "stat",
+        "gridPos": {"h": 4, "w": 6, "x": 12, "y": 0},
+        "targets": [
+          {
+            "expr": "celery_workers_total"
+          }
+        ]
+      },
+      {
+        "title": "Calculations Running",
+        "type": "stat",
+        "gridPos": {"h": 4, "w": 6, "x": 18, "y": 0},
+        "targets": [
+          {
+            "expr": "celery_tasks_active"
+          }
+        ]
+      },
+      {
+        "title": "Calculation Throughput",
+        "type": "graph",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+        "targets": [
+          {
+            "expr": "sum(rate(calculation_policies_processed_total[5m]))",
+            "legendFormat": "Policies/s"
+          }
+        ]
+      },
+      {
+        "title": "Calculation Duration Distribution",
+        "type": "histogram",
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+        "targets": [
+          {
+            "expr": "calculation_duration_seconds_bucket",
+            "format": "heatmap"
+          }
+        ]
+      },
+      {
+        "title": "Calculations by Status (24h)",
+        "type": "piechart",
+        "gridPos": {"h": 8, "w": 8, "x": 0, "y": 16},
+        "targets": [
+          {
+            "expr": "sum by (status) (increase(calculation_runs_total[24h]))",
+            "legendFormat": "{{status}}"
+          }
+        ]
+      },
+      {
+        "title": "Anomaly Detection Rate",
+        "type": "graph",
+        "gridPos": {"h": 8, "w": 8, "x": 8, "y": 16},
+        "targets": [
+          {
+            "expr": "sum(rate(calculation_anomalies_detected_total[1h]))",
+            "legendFormat": "Anomalies/hour"
+          }
+        ]
+      },
+      {
+        "title": "Recent Calculation Runs",
+        "type": "table",
+        "gridPos": {"h": 8, "w": 8, "x": 16, "y": 16},
+        "targets": [
+          {
+            "expr": "calculation_run_info",
+            "format": "table"
+          }
+        ]
+      }
+    ],
+    "refresh": "30s",
+    "schemaVersion": 30
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "timestamp": "20260420T145030",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\services\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\repositories\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\schemas\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\utils\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\requirements.txt",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\requirements.txt"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\index.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\index.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\requirements.txt",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\requirements.txt"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\celery_app.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\celery_app.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\config.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\config.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\tasks\\calculation_task.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\calculation_task.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\tasks\\report_task.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\report_task.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\tasks\\import_task.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\import_task.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\tasks\\scheduled_job_task.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\scheduled_job_task.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\.gitignore",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\028_20260420T145030\\.gitignore"
+    }
+  ],
+  "prompt": "okay, so what now....whats our status,....i am guessing we are done with files, right...lets testy wjhat we have, or arrent we done"
+}

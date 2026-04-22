@@ -1,0 +1,14 @@
+{
+  "timestamp": "20260414T001438",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\postcss.config.js",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\014_20260414T001438\\postcss.config.js"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\styles\\globals.css",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\014_20260414T001438\\globals.css"
+    }
+  ],
+  "prompt": " [Failed to load PostCSS config: Failed to load PostCSS config (searchPath: /app): [Error] Loading PostCSS Plugin failed: Cannot find module 'tailwindcss'\nactuflow-frontend  | Require stack:\nactuflow-frontend  | - /app/postcss.config.js\nactuflow-frontend  | \nactuflow-frontend  | (@/app/postcss.config.js)\nactuflow-frontend  | Error: Loading PostCSS Plugin failed: Cannot find module 'tailwindcss'\nactuflow-frontend  | Require stack:             http://localhost:3000/also this site cant be reached"
+}

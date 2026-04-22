@@ -1,0 +1,50 @@
+{
+  "timestamp": "20260411T112925",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\README.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\003_20260411T112925\\README.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\.gitignore",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\003_20260411T112925\\.gitignore"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\.env.example",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\003_20260411T112925\\.env.example"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docker-compose.yml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\003_20260411T112925\\docker-compose.yml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\Makefile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\003_20260411T112925\\Makefile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\scripts\\init-db.sql",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\003_20260411T112925\\init-db.sql"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docs\\architecture.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\003_20260411T112925\\architecture.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docs\\data-model.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\003_20260411T112925\\data-model.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docs\\ai-features.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\003_20260411T112925\\ai-features.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docs\\calculation-engine.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\003_20260411T112925\\calculation-engine.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docs\\automation-guide.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\003_20260411T112925\\automation-guide.md"
+    }
+  ],
+  "prompt": "okay, now you are going to build the entire thing....create the files, folders and write the codes and all that....you are building this entire software from beginning to end, lets go...you can share them into modules or steps or parts or whatever, but you are building the entire thing....lets go"
+}

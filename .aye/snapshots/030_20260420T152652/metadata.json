@@ -1,0 +1,14 @@
+{
+  "timestamp": "20260420T152652",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\scripts\\seed_db.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\030_20260420T152652\\seed_db.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\scripts\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\030_20260420T152652\\__init__.py"
+    }
+  ],
+  "prompt": "\n2026-04-20 15:24:58,142 INFO sqlalchemy.engine.Engine [no key 0.00036s] ()\n2026-04-20 15:24:58,160 INFO sqlalchemy.engine.Engine CREATE INDEX ix_scenario_results_scenario_id ON scenario_results (scenario_id)\n2026-04-20 15:24:58,160 INFO sqlalchemy.engine.Engine [no key 0.00037s] ()\n2026-04-20 15:24:58,171 INFO sqlalchemy.engine.Engine CREATE INDEX ix_scenario_results_result_type ON scenario_results (result_type)\n2026-04-20 15:24:58,171 INFO sqlalchemy.engine.Engine [no key 0.00077s] ()\n2026-04-20 15:24:58,179 INFO sqlalchemy.engine.Engine COMMIT\nPS C:\\Users\\TOBI\\Desktop\\actuflow> docker-compose exec backend python /app/scripts/seed_db.py\nTraceback (most recent call last):\n  File \"/app/scripts/seed_db.py\", line 21, in <module>\n    from app.database import async_session_factory, engine\nModuleNotFoundError: No module named 'app'\nPS C:\\Users\\TOBI\\Desktop\\actuflow>"
+}

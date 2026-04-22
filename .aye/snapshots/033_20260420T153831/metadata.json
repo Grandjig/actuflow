@@ -1,0 +1,142 @@
+{
+  "timestamp": "20260420T153831",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\policyholders\\PolicyholderList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\PolicyholderList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\policyholders\\PolicyholderDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\PolicyholderDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\claims\\ClaimList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ClaimList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\claims\\ClaimDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ClaimDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\claims\\ClaimCreate.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ClaimCreate.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\assumptions\\AssumptionSetList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\AssumptionSetList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\assumptions\\AssumptionSetDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\AssumptionSetDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\assumptions\\AssumptionSetCreate.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\AssumptionSetCreate.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\models\\ModelList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ModelList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\models\\ModelDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ModelDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\calculations\\CalculationList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\CalculationList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\calculations\\CalculationCreate.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\CalculationCreate.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\scenarios\\ScenarioList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ScenarioList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\scenarios\\ScenarioDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ScenarioDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\reports\\GeneratedReportList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\GeneratedReportList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\reports\\ReportTemplateList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ReportTemplateList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\dashboards\\DashboardList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\DashboardList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\dashboards\\DashboardEditor.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\DashboardEditor.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\imports\\ImportList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ImportList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\imports\\ImportWizard.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ImportWizard.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\tasks\\TaskList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\TaskList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\automation\\ScheduledJobList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ScheduledJobList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\automation\\AutomationRuleList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\AutomationRuleList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\experience\\ExperienceStudyList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ExperienceStudyList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\documents\\DocumentList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\DocumentList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\audit\\AuditLogList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\AuditLogList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\admin\\UserList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\UserList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\admin\\RoleList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\RoleList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\NotFound.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\NotFound.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\Login.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\Login.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\Layout.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\Layout.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\ProtectedRoute.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\ProtectedRoute.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\Sidebar.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\Sidebar.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\Header.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\033_20260420T153831\\Header.tsx"
+    }
+  ],
+  "prompt": "[plugin:vite:import-analysis] Failed to resolve import \"./pages/policyholders/PolicyholderList\" from \"src/routes.tsx\". Does the file exist?\n/app/src/routes.tsx:19:29\n8  |  import PolicyDetail from \"./pages/policies/PolicyDetail\";\n9  |  import PolicyCreate from \"./pages/policies/PolicyCreate\";\n10 |  import PolicyholderList from \"./pages/policyholders/PolicyholderList\";\n   |                                ^\n11 |  import PolicyholderDetail from \"./pages/policyholders/PolicyholderDetail\";\n12 |  import ClaimList from \"./pages/claims/ClaimList\";\n    at TransformPluginContext._formatError (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)\n    at TransformPluginContext.error (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)\n    at normalizeUrl (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39\n    at async Promise.all (index 9)\n    at async TransformPluginContext.transform (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)\n    at async PluginContainer.transform (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)\n    at async loadAndTransform (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)\n    at async viteTransformMiddleware (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24\nClick outside, press Esc key, or fix the code to dismiss.\nYou can also disable this overlay by setting server.hmr.overlay to false in vite.config.ts. is your plan to frustrate me.UNFUCK THIS BS AND LETS GET FRICKING GOING"
+}

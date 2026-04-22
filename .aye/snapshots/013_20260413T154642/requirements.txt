@@ -1,0 +1,37 @@
+# AI Service Dependencies
+
+# Web framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+
+# AI/ML
+openai==1.12.0
+sentence-transformers==2.3.1
+transformers==4.37.2
+torch==2.2.0
+scikit-learn==1.4.0
+spacy==3.7.2
+
+# OCR & Document Processing
+pytesseract==0.3.10
+pdf2image==1.17.0
+Pillow==10.2.0
+python-magic==0.4.27
+
+# Data processing
+numpy==1.26.3
+pandas==2.2.0
+
+# Database & Cache
+redis==5.0.1
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.25
+pgvector==0.2.4
+
+# Configuration
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Utilities
+httpx==0.26.0
+tenacity==8.2.3

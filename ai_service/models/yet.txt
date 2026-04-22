@@ -1,0 +1,114 @@
+)
+PS C:\Users\TOBI\Desktop\actuflow> docker-compose logs backend --tail 100
+actuflow-backend  |     from app.api.router import api_router
+actuflow-backend  |   File "/app/app/api/router.py", line 8, in <module>
+actuflow-backend  |     from app.api import (
+actuflow-backend  |   File "/app/app/api/auth.py", line 19, in <module>
+actuflow-backend  |     from app.dependencies import DBSession, CurrentUser, OptionalUser
+actuflow-backend  |   File "/app/app/dependencies.py", line 15, in <module>
+actuflow-backend  |     from app.services.auth_service import AuthService
+actuflow-backend  | ModuleNotFoundError: No module named 'app.services.auth_service'
+actuflow-backend  | WARNING:  WatchFiles detected changes in 'scripts/seed_db.py', 'scripts/__init__.py'. Reloading...
+actuflow-backend  | Process SpawnProcess-2:
+actuflow-backend  | Traceback (most recent call last):
+actuflow-backend  |   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+actuflow-backend  |     self.run()
+actuflow-backend  |   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108, in run
+actuflow-backend  |     self._target(*self._args, **self._kwargs)
+actuflow-backend  |   File "/usr/local/lib/python3.12/site-packages/uvicorn/_subprocess.py", line 78, in subprocess_started
+actuflow-backend  |     target(sockets=sockets)
+actuflow-backend  |   File "/usr/local/lib/python3.12/site-packages/uvicorn/server.py", line 62, in run
+actuflow-backend  |     return asyncio.run(self.serve(sockets=sockets))
+actuflow-backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+actuflow-backend  |   File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+actuflow-backend  |     return runner.run(main)
+actuflow-backend  |            ^^^^^^^^^^^^^^^^
+actuflow-backend  |   File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+actuflow-backend  |     return self._loop.run_until_complete(task)
+actuflow-backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+actuflow-backend  |   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+actuflow-backend  |   File "/usr/local/lib/python3.12/site-packages/uvicorn/server.py", line 69, in serve
+actuflow-backend  |     config.load()
+actuflow-backend  |   File "/usr/local/lib/python3.12/site-packages/uvicorn/config.py", line 458, in load
+actuflow-backend  |     self.loaded_app = import_from_string(self.app)
+actuflow-backend  |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+actuflow-backend  |   File "/usr/local/lib/python3.12/site-packages/uvicorn/importer.py", line 24, in import_from_string
+actuflow-backend  |     raise exc from None
+actuflow-backend  |   File "/usr/local/lib/python3.12/site-packages/uvicorn/importer.py", line 21, in import_from_string
+actuflow-backend  |     module = importlib.import_module(module_str)
+actuflow-backend  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+actuflow-backend  |   File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+actuflow-backend  |     return _bootstrap._gcd_import(name[level:], package, level)
+actuflow-backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+actuflow-backend  |   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+actuflow-backend  |   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+actuflow-backend  |   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+actuflow-backend  |   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+actuflow-backend  |   File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+actuflow-backend  |   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+actuflow-backend  |   File "/app/app/main.py", line 10, in <module>
+actuflow-backend  |     from app.api.router import api_router
+actuflow-backend  |   File "/app/app/api/router.py", line 8, in <module>
+actuflow-backend  |     from app.api import (
+actuflow-backend  |   File "/app/app/api/auth.py", line 19, in <module>
+actuflow-backend  |     from app.dependencies import DBSession, CurrentUser, OptionalUser
+actuflow-backend  |   File "/app/app/dependencies.py", line 15, in <module>
+actuflow-backend  |     from app.services.auth_service import AuthService
+actuflow-backend  | ModuleNotFoundError: No module named 'app.services.auth_service'
+actuflow-backend  | WARNING:  WatchFiles detected changes in 'app/services/auth_service.py'. Reloading...
+actuflow-backend  | Process SpawnProcess-3:
+actuflow-backend  | Traceback (most recent call last):
+actuflow-backend  |   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+actuflow-backend  |     self.run()
+actuflow-backend  |   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108, in run
+actuflow-backend  |     self._target(*self._args, **self._kwargs)
+actuflow-backend  |   File "/usr/local/lib/python3.12/site-packages/uvicorn/_subprocess.py", line 78, in subprocess_started
+actuflow-backend  |     target(sockets=sockets)
+actuflow-backend  |   File "/usr/local/lib/python3.12/site-packages/uvicorn/server.py", line 62, in run
+actuflow-backend  |     return asyncio.run(self.serve(sockets=sockets))
+actuflow-backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+actuflow-backend  |   File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+actuflow-backend  |     return runner.run(main)
+actuflow-backend  |            ^^^^^^^^^^^^^^^^
+actuflow-backend  |   File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+actuflow-backend  |     return self._loop.run_until_complete(task)
+actuflow-backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+actuflow-backend  |   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+actuflow-backend  |   File "/usr/local/lib/python3.12/site-packages/uvicorn/server.py", line 69, in serve
+actuflow-backend  |     config.load()
+actuflow-backend  |   File "/usr/local/lib/python3.12/site-packages/uvicorn/config.py", line 458, in load
+actuflow-backend  |     self.loaded_app = import_from_string(self.app)
+actuflow-backend  |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+actuflow-backend  |   File "/usr/local/lib/python3.12/site-packages/uvicorn/importer.py", line 21, in import_from_string
+actuflow-backend  |     module = importlib.import_module(module_str)
+actuflow-backend  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+actuflow-backend  |   File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+actuflow-backend  |     return _bootstrap._gcd_import(name[level:], package, level)
+actuflow-backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+actuflow-backend  |   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+actuflow-backend  |   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+actuflow-backend  |   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+actuflow-backend  |   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+actuflow-backend  |   File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+actuflow-backend  |   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+actuflow-backend  |   File "/app/app/main.py", line 10, in <module>
+actuflow-backend  |     from app.api.router import api_router
+actuflow-backend  |   File "/app/app/api/router.py", line 8, in <module>
+actuflow-backend  |     from app.api import (
+actuflow-backend  |   File "/app/app/api/auth.py", line 19, in <module>
+actuflow-backend  |     from app.dependencies import DBSession, CurrentUser, OptionalUser
+actuflow-backend  |   File "/app/app/dependencies.py", line 15, in <module>
+actuflow-backend  |     from app.services.auth_service import AuthService
+actuflow-backend  | ImportError: cannot import name 'AuthService' from 'app.services.auth_service' (/app/app/services/auth_service.py)
+PS C:\Users\TOBI\Desktop\actuflow>
+
+PS C:\Users\TOBI\Desktop\actuflow> curl http://localhost:8000/api/v1/health
+curl : The underlying connection was closed: The connection was closed unexpectedly.
+At line:1 char:1
++ curl http://localhost:8000/api/v1/health
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+
+PS C:\Users\TOBI\Desktop\actuflow>
+

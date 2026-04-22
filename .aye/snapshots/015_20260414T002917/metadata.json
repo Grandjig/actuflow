@@ -1,0 +1,18 @@
+{
+  "timestamp": "20260414T002917",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\015_20260414T002917\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\vite.config.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\015_20260414T002917\\vite.config.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docker-compose.yml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\015_20260414T002917\\docker-compose.yml"
+    }
+  ],
+  "prompt": "[+] Building 1/1 to docker.io/library/actuflow-frontend:latest                                                       29.1s \n \u2714 Service frontend  Built                                                                                          345.6s \nPS C:\\Users\\TOBI\\Desktop\\actuflow> docker-compose up -d frontend  \ntime=\"2026-04-14T01:27:44+01:00\" level=warning msg=\"C:\\\\Users\\\\TOBI\\\\Desktop\\\\actuflow\\\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion\"\n[+] Running 1/1\n \u2714 Container actuflow-frontend  Started                                                                               5.9s \nPS C:\\Users\\TOBI\\Desktop\\actuflow>      okay, but the website is still not going...what the fuck...."
+}

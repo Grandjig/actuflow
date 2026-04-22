@@ -1,0 +1,138 @@
+{
+  "timestamp": "20260411T120632",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\requirements.txt",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\requirements.txt"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\config.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\config.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\main.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\main.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\api\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\api\\nlp.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\nlp.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\api\\embeddings.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\embeddings.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\api\\extraction.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\extraction.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\api\\anomaly.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\anomaly.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\services\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\services\\nlp_service.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\nlp_service.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\services\\embedding_service.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\embedding_service.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\services\\extraction_service.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\extraction_service.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\services\\anomaly_service.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\anomaly_service.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\services\\llm_client.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\llm_client.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\models\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\models\\intent_classifier.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\intent_classifier.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\models\\entity_extractor.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\entity_extractor.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\document.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\document.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\experience_analysis.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\experience_analysis.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\automation_rule.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\automation_rule.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\ai_query_log.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\ai_query_log.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\services\\ai_service.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\ai_service.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\services\\automation_service.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\automation_service.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\services\\document_service.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\document_service.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\services\\experience_service.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\experience_service.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\ai.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\ai.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\automation.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\automation.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\documents.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\documents.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\experience.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\experience.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\router.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\router.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\config.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\007_20260411T120632\\config.py"
+    }
+  ],
+  "prompt": "okay, lets keep on going....remember is your bible here...follow it , make sure we are on track"
+}

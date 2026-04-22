@@ -1,0 +1,102 @@
+{
+  "timestamp": "20260412T204911",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\scripts\\load_mortality_tables.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\load_mortality_tables.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\scripts\\migrate.sh",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\migrate.sh"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docs\\api-contracts.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\api-contracts.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docs\\regulatory-compliance.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\regulatory-compliance.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docs\\user-roles-permissions.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\user-roles-permissions.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docs\\onboarding-guide.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\onboarding-guide.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\infrastructure\\kubernetes\\calculation-engine\\deployment.yaml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\deployment.yaml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\infrastructure\\kubernetes\\frontend\\deployment.yaml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\deployment.yaml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\infrastructure\\kubernetes\\postgresql\\deployment.yaml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\deployment.yaml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\infrastructure\\kubernetes\\redis\\deployment.yaml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\deployment.yaml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\infrastructure\\kubernetes\\minio\\deployment.yaml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\deployment.yaml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\infrastructure\\monitoring\\prometheus\\prometheus.yaml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\prometheus.yaml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\infrastructure\\monitoring\\grafana\\grafana.yaml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\grafana.yaml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\infrastructure\\monitoring\\grafana\\dashboards\\backend.json",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\backend.json"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\infrastructure\\monitoring\\grafana\\dashboards\\calculations.json",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\calculations.json"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\.github\\ISSUE_TEMPLATE\\bug_report.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\bug_report.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\.github\\ISSUE_TEMPLATE\\feature_request.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\feature_request.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\.github\\PULL_REQUEST_TEMPLATE.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\PULL_REQUEST_TEMPLATE.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\tests\\conftest.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\conftest.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\tests\\api\\test_auth.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\test_auth.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\tests\\api\\test_policies.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\test_policies.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\policies\\PolicyList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\PolicyList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\policies\\PolicyDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\PolicyDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\policies\\PolicyCreate.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\011_20260412T204911\\PolicyCreate.tsx"
+    }
+  ],
+  "prompt": "okay, so i am not very sure part 9 and 11 completed....i dont know, did they...and what else is to be done"
+}

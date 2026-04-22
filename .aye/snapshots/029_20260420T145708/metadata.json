@@ -1,0 +1,38 @@
+{
+  "timestamp": "20260420T145708",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\audit_log.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\029_20260420T145708\\audit_log.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\document.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\029_20260420T145708\\document.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\user.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\029_20260420T145708\\user.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\scripts\\seed_db.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\029_20260420T145708\\seed_db.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docker-compose.yml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\029_20260420T145708\\docker-compose.yml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\database.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\029_20260420T145708\\database.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\base.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\029_20260420T145708\\base.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\models\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\029_20260420T145708\\__init__.py"
+    }
+  ],
+  "prompt": "PS C:\\Users\\TOBI\\Desktop\\actuflow> docker-compose exec backend alembic upgrade head\ntime=\"2026-04-20T15:53:47+01:00\" level=warning msg=\"C:\\\\Users\\\\TOBI\\\\Desktop\\\\actuflow\\\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion\"\nTraceback (most recent call last):\n  File \"/usr/local/bin/alembic\", line 8, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/alembic/config.py\", line 641, in main\n    CommandLine(prog=prog).main(argv=argv)\n  File \"/usr/local/lib/python3.12/site-packages/alembic/config.py\", line 631, in main\n    self.run_cmd(cfg, options)\n  File \"/usr/local/lib/python3.12/site-packages/alembic/config.py\", line 608, in run_cmd\n    fn(\n  File \"/usr/local/lib/python3.12/site-packages/alembic/command.py\", line 403, in upgrade\n    script.run_env()\n  File \"/usr/local/lib/python3.12/site-packages/alembic/script/base.py\", line 583, in run_env\n    util.load_python_file(self.dir, \"env.py\")\n  File \"/usr/local/lib/python3.12/site-packages/alembic/util/pyfiles.py\", line 95, in load_python_file\n    module = load_module_py(module_id, path)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/alembic/util/pyfiles.py\", line 113, in load_module_py\n    spec.loader.exec_module(module)  # type: ignore\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap_external>\", line 999, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/app/migrations/env.py\", line 13, in <module>\n    from app.models import Base\n  File \"/app/app/models/__init__.py\", line 27, in <module>\n    from app.models.audit_log import AuditLog\n  File \"/app/app/models/audit_log.py\", line 19, in <module>\n    class AuditLog(Base):\n  File \"/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/decl_api.py\", line 849, in __init_subclass__\n    _as_declarative(cls._sa_registry, cls, cls.__dict__)\n  File \"/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py\", line 247, in _as_declarative\n    return _MapperConfig.setup_mapping(registry, cls, dict_, None, {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py\", line 328, in setup_mapping\n    return _ClassScanMapperConfig(\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py\", line 574, in __init__\n    self._extract_mappable_attributes()\n  File \"/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py\", line 1507, in _extract_mappable_attributes\n    raise exc.InvalidRequestError(\nsqlalchemy.exc.InvalidRequestError: Attribute name 'metadata' is reserved when using the Declarative API.\nPS C:\\Users\\TOBI\\Desktop\\actuflow> docker-compose exec backend python -c \"from app.database import init_db; import asyncio; asyncio.run(init_db())\"\ntime=\"2026-04-20T15:54:24+01:00\" level=warning msg=\"C:\\\\Users\\\\TOBI\\\\Desktop\\\\actuflow\\\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion\"\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/asyncio/runners.py\", line 195, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/asyncio/base_events.py\", line 691, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/app/app/database.py\", line 51, in init_db\n    from app.models.base import Base\n  File \"/app/app/models/__init__.py\", line 27, in <module>\n    from app.models.audit_log import AuditLog\n  File \"/app/app/models/audit_log.py\", line 19, in <module>\n    class AuditLog(Base):\n  File \"/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/decl_api.py\", line 849, in __init_subclass__\n    _as_declarative(cls._sa_registry, cls, cls.__dict__)\n  File \"/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py\", line 247, in _as_declarative\n    return _MapperConfig.setup_mapping(registry, cls, dict_, None, {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py\", line 328, in setup_mapping\n    return _ClassScanMapperConfig(\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py\", line 574, in __init__\n    self._extract_mappable_attributes()\n  File \"/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py\", line 1507, in _extract_mappable_attributes\n    raise exc.InvalidRequestError(\nsqlalchemy.exc.InvalidRequestError: Attribute name 'metadata' is reserved when using the Declarative API.\nPS C:\\Users\\TOBI\\Desktop\\actuflow> docker-compose exec backend python scripts/seed_db.py\ntime=\"2026-04-20T15:54:48+01:00\" level=warning msg=\"C:\\\\Users\\\\TOBI\\\\Desktop\\\\actuflow\\\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion\"\nTraceback (most recent call last):\n  File \"/app/scripts/seed_db.py\", line 21, in <module>\n    from app.database import async_session_factory, engine\nModuleNotFoundError: No module named 'app'\nPS C:\\Users\\TOBI\\Desktop\\actuflow>"
+}

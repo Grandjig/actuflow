@@ -1,0 +1,207 @@
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ (( ● )) Here's the complete setup and run guide for ActuFlow:                                                        │
+│                                                                                                                      │
+│         ------------------------------------------------------------------------------------------------------------ │
+│                                                                                                                      │
+│         Prerequisites                                                                                                │
+│                                                                                                                      │
+│                                                                                                                      │
+│          # Check you have these installed:                                                                           │
+│          docker --version          # Docker 20.10+                                                                   │
+│          docker-compose --version  # Docker Compose 2.0+                                                             │
+│          make --version            # GNU Make (optional but recommended)                                             │
+│          git --version             # Git                                                                             │
+│                                                                                                                      │
+│                                                                                                                      │
+│         ------------------------------------------------------------------------------------------------------------ │
+│                                                                                                                      │
+│         Initial Setup                                                                                                │
+│                                                                                                                      │
+│                                                                                                                      │
+│          # 1. Clone the repository (or if you have the files, skip this)                                             │
+│          git clone https://github.com/your-org/actuflow.git                                                          │
+│          cd actuflow                                                                                                 │
+│                                                                                                                      │
+│          # 2. Copy environment template                                                                              │
+│          cp .env.example .env                                                                                        │
+│                                                                                                                      │
+│          # 3. (Optional) Edit .env to add your OpenAI API key for AI features                                        │
+│          # If you don't have one, AI features will be disabled but everything else works                             │
+│          nano .env   # or use any editor                                                                             │
+│                                                                                                                      │
+│                                                                                                                      │
+│         ------------------------------------------------------------------------------------------------------------ │
+│                                                                                                                      │
+│         Starting the Application                                                                                     │
+│                                                                                                                      │
+│         Option A: Using Make (Recommended)                                                                           │
+│                                                                                                                      │
+│                                                                                                                      │
+│          # Start all services (without AI)                                                                           │
+│          make dev                                                                                                    │
+│                                                                                                                      │
+│          # OR start with AI service                                                                                  │
+│          make dev-ai                                                                                                 │
+│                                                                                                                      │
+│                                                                                                                      │
+│         Option B: Using Docker Compose Directly                                                                      │
+│                                                                                                                      │
+│                                                                                                                      │
+│          # Start all services (without AI)                                                                           │
+│          docker-compose up -d                                                                                        │
+│                                                                                                                      │
+│          # OR start with AI service                                                                                  │
+│          docker-compose --profile ai up -d                                                                           │
+│                                                                                                                      │
+│          # View logs                                                                                                 │
+│          docker-compose logs -f                                                                                      │
+│                                                                                                                      │
+│                                                                                                                      │
+│         ------------------------------------------------------------------------------------------------------------ │
+│                                                                                                                      │
+│         Database Setup                                                                                               │
+│                                                                                                                      │
+│                                                                                                                      │
+│          # Wait ~30 seconds for PostgreSQL to be ready, then:                                                        │
+│                                                                                                                      │
+│          # Run database migrations                                                                                   │
+│          make migrate                                                                                                │
+│          # OR: docker-compose exec backend alembic upgrade head                                                      │
+│                                                                                                                      │
+│          # Seed sample data (creates users, policies, assumptions, etc.)                                             │
+│          make seed                                                                                                   │
+│          # OR: docker-compose exec backend python -m scripts.seed_db                                                 │
+│                                                                                                                      │
+│          # (Optional) Create your own superuser                                                                      │
+│          make superuser                                                                                              │
+│          # OR: docker-compose exec backend python -m scripts.create_superuser                                        │
+│                                                                                                                      │
+│                                                                                                                      │
+│         ------------------------------------------------------------------------------------------------------------ │
+│                                                                                                                      │
+│         Access the Application                                                                                       │
+│                                                                                                                      │
+│                                                                                                                      │
+│          Service        URL                         Credentials                                                      │
+│          ────────────────────────────────────────────────────────────────────────                                    │
+│          Frontend       http://localhost:3000       admin@actuflow.com / admin123                                    │
+│          API Docs       http://localhost:8000/docs  -                                                                │
+│          Keycloak       http://localhost:8080       admin / admin                                                    │
+│          MinIO Console  http://localhost:9001       actuflow / actuflow_dev                                          │
+│          AI Service     http://localhost:8001/docs  (if enabled)                                                     │
+│                                                                                                                      │
+│                                                                                                                      │
+│         ------------------------------------------------------------------------------------------------------------ │
+│                                                                                                                      │
+│         Development Commands                                                                                         │
+│                                                                                                                      │
+│                                                                                                                      │
+│          # View all available commands                                                                               │
+│          make help                                                                                                   │
+│                                                                                                                      │
+│          # View logs                                                                                                 │
+│          make logs           # All services                                                                          │
+│          make logs-api       # Backend only                                                                          │
+│          make logs-calc      # Calculation engine only                                                               │
+│                                                                                                                      │
+│          # Run tests                                                                                                 │
+│          make test           # All tests                                                                             │
+│          make test-api       # Backend tests only                                                                    │
+│          make test-fe        # Frontend tests only                                                                   │
+│          make coverage       # With coverage report                                                                  │
+│                                                                                                                      │
+│          # Code quality                                                                                              │
+│          make lint           # Run linters                                                                           │
+│          make format         # Auto-format code                                                                      │
+│          make typecheck      # Type checking                                                                         │
+│                                                                                                                      │
+│          # Database                                                                                                  │
+│          make db-shell       # Open PostgreSQL shell                                                                 │
+│          make migrate-new NAME=add_new_feature  # Create new migration                                               │
+│          make db-reset       # Reset database (WARNING: deletes data)                                                │
+│                                                                                                                      │
+│          # Shells                                                                                                    │
+│          make shell-api      # Open bash in backend container                                                        │
+│          make shell-calc     # Open bash in calculation engine                                                       │
+│          make shell-ai       # Open bash in AI service                                                               │
+│                                                                                                                      │
+│          # Stop everything                                                                                           │
+│          make down                                                                                                   │
+│                                                                                                                      │
+│                                                                                                                      │
+│         ------------------------------------------------------------------------------------------------------------ │
+│                                                                                                                      │
+│         Running Without Make                                                                                         │
+│                                                                                                                      │
+│         If you don't have make installed:                                                                            │
+│                                                                                                                      │
+│                                                                                                                      │
+│          # Start services                                                                                            │
+│          docker-compose up -d                                                                                        │
+│                                                                                                                      │
+│          # Run migrations                                                                                            │
+│          docker-compose exec backend alembic upgrade head                                                            │
+│                                                                                                                      │
+│          # Seed data                                                                                                 │
+│          docker-compose exec backend python -m scripts.seed_db                                                       │
+│                                                                                                                      │
+│          # View logs                                                                                                 │
+│          docker-compose logs -f backend                                                                              │
+│                                                                                                                      │
+│          # Run backend tests                                                                                         │
+│          docker-compose exec backend pytest -v                                                                       │
+│                                                                                                                      │
+│          # Run frontend tests                                                                                        │
+│          docker-compose exec frontend npm test                                                                       │
+│                                                                                                                      │
+│          # Stop services                                                                                             │
+│          docker-compose down                                                                                         │
+│                                                                                                                      │
+│                                                                                                                      │
+│         ------------------------------------------------------------------------------------------------------------ │
+│                                                                                                                      │
+│         Troubleshooting                                                                                              │
+│                                                                                                                      │
+│                                                                                                                      │
+│          # If services won't start                                                                                   │
+│          docker-compose down -v  # Remove volumes                                                                    │
+│          docker-compose up -d    # Start fresh                                                                       │
+│                                                                                                                      │
+│          # If database connection fails, wait and retry                                                              │
+│          sleep 30                                                                                                    │
+│          make migrate                                                                                                │
+│                                                                                                                      │
+│          # If frontend won't build                                                                                   │
+│          docker-compose build frontend --no-cache                                                                    │
+│          docker-compose up -d frontend                                                                               │
+│                                                                                                                      │
+│          # Check service health                                                                                      │
+│          docker-compose ps                                                                                           │
+│                                                                                                                      │
+│          # View specific service logs                                                                                │
+│          docker-compose logs backend                                                                                 │
+│          docker-compose logs postgres                                                                                │
+│                                                                                                                      │
+│                                                                                                                      │
+│         ------------------------------------------------------------------------------------------------------------ │
+│                                                                                                                      │
+│         Quick Test Workflow                                                                                          │
+│                                                                                                                      │
+│                                                                                                                      │
+│          # Full setup from scratch:                                                                                  │
+│          cp .env.example .env                                                                                        │
+│          docker-compose up -d                                                                                        │
+│          sleep 45  # Wait for services                                                                               │
+│          docker-compose exec backend alembic upgrade head                                                            │
+│          docker-compose exec backend python -m scripts.seed_db                                                       │
+│                                                                                                                      │
+│          # Open browser to http://localhost:3000                                                                     │
+│          # Login: admin@actuflow.com / admin123                                                                      │
+│                                                                                                                      │
+│                                                                                                                      │
+│         ------------------------------------------------------------------------------------------------------------ │
+│                                                                                                                      │
+│         The codebase is now complete! You have all files needed for a functional ActuFlow installation. After        │
+│         running these commands, you should have a working development environment.                                   │
+│                                                                                                                      │
+│         -----------------------------------------------

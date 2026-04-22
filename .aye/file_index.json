@@ -1,0 +1,1280 @@
+{
+  "calculation_engine/config.py": {
+    "hash": "7ef49bc15628cb863c15c0c6c597080a66c33231c4c6d72aca19e7ced44180e5",
+    "mtime": 1776038029.7902896,
+    "size": 391,
+    "refined": true
+  },
+  "calculation_engine/celery_app.py": {
+    "hash": "7d0cac8011ca10e1f703aae03d331c8ea62bb024847cb7de3d16c6958dad776d",
+    "mtime": 1776095202.2559042,
+    "size": 847,
+    "refined": true
+  },
+  "ai_service/config.py": {
+    "hash": "207f6df60437fadaa047fecdd7616e9e9ee89f39ee89c08ae6c5a6ee1aaba999",
+    "mtime": 1775909192.6539164,
+    "size": 2347,
+    "refined": true
+  },
+  "ai_service/main.py": {
+    "hash": "d6a866054a80ebbcaeaa188db18ce9c3392680d8749e4ecc5772273306ee51a2",
+    "mtime": 1776095202.2680738,
+    "size": 535,
+    "refined": true
+  },
+  "calculation_engine/tasks.py": {
+    "hash": "d0e6bec79d7e1e8614e92b017ed2cf9ab6fed6220a68fe0a6499d2364b9cc5e7",
+    "mtime": 1776038029.7928264,
+    "size": 110,
+    "refined": true
+  },
+  "scripts/load_mortality_tables.py": {
+    "hash": "7f7e4c8122ccb5fb1962cf6e790be384e320360f0acfebf4b3d6a8b86882e2a4",
+    "mtime": 1776026951.4854443,
+    "size": 6976,
+    "refined": true
+  },
+  "calculation_engine/tasks/calculation_task.py": {
+    "hash": "6992ee8823d371f9689f31afc99614f22691b742728e1f9a959a9689c9532758",
+    "mtime": 1776095202.2630482,
+    "size": 336,
+    "refined": true
+  },
+  "calculation_engine/__init__.py": {
+    "hash": "a98aa0e2a97a4705bd6549f7ffc723d8c40e8d446fa7635f026357392488242e",
+    "mtime": 1776038029.7871892,
+    "size": 60,
+    "refined": true
+  },
+  "calculation_engine/tasks/report_task.py": {
+    "hash": "2e0c18efb1201344b08811da75bc7bfa022afe621ab5abf1861df484c3320096",
+    "mtime": 1776095202.266065,
+    "size": 339,
+    "refined": true
+  },
+  "calculation_engine/tasks/__init__.py": {
+    "hash": "8daf63162ca7765a1366fb7bcfc64e2bb35f115721ad26e837fb07fc29423b44",
+    "mtime": 1776095202.2598827,
+    "size": 29,
+    "refined": true
+  },
+  "backend/app/exceptions.py": {
+    "hash": "943263cd9f227999e9fcde87a4f994a28eb9abad61c45ee4f0babeec0eb28e58",
+    "mtime": 1775907238.1981666,
+    "size": 14124,
+    "refined": true
+  },
+  "backend/app/config.py": {
+    "hash": "682939a7b5a694853c54ed6766d8e2c52b2ab070f8385becf700c91d50441c70",
+    "mtime": 1775909192.7440383,
+    "size": 4106,
+    "refined": true
+  },
+  "backend/app/database.py": {
+    "hash": "ca27795725290daf16724a03a291cc6699da1927e60fc321a80424370f6d7085",
+    "mtime": 1775907713.7813973,
+    "size": 2174,
+    "refined": true
+  },
+  "backend/app/dependencies.py": {
+    "hash": "191a125dd5d895185d9a98a7e6f6f273406b9c89d3dc8406ad24bf2e651a3294",
+    "mtime": 1775907238.196166,
+    "size": 11483,
+    "refined": true
+  },
+  "backend/app/main.py": {
+    "hash": "6507c359657f687434bac643d95e5429643134d7950f2703eae3ebe978393617",
+    "mtime": 1776095202.251884,
+    "size": 1046,
+    "refined": true
+  },
+  "backend/app/__init__.py": {
+    "hash": "f1db6796197c716de95bd88340d0b7269f28639616e95f72d73a905213fda14b",
+    "mtime": 1776095202.2483485,
+    "size": 62,
+    "refined": true
+  },
+  "backend/tests/conftest.py": {
+    "hash": "6ac49bcec794fff3bace1c2b372876dfce5778e4af004b1871940cf91f4ffa38",
+    "mtime": 1776026951.524659,
+    "size": 3501,
+    "refined": true
+  },
+  "backend/tests/api/test_auth.py": {
+    "hash": "21cc528b23dca93d86fa3f9b27e6e743485a4b2108a5be1aef33c09007266651",
+    "mtime": 1776026951.5278966,
+    "size": 2854,
+    "refined": true
+  },
+  "backend/tests/api/test_policies.py": {
+    "hash": "fb9c8874a749efe8c61d91c78a1d0e43361cd45f2c0d5d997d3bc6ef214102d0",
+    "mtime": 1776026951.5295706,
+    "size": 6603,
+    "refined": true
+  },
+  "backend/app/api/ai.py": {
+    "hash": "3f5326789f506e35915d46832ee4f86c1933526b307fc07c4322cba653df95ff",
+    "mtime": 1775909192.729578,
+    "size": 6562,
+    "refined": true
+  },
+  "backend/app/api/assumptions.py": {
+    "hash": "95d7845971e51e41193dfaf599b8f053cc355f9bba94748cfdc4c7ad3d64b051",
+    "mtime": 1775908425.4479241,
+    "size": 15273,
+    "refined": true
+  },
+  "backend/app/api/calculations.py": {
+    "hash": "5f3d3753a9391eb21fa8fc1a6da629440e2bc35194c208697e52b51ed848ec70",
+    "mtime": 1775908425.4534578,
+    "size": 12450,
+    "refined": true
+  },
+  "backend/app/api/automation.py": {
+    "hash": "ca295f00c970af9b6e3732267e424a090442a209016c2e64d23f87ba2ec1a4b9",
+    "mtime": 1775909192.7334974,
+    "size": 10829,
+    "refined": true
+  },
+  "backend/app/api/auth.py": {
+    "hash": "dfc1c7773c90cf398c5791959995831764b3de68aa73ba68d422f4fafd50b087",
+    "mtime": 1775908425.4348469,
+    "size": 5197,
+    "refined": true
+  },
+  "backend/app/api/claims.py": {
+    "hash": "b2192543c8ffc6b0a948477ba2590713f16fa774730f3a6ec79dae2966ec3dfc",
+    "mtime": 1775908425.4459293,
+    "size": 7504,
+    "refined": true
+  },
+  "backend/app/api/documents.py": {
+    "hash": "3056046784f2cd8242251870a40a938aaba47db84cbbe92d7012ba2afa2289af",
+    "mtime": 1775909192.736027,
+    "size": 7227,
+    "refined": true
+  },
+  "backend/app/api/experience.py": {
+    "hash": "3aa2b353da0b5deb4e46c983234cf2cc12e4811fe61d2335e293d6834e52bb6c",
+    "mtime": 1775909192.7397215,
+    "size": 4156,
+    "refined": true
+  },
+  "backend/app/api/dashboards.py": {
+    "hash": "c61934ee295354b3855a44d2c1808f5c84f1af33c5b15729d496cce15a593f8c",
+    "mtime": 1775908425.4596243,
+    "size": 6102,
+    "refined": true
+  },
+  "backend/app/api/coverages.py": {
+    "hash": "0158c03efccd6412c594b729b6c9cc80ab5305914d4eb2f51585169f46711cbd",
+    "mtime": 1775908425.4438913,
+    "size": 3857,
+    "refined": true
+  },
+  "backend/app/api/models.py": {
+    "hash": "e37a81a8a6d7f3bc9f1ec047702651bfa3950a0cabd04932f0ffed5fa15a193a",
+    "mtime": 1775908425.4514508,
+    "size": 8156,
+    "refined": true
+  },
+  "backend/app/api/policyholders.py": {
+    "hash": "d9932b49076219e0717dec2bd91d800cf449e6e004de7b60fda696071ba83bb2",
+    "mtime": 1775908425.4418902,
+    "size": 6709,
+    "refined": true
+  },
+  "backend/app/api/roles.py": {
+    "hash": "e13b6c849ec13416122cc00fcf9b76f2ab3c88ef809fd3dc6cf0fae70cb68c4e",
+    "mtime": 1775908425.4378595,
+    "size": 5818,
+    "refined": true
+  },
+  "backend/app/api/policies.py": {
+    "hash": "bd8c7f3f002baa5499fa4be4eb77f198ba1715181def5f3e11f8644f51492d0f",
+    "mtime": 1775908425.4388943,
+    "size": 9319,
+    "refined": true
+  },
+  "backend/app/api/reports.py": {
+    "hash": "8f4f073211f1d1cdd3bd5dfdc6e28adef7c3d302ba47782b6b7f450c822216cb",
+    "mtime": 1775908425.457625,
+    "size": 9621,
+    "refined": true
+  },
+  "backend/app/api/router.py": {
+    "hash": "824f701a8899e4c07ff876ea5a1b8ab11427a44b5ab93cf614d0edc561eed8a6",
+    "mtime": 1775909192.7417305,
+    "size": 2470,
+    "refined": true
+  },
+  "backend/app/api/__init__.py": {
+    "hash": "e0f589cf0df7c2ae60ba67fd715662831a2fd65dc8212b83ad23933edfff4dcb",
+    "mtime": 1775907238.2003036,
+    "size": 112,
+    "refined": true
+  },
+  "backend/app/api/users.py": {
+    "hash": "e2a5d5300b4b6a450a35804194c7d9bbb3ab0fdaa19c756efd7711d0c25f4aaf",
+    "mtime": 1775908425.4358585,
+    "size": 7512,
+    "refined": true
+  },
+  "backend/app/api/scenarios.py": {
+    "hash": "1060d20377fb4deeacd50a52cf5d024b11f453eaf8f7bbe0b70b39a9d04378d1",
+    "mtime": 1775908425.4549718,
+    "size": 7478,
+    "refined": true
+  },
+  "backend/app/models/ai_query_log.py": {
+    "hash": "b339c8209149907ce410bc2846cf369c5260c1e6eacd7a644e0e270e19f49461",
+    "mtime": 1775909192.7083597,
+    "size": 1316,
+    "refined": true
+  },
+  "backend/app/models/assumption_set.py": {
+    "hash": "a9d7fde9a31cd58bec324319821648907c3063996f24b6fdcbd42236e8366baf",
+    "mtime": 1775907713.749926,
+    "size": 4366,
+    "refined": true
+  },
+  "backend/app/models/assumption_table.py": {
+    "hash": "2a1b956674491a9b20c21e11f54f2dc0d7be1875f1997cbc03ad65288dcd5fed",
+    "mtime": 1775907713.7514477,
+    "size": 3217,
+    "refined": true
+  },
+  "backend/app/models/automation_rule.py": {
+    "hash": "3aff60ea0afca43e974484307630c09683f324ad1dae917c7d2a031178637a6e",
+    "mtime": 1775909192.7043092,
+    "size": 2254,
+    "refined": true
+  },
+  "backend/app/models/base.py": {
+    "hash": "28ab9777c046f98d9b05bd016a991d808eb3260382d9217c8aaf918bbac4ea08",
+    "mtime": 1775907713.7387106,
+    "size": 3158,
+    "refined": true
+  },
+  "backend/app/models/audit_log.py": {
+    "hash": "7d76c24a9c91691aec040eae012321c1354ceace42095e0bbb58fc0b2bc90adb",
+    "mtime": 1775907713.7763999,
+    "size": 3192,
+    "refined": true
+  },
+  "backend/app/models/calculation_result.py": {
+    "hash": "d547403b0fd955d8657d82ea021682256c90f3c99c97dc856664f0e12987f74c",
+    "mtime": 1775907713.7554588,
+    "size": 2598,
+    "refined": true
+  },
+  "backend/app/models/calculation_run.py": {
+    "hash": "bfb87db4fe31bbde954a9ded4fa53ec65bb63acbeb2f82804ff311043a85cb96",
+    "mtime": 1775907713.754462,
+    "size": 6015,
+    "refined": true
+  },
+  "backend/app/models/coverage.py": {
+    "hash": "a7ad8c569c7ae261933d45ab8479d1852939b92e6a5f668e510a48c611df6d57",
+    "mtime": 1775907713.7479284,
+    "size": 3413,
+    "refined": true
+  },
+  "backend/app/models/claim.py": {
+    "hash": "350d0d731248784bbccf5f74debc56ac65411ae20ccf275cec8c9c33dce8e3ea",
+    "mtime": 1775907713.7489269,
+    "size": 5375,
+    "refined": true
+  },
+  "backend/app/models/comment.py": {
+    "hash": "2ba2ee7861f5a346a986494b4b3dea8c46fa3bc44d3501c48d04e6e6e424e2e2",
+    "mtime": 1775907713.768515,
+    "size": 2639,
+    "refined": true
+  },
+  "backend/app/models/dashboard_config.py": {
+    "hash": "415c63d00c544a9c1f4eac36bff09fe2717ca235c88e524a15e51b8cf1acf119",
+    "mtime": 1775907713.7645144,
+    "size": 2181,
+    "refined": true
+  },
+  "backend/app/models/document.py": {
+    "hash": "b69b96c8fef832c44f64b49d6b39a26fbe60deab63639db8f7d2b8bd9bef746f",
+    "mtime": 1775909192.70066,
+    "size": 2193,
+    "refined": true
+  },
+  "backend/app/models/data_import.py": {
+    "hash": "4ddad4f3b7e11ed22f4af287bbc32c9c757cf5f7f53a9c419761431c9a40cbb5",
+    "mtime": 1775907713.7655137,
+    "size": 4182,
+    "refined": true
+  },
+  "backend/app/models/experience_analysis.py": {
+    "hash": "165c3364ace4ee80748903985c627e341e225f53c4869dae6b518efabe84baab",
+    "mtime": 1775909192.7016592,
+    "size": 2242,
+    "refined": true
+  },
+  "backend/app/models/generated_report.py": {
+    "hash": "83eec43e2d945ffb80bbb5942d4f94a8ef6cc2d19857fa0e8aa7f5cf62293dc8",
+    "mtime": 1775907713.7625182,
+    "size": 3273,
+    "refined": true
+  },
+  "backend/app/models/job_execution.py": {
+    "hash": "028e7a8450903f0efe65a4d846fefc85a2d85c642849e680fe284bb611fdc720",
+    "mtime": 1775907713.771546,
+    "size": 2507,
+    "refined": true
+  },
+  "backend/app/models/policy.py": {
+    "hash": "86b7645c1ccbe0d8d7e4d52e14958be4cbc74c9261343ef1e4595d03bbc260b6",
+    "mtime": 1775907713.7469294,
+    "size": 7427,
+    "refined": true
+  },
+  "backend/app/models/notification.py": {
+    "hash": "99e9b7001d889b4925614a4a34efe68692578a73e1862677b40100bb316c3ed4",
+    "mtime": 1775907713.7695115,
+    "size": 3029,
+    "refined": true
+  },
+  "backend/app/models/policyholder.py": {
+    "hash": "b3dc79e2a50f09e2ff90c50fddd748a4a9c7ddae718adf7202ba2955ece536a1",
+    "mtime": 1775907713.7449284,
+    "size": 4321,
+    "refined": true
+  },
+  "backend/app/models/model_definition.py": {
+    "hash": "cc8c4737b5a177643aa477ef3880e6ac5bdd3393178029ab35b19f120f80df4d",
+    "mtime": 1775907713.7534633,
+    "size": 3775,
+    "refined": true
+  },
+  "backend/app/models/report_template.py": {
+    "hash": "d10d3be7ed70829250003031438ee72edf18b83a8259a4c0039325dbbc33c858",
+    "mtime": 1775907713.7615027,
+    "size": 2546,
+    "refined": true
+  },
+  "backend/app/models/scenario_result.py": {
+    "hash": "c5c0f95746e5b0d710cf3a3be1537aa7c9087f688e5fd58d54896d03c49fa86f",
+    "mtime": 1775907713.759991,
+    "size": 2343,
+    "refined": true
+  },
+  "backend/app/models/role.py": {
+    "hash": "961130a43e587f4d90fbc58f62da5a5e058e589a403b3c7763747fbf0aac3042",
+    "mtime": 1775907713.743917,
+    "size": 3351,
+    "refined": true
+  },
+  "backend/app/models/scenario.py": {
+    "hash": "2b0d584672078cb9817c62190faba462bc79788fef9b6958b8b66b71e9bd23a6",
+    "mtime": 1775907713.75898,
+    "size": 3305,
+    "refined": true
+  },
+  "backend/app/models/scheduled_job.py": {
+    "hash": "f78d5e60f0161c272472461a54174068f724d5dccdfb42277243e11363fbe89d",
+    "mtime": 1775907713.7695115,
+    "size": 3625,
+    "refined": true
+  },
+  "backend/app/models/task.py": {
+    "hash": "3e9e1ccdff009d44697b0685b565837f2f3006e567f11dcadf25e1753d981cd9",
+    "mtime": 1775907713.7665257,
+    "size": 4724,
+    "refined": true
+  },
+  "backend/app/schemas/ai.py": {
+    "hash": "61a40243412a0ad45961f4987712e7a30f786991b82997bfc6f6dcae0a13052f",
+    "mtime": 1775908425.422145,
+    "size": 6863,
+    "refined": true
+  },
+  "backend/app/schemas/assumption.py": {
+    "hash": "2bfd204721d1f34a93f547ee88b540588348f38106ee0b4725a3e1acfc94aa43",
+    "mtime": 1775908425.4008756,
+    "size": 5753,
+    "refined": true
+  },
+  "backend/app/models/user.py": {
+    "hash": "241480363556eb24bdb9e93d837a1b1fc816f00b84a7b65c560c393e6ff5932b",
+    "mtime": 1775907713.7412326,
+    "size": 4666,
+    "refined": true
+  },
+  "backend/app/models/__init__.py": {
+    "hash": "1f95ba3a915f013c9ec0f0cd88eea45cdd43f393199b2c25a4bf441fd0da9c53",
+    "mtime": 1775909192.7108898,
+    "size": 2028,
+    "refined": true
+  },
+  "backend/app/schemas/audit.py": {
+    "hash": "188ae93f730545696637efa9bf6e571594c350badd9274e383e4c4cece210df5",
+    "mtime": 1775908425.4191601,
+    "size": 1689,
+    "refined": true
+  },
+  "backend/app/schemas/auth.py": {
+    "hash": "240ce292c4d8d9c8918c09f351a0a11e2095bc4d3eef12ead17baca1963af9c1",
+    "mtime": 1775908425.3895762,
+    "size": 939,
+    "refined": true
+  },
+  "backend/app/schemas/claim.py": {
+    "hash": "87681f3bc81f2fe65015676fb235a801ea3298d54e69bc1edc0b2671f2c78f3a",
+    "mtime": 1775908425.398677,
+    "size": 4767,
+    "refined": true
+  },
+  "backend/app/schemas/calculation.py": {
+    "hash": "531511710c611fb98abde333bb9f2cda25c4d09e2ba36701f413916855b3defa",
+    "mtime": 1775908425.4028685,
+    "size": 5732,
+    "refined": true
+  },
+  "backend/app/schemas/automation.py": {
+    "hash": "d8afcc93a579fc9b5becc3ff089ae77164f6fb09d9015d2c69d436509815b05e",
+    "mtime": 1775908425.4211516,
+    "size": 6943,
+    "refined": true
+  },
+  "backend/app/schemas/comment.py": {
+    "hash": "68e1ac8ad9fd79db73e617344d701452f29807849a447dfe9c07de64093d0476",
+    "mtime": 1775908425.4323268,
+    "size": 1929,
+    "refined": true
+  },
+  "backend/app/schemas/dashboard.py": {
+    "hash": "2de498ba8dc71dc1a24bc4b1ef56f76eb514dea9306f015e9d9b21e937629b71",
+    "mtime": 1775908425.426355,
+    "size": 3155,
+    "refined": true
+  },
+  "backend/app/schemas/coverage.py": {
+    "hash": "55080207e3341503e98901f512ce585591461798b7bc900526f284e2d4a6f331",
+    "mtime": 1775908425.3966792,
+    "size": 1861,
+    "refined": true
+  },
+  "backend/app/schemas/data_import.py": {
+    "hash": "b106df03a37f2c81f0ae3d5cb71eafeac2e5ea4e024a384822cd50d32e6f50d0",
+    "mtime": 1775908425.4115584,
+    "size": 3904,
+    "refined": true
+  },
+  "backend/app/schemas/common.py": {
+    "hash": "eb914eb5a20588fad4853c6348adae6c879c4f3a3c98d12e4f79079bfb217403",
+    "mtime": 1775908425.385536,
+    "size": 3682,
+    "refined": true
+  },
+  "backend/app/schemas/document.py": {
+    "hash": "60874e34bd7827eea8d144fa0244e154701c091dd388cf9cdf9883fcbdb934a5",
+    "mtime": 1775908425.4283292,
+    "size": 2637,
+    "refined": true
+  },
+  "backend/app/schemas/notification.py": {
+    "hash": "75f43dcf97f31c0435d9b289fb3c423a2a8a3bb9914a3cc97dadc9e5ca4981b6",
+    "mtime": 1775908425.416623,
+    "size": 1994,
+    "refined": true
+  },
+  "backend/app/schemas/experience.py": {
+    "hash": "344ec518c315dd92024d8f0928cdb6580c2258a0fa79f2f59cee51b7cda48453",
+    "mtime": 1775908425.4246697,
+    "size": 3135,
+    "refined": true
+  },
+  "backend/app/schemas/policy.py": {
+    "hash": "9b90554b7ecf5b137dc2576e4accdfd8d128574647bfdf01081ac87cd2083446",
+    "mtime": 1775908425.3915906,
+    "size": 5357,
+    "refined": true
+  },
+  "backend/app/schemas/model.py": {
+    "hash": "fb73a16f5e4a5098d812c740b0bb4b55f517b81c8b30a4320bdfabbf41663a6c",
+    "mtime": 1775908425.4048724,
+    "size": 3139,
+    "refined": true
+  },
+  "backend/app/schemas/policyholder.py": {
+    "hash": "0bab579fad8700dd1fb507ec0c4a2d9d658ca3b80c7dce7abbddb70b18024c0c",
+    "mtime": 1775908425.3941276,
+    "size": 4412,
+    "refined": true
+  },
+  "backend/app/schemas/search.py": {
+    "hash": "43c68f001f90c901c7b30735c6e6dde935e8188d98faf747b6336ec9fba3a19e",
+    "mtime": 1775908425.4303262,
+    "size": 1480,
+    "refined": true
+  },
+  "backend/app/schemas/scenario.py": {
+    "hash": "6c0d771254fe998d23405d5be261b2f6324f5cd0348db829724eacc33f3b9051",
+    "mtime": 1775908425.406952,
+    "size": 3494,
+    "refined": true
+  },
+  "backend/app/schemas/report.py": {
+    "hash": "04935f13120c7f2cadd53ddc0ef1c854bbb4933351a9550bb8cc6ee669ee7530",
+    "mtime": 1775908425.409547,
+    "size": 4552,
+    "refined": true
+  },
+  "backend/app/schemas/task.py": {
+    "hash": "09f71381f3b05274ce25e3b4817f08f885b2d24525df3f04c990ad5b8bff3b65",
+    "mtime": 1775908425.4130673,
+    "size": 3412,
+    "refined": true
+  },
+  "backend/app/schemas/user.py": {
+    "hash": "1da364054c65dd17600415ce3b68b97cfbcda21cbfcaa13d8f5a420072ac5307",
+    "mtime": 1775908425.3875725,
+    "size": 3518,
+    "refined": true
+  },
+  "backend/app/schemas/__init__.py": {
+    "hash": "d373d8aa543228ff0887d6a7677c43e198b4960f78071fdaadf4f57a52c096a7",
+    "mtime": 1775908425.3820212,
+    "size": 365,
+    "refined": true
+  },
+  "backend/app/services/document_service.py": {
+    "hash": "05967e8edac130390ebe1740c47134180d1af7ee4a9c1d76a94893c2b429b15b",
+    "mtime": 1775909192.722837,
+    "size": 5923,
+    "refined": true
+  },
+  "backend/app/services/ai_service.py": {
+    "hash": "da9914b02a8835b812bc731dbbc151b43b18c16160dde1b72fa4380b2f0f0af1",
+    "mtime": 1775909192.714255,
+    "size": 6522,
+    "refined": true
+  },
+  "backend/app/services/automation_service.py": {
+    "hash": "3f47643765e2c42e43c45db40b5f21c6f643ad2ce734ca49c70b14e506cacc47",
+    "mtime": 1775909192.7192974,
+    "size": 14737,
+    "refined": true
+  },
+  "backend/app/services/experience_service.py": {
+    "hash": "299edc42418b4c90f8ce27684d68956ae496f71f852faac29e57da9b443fd617",
+    "mtime": 1775909192.7263718,
+    "size": 9011,
+    "refined": true
+  },
+  "ai_service/api/nlp.py": {
+    "hash": "4143d9e5b3eac33cb6447f9d03298a4da4dc6292c2ad860a06a86f264d50c828",
+    "mtime": 1775909192.661615,
+    "size": 4680,
+    "refined": true
+  },
+  "ai_service/api/embeddings.py": {
+    "hash": "fc486b54c4c47be878090873cbfcad2bf82d092e52b180f32c17cc7ac1d276ee",
+    "mtime": 1775909192.664734,
+    "size": 3765,
+    "refined": true
+  },
+  "ai_service/api/anomaly.py": {
+    "hash": "f177a0f924c29b747acfa485d5ccf2ca764280b6ea8ffa7b79e309d7c28c0d5e",
+    "mtime": 1775909192.6702542,
+    "size": 4960,
+    "refined": true
+  },
+  "ai_service/api/extraction.py": {
+    "hash": "a2e142da17c3f2d69abe6fde66bd44cf7c4daefd667fb018a7eabc9518ed07c1",
+    "mtime": 1775909192.6682556,
+    "size": 4764,
+    "refined": true
+  },
+  "ai_service/api/__init__.py": {
+    "hash": "1c364bb0d5892fa96a28e8d2dfc68ed7ab8df1b599d161b41fb945001d556fda",
+    "mtime": 1775909192.659084,
+    "size": 30,
+    "refined": true
+  },
+  "ai_service/services/anomaly_service.py": {
+    "hash": "862bd12a544035f02d6a46e0d3b2135b1ac63a77f2efa3b5c78f95d75ec82bba",
+    "mtime": 1775909192.6864424,
+    "size": 11518,
+    "refined": true
+  },
+  "ai_service/models/__init__.py": {
+    "hash": "0ddc5d1667e426639a129d37995e5d08ff44576bbcb97750eda3167ed7eddffa",
+    "mtime": 1775909192.6924613,
+    "size": 18,
+    "refined": true
+  },
+  "ai_service/models/intent_classifier.py": {
+    "hash": "80e080c3c9cf666cbf8d741da0f6e1332553e816ea8de23a084757235f12320c",
+    "mtime": 1775909192.6944625,
+    "size": 3579,
+    "refined": true
+  },
+  "ai_service/models/entity_extractor.py": {
+    "hash": "1cbe12196618b79ebea8e69d72ed416223eb8e3eb577061411c164e54fdcf15f",
+    "mtime": 1775909192.6981251,
+    "size": 7909,
+    "refined": true
+  },
+  "ai_service/services/embedding_service.py": {
+    "hash": "2d4e68bcdb1d95bf615cde4901bd251aa640969ddb4c3b8b637cbb65bf05ca98",
+    "mtime": 1775909192.679861,
+    "size": 7276,
+    "refined": true
+  },
+  "ai_service/services/__init__.py": {
+    "hash": "fe8fbb9928275ad0b8f799b5b618f3b8f929905674775e8f152d40e19b2330d4",
+    "mtime": 1775909192.674837,
+    "size": 34,
+    "refined": true
+  },
+  "ai_service/services/nlp_service.py": {
+    "hash": "b6a1bc14b2b2890ac61d316d3dcaafa45593f757e43f21fb20e90c2a4121f20d",
+    "mtime": 1775909192.6768484,
+    "size": 16353,
+    "refined": true
+  },
+  "ai_service/services/llm_client.py": {
+    "hash": "481c91cc86e4f10a90b693453a2311bf00a8a76fea2e3f42d75c6af97cb6d4fb",
+    "mtime": 1775909192.6893964,
+    "size": 4057,
+    "refined": true
+  },
+  "ai_service/services/extraction_service.py": {
+    "hash": "330004b1fb0317292aaf0f9100f020ecc8ab7ab44d5ae807e9ca6b5c8a80d75b",
+    "mtime": 1775909192.6839025,
+    "size": 10098,
+    "refined": true
+  },
+  "frontend/vite.config.ts": {
+    "hash": "837cd87e6ae585afb36cdca73266ed5408159971b02bddb4872a054daf448b7a",
+    "mtime": 1776095202.2756112,
+    "size": 428,
+    "refined": true
+  },
+  "frontend/src/vite-env.d.ts": {
+    "hash": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+    "mtime": 1776095202.28915,
+    "size": 39,
+    "refined": true
+  },
+  "frontend/src/api/assumptions.ts": {
+    "hash": "24aa0081378bca8e3ee5695c733c0645d9a7f7d184319c9a6d26d1b856121faf",
+    "mtime": 1775909740.307305,
+    "size": 3005,
+    "refined": true
+  },
+  "frontend/src/api/audit.ts": {
+    "hash": "d62c19f5f9ec54a2921f3930d072842cd9b1bbfff5860c38d4eeab5b006b8e1b",
+    "mtime": 1775909740.3189988,
+    "size": 404,
+    "refined": true
+  },
+  "frontend/src/api/ai.ts": {
+    "hash": "d5078380a7d03d6b87b4f4cd59e5e0a01c05dd5f8e45cbb4ea43ff5f4e7e28fc",
+    "mtime": 1775909740.3220034,
+    "size": 1398,
+    "refined": true
+  },
+  "frontend/src/api/auth.ts": {
+    "hash": "a42e738bfd39f8a6d00553618ce70079f09a85f6c102dc4f4381910a4e78ad52",
+    "mtime": 1775909740.2999697,
+    "size": 743,
+    "refined": true
+  },
+  "frontend/src/api/client.ts": {
+    "hash": "40feadcdbfa8343b9eb95d76b97ba3c9d1763fe8f8ff2947ad249b3b9eb8af1c",
+    "mtime": 1775909740.2979698,
+    "size": 4078,
+    "refined": true
+  },
+  "frontend/src/api/claims.ts": {
+    "hash": "232ab3d70e13e537c0b834245f5bb8e3a093bc6ac6bb582092782b3d5bdb2bea",
+    "mtime": 1775909740.3043067,
+    "size": 1556,
+    "refined": true
+  },
+  "frontend/src/api/automation.ts": {
+    "hash": "370b900e807ab49a2e2f7f15ae5d41f7ba2417cd2ba564cb4146ddaf85c77b28",
+    "mtime": 1775909740.3230083,
+    "size": 2509,
+    "refined": true
+  },
+  "frontend/src/api/calculations.ts": {
+    "hash": "a2d9cdfe02d21ea42f389685a05b5ed7a61e6c7aab907141f8c5c634c60a005f",
+    "mtime": 1775909740.308816,
+    "size": 2596,
+    "refined": true
+  },
+  "frontend/src/api/comments.ts": {
+    "hash": "e78559f0292bb7be1c85b77c7327756b09df808c1211ac31d5929c4c8336649a",
+    "mtime": 1775909740.3169954,
+    "size": 1061,
+    "refined": true
+  },
+  "frontend/src/api/imports.ts": {
+    "hash": "a4a8325396ddecc30ea53179dd1b308c680ee398454d8a42d9b5985a496997ed",
+    "mtime": 1775909740.3134062,
+    "size": 1785,
+    "refined": true
+  },
+  "frontend/src/api/experience.ts": {
+    "hash": "afb4af823c50df730ba13dcd4f17d014c455bff080abdd13fb784d312d03138b",
+    "mtime": 1775909740.325006,
+    "size": 919,
+    "refined": true
+  },
+  "frontend/src/api/dashboards.ts": {
+    "hash": "bda0274238195033333cfefa1e0aad9f01b66ee252bcd8e91855a1a331c92587",
+    "mtime": 1775909740.3124018,
+    "size": 1712,
+    "refined": true
+  },
+  "frontend/src/api/documents.ts": {
+    "hash": "a0eb415f5d8e5145f210d94e9395cc1f88c548039b8c98e10f4b4afb224410ea",
+    "mtime": 1775909740.3260038,
+    "size": 1569,
+    "refined": true
+  },
+  "frontend/src/api/models.ts": {
+    "hash": "1b5dcb4698cd17e6785097ceeb26f5407ebc8f0ec6015983f0c1668ec205238d",
+    "mtime": 1775909740.308816,
+    "size": 1717,
+    "refined": true
+  },
+  "frontend/src/api/policies.ts": {
+    "hash": "4ac5ca6f42605014cca6e18091a506623b74e8277ddd8eed89ad9c5519a26756",
+    "mtime": 1775909740.3019662,
+    "size": 2463,
+    "refined": true
+  },
+  "frontend/src/api/reports.ts": {
+    "hash": "b4bddb13b08c395e48bcd39abd9d143797d23446ad248ec5892625f30b41b483",
+    "mtime": 1775909740.3114038,
+    "size": 1807,
+    "refined": true
+  },
+  "frontend/src/api/notifications.ts": {
+    "hash": "70544e4d961390095512d2964987ce3f29a60a291c41805b35b91c353a02a1d3",
+    "mtime": 1775909740.3179905,
+    "size": 495,
+    "refined": true
+  },
+  "frontend/src/api/policyholders.ts": {
+    "hash": "fd9907829232925a6d13c1fce996c2de5742a192db3849ae5bda6898467fb139",
+    "mtime": 1775909740.303299,
+    "size": 1377,
+    "refined": true
+  },
+  "frontend/src/api/scenarios.ts": {
+    "hash": "a9e74b98c54e6ca4b623086b5be29df6000d3c16dd4a2991b6d5c7438b2ab5ce",
+    "mtime": 1775909740.3103952,
+    "size": 1780,
+    "refined": true
+  },
+  "frontend/src/hooks/useAuth.ts": {
+    "hash": "437068c5d85ba4743f31689b2610cf0553f8f5dcc83d0e65996fe24da6eb6d89",
+    "mtime": 1776028661.5740552,
+    "size": 1747,
+    "refined": true
+  },
+  "frontend/src/api/search.ts": {
+    "hash": "e4edc9f311e297267b073ea2905c8998d760e6f0c54fd29b23cdee98a3632a08",
+    "mtime": 1775909740.3210049,
+    "size": 418,
+    "refined": true
+  },
+  "frontend/src/api/tasks.ts": {
+    "hash": "d6bcd30c116234cc7c4f06290d8e2f0f617b5cbb27f9fb1be053f9ad05bde425",
+    "mtime": 1775909740.3159962,
+    "size": 1395,
+    "refined": true
+  },
+  "frontend/src/api/users.ts": {
+    "hash": "dcaf820c555fc7c34b29d566ee54a5f00ac62d14172462afb390fa4d80425db8",
+    "mtime": 1775909740.300969,
+    "size": 1760,
+    "refined": true
+  },
+  "frontend/src/hooks/useAutomation.ts": {
+    "hash": "c0e3dae69d28fe8d3e9e1a9ccfbed988a79ef372bf1939facc210cf08a6d2e3d",
+    "mtime": 1776028661.587331,
+    "size": 3652,
+    "refined": true
+  },
+  "frontend/src/hooks/useDebounce.ts": {
+    "hash": "d38a8f2dc0027b2cabc2094e152f5dd1801a01631709a606e7ea5fc0bf869375",
+    "mtime": 1776028661.5827825,
+    "size": 2354,
+    "refined": true
+  },
+  "frontend/src/hooks/useNotifications.ts": {
+    "hash": "5aa2d1aa543decf860b31c6b2cb1ee9d6293e2d2a670db7d26e8cf0bf2093e3d",
+    "mtime": 1776028661.576624,
+    "size": 1912,
+    "refined": true
+  },
+  "frontend/src/hooks/useWebSocket.ts": {
+    "hash": "a35940ab58558e95f56ab8f9358178108de15ea14a18e0be65fbe29c29b634d6",
+    "mtime": 1776028661.5797698,
+    "size": 3166,
+    "refined": true
+  },
+  "frontend/src/hooks/useLocalStorage.ts": {
+    "hash": "77d6aa618a21a1766fca40ff7931c3ec30afa93673a2706f28680e331e1abfd1",
+    "mtime": 1776028661.5848248,
+    "size": 2817,
+    "refined": true
+  },
+  "frontend/src/stores/aiStore.ts": {
+    "hash": "5c1520d0df966e96042266fae1c9a09851d9f3977acff265cc31e5f79a879f4b",
+    "mtime": 1776023501.947713,
+    "size": 2479,
+    "refined": true
+  },
+  "frontend/src/stores/notificationStore.ts": {
+    "hash": "535e38c15f65cd65d4e206ef9af8c9bf8b5dd520889fc45e7290c3d280283e36",
+    "mtime": 1776028661.6288974,
+    "size": 1957,
+    "refined": true
+  },
+  "frontend/src/stores/authStore.ts": {
+    "hash": "59dac1cf21a59f0222f891ea0c660594ccc8e5772ac23367e05d21799031fcef",
+    "mtime": 1776023501.9431577,
+    "size": 4813,
+    "refined": true
+  },
+  "frontend/src/styles/theme.ts": {
+    "hash": "4a09ae5e85dbc86a1fa3bc400f0f305784d6ef3af8e1143bfbeaf25a597f88e2",
+    "mtime": 1776023501.9744983,
+    "size": 1793,
+    "refined": true
+  },
+  "frontend/src/stores/uiStore.ts": {
+    "hash": "f47972df465b63881050138eb7fb5237200620b87185c19348bafc19d88d2e5a",
+    "mtime": 1776023501.945181,
+    "size": 2138,
+    "refined": true
+  },
+  "frontend/src/types/ai.ts": {
+    "hash": "e42487f1500d97fb63b1b1e985cda08c6366178603f388d39f00ddd1c779dea6",
+    "mtime": 1776023501.9538233,
+    "size": 3845,
+    "refined": true
+  },
+  "frontend/src/types/models.ts": {
+    "hash": "9c77b6156c70a35af61275d90c3907f2333ffb3c216e7d176e59b0c209c26760",
+    "mtime": 1776028661.630526,
+    "size": 7038,
+    "refined": true
+  },
+  "frontend/src/types/api.ts": {
+    "hash": "e5f58ac66c187094f63488313870642ee6eeb5d807e419b383e0f381ecf7d30c",
+    "mtime": 1776023501.9517114,
+    "size": 4980,
+    "refined": true
+  },
+  "frontend/src/types/ui.ts": {
+    "hash": "76ad35d2867ad7193439f5b87c088554ddb1e4f025ddf873c8999705cef5b32d",
+    "mtime": 1776023501.9528217,
+    "size": 2599,
+    "refined": true
+  },
+  "frontend/src/utils/constants.ts": {
+    "hash": "ced73d3493332f89af62727be97c5c22962a3888e620d5d268abd09ce783fcaf",
+    "mtime": 1776023501.958217,
+    "size": 6622,
+    "refined": true
+  },
+  "frontend/src/utils/formatters.ts": {
+    "hash": "fcefd8345ff632861bcf3004ab5dbf6b702dc8bd4917eb51d27aaa3f81166659",
+    "mtime": 1776023501.9548228,
+    "size": 3444,
+    "refined": true
+  },
+  "frontend/src/main.tsx": {
+    "hash": "4c5d7c4b74ad2eaf5c56aa9b4374fe6a3d1003f7edc4571274c11496db5fd0e6",
+    "mtime": 1776095202.282134,
+    "size": 435,
+    "refined": true
+  },
+  "frontend/src/App.tsx": {
+    "hash": "4db589f4f9e567a09c8eab6681bbce1fddec2ae87c6c2bed5cf168a1fc2c19fc",
+    "mtime": 1776095202.2851565,
+    "size": 1661,
+    "refined": true
+  },
+  "frontend/src/utils/helpers.ts": {
+    "hash": "364b91e822c065489bf005416fee829e22c1d6dea80c4e417970e67f101c5432",
+    "mtime": 1776023501.9601705,
+    "size": 5591,
+    "refined": true
+  },
+  "frontend/src/utils/validators.ts": {
+    "hash": "1eb3d1d7bf15b666c512a815406d502f6f698bf749cf34fd3278a32431c9aabf",
+    "mtime": 1776023501.9566772,
+    "size": 3721,
+    "refined": true
+  },
+  "frontend/src/routes.tsx": {
+    "hash": "b5cd2609f25d95388b8bb03a449d4a9bfca2993e7670f1f0a8daf5718895cd12",
+    "mtime": 1776023501.938979,
+    "size": 6284,
+    "refined": true
+  },
+  "frontend/src/pages/Login.tsx": {
+    "hash": "28911fc5f0fc9f050f0a1ed6132fc50a61ddb2d8992a1659f65220055a46f3be",
+    "mtime": 1776019704.1869254,
+    "size": 2866,
+    "refined": true
+  },
+  "frontend/src/pages/Dashboard.tsx": {
+    "hash": "377fb85615ac54f852ddc1dba64439f71ea117d58ca85a2215a8f3625f4c7532",
+    "mtime": 1776019704.188948,
+    "size": 5907,
+    "refined": true
+  },
+  "frontend/src/pages/NotFound.tsx": {
+    "hash": "484e45c99594c0a17b83ab91575ece9924aa3aade3373a0de4702f74e55c7783",
+    "mtime": 1776019704.1899357,
+    "size": 632,
+    "refined": true
+  },
+  "frontend/src/pages/assumptions/AssumptionSetCreate.tsx": {
+    "hash": "2532f42b1f9c84a0334d6a31a9f3f47c77d1ce6ab7b242d3d65620ab94b83b5c",
+    "mtime": 1776019704.205663,
+    "size": 2990,
+    "refined": true
+  },
+  "frontend/src/pages/assumptions/AssumptionSetDetail.tsx": {
+    "hash": "c091cca46ac47f4b221294fd3d72b5f81a75c21e8a037434a37a5467e1c7231a",
+    "mtime": 1776019704.2046638,
+    "size": 6122,
+    "refined": true
+  },
+  "frontend/src/pages/calculations/CalculationCreate.tsx": {
+    "hash": "cffc7a4d33d9a2418ea29afc8e778d24151e69ba40aba44f414f0dc259829dc3",
+    "mtime": 1776019704.1996648,
+    "size": 3396,
+    "refined": true
+  },
+  "frontend/src/pages/calculations/CalculationList.tsx": {
+    "hash": "019fdd37b83b81dcf125d8adcc4614fcbd1cf6e1663c63ea867f4924deb9377c",
+    "mtime": 1776019704.196659,
+    "size": 5877,
+    "refined": true
+  },
+  "frontend/src/pages/calculations/CalculationDetail.tsx": {
+    "hash": "0599996a93761e2d086a841a1e694a2a8f0b00d41ea0f11f858adbd757cb010d",
+    "mtime": 1776019704.1986578,
+    "size": 8535,
+    "refined": true
+  },
+  "frontend/src/pages/assumptions/AssumptionSetList.tsx": {
+    "hash": "0db13914898174c0cde6ee62cd42e608575062684585ed0ae3276d32c34386df",
+    "mtime": 1776019704.2016575,
+    "size": 5204,
+    "refined": true
+  },
+  "frontend/src/pages/imports/ImportWizard.tsx": {
+    "hash": "dc62268d2e54c5190ce4436858fd402a0ea6db321869ed54210bd08436cffd68",
+    "mtime": 1776019704.2086585,
+    "size": 11450,
+    "refined": true
+  },
+  "frontend/src/components/ai/AISearchBar.tsx": {
+    "hash": "f3201f25850daee9610d0cf309bec07a09ce2693aa9cd8c795387f7f05dc96a9",
+    "mtime": 1776019704.1721404,
+    "size": 7380,
+    "refined": true
+  },
+  "frontend/src/pages/policies/PolicyList.tsx": {
+    "hash": "af72e0d0b63f6232c9ecf757ede387106357498719d61ff2ae4866b41e15dbbb",
+    "mtime": 1776026951.5313027,
+    "size": 7308,
+    "refined": true
+  },
+  "frontend/src/pages/policies/PolicyDetail.tsx": {
+    "hash": "5eee9d88494aca354405a393ba5aa9a9c05c262dbd83262289859b2097bbbd0a",
+    "mtime": 1776026951.5335073,
+    "size": 10847,
+    "refined": true
+  },
+  "frontend/src/pages/policies/PolicyCreate.tsx": {
+    "hash": "5f9fb84004019060344c25d65bfc24de94f621c0cdcf8b98d1fbb0069b66f6dc",
+    "mtime": 1776026951.535237,
+    "size": 6957,
+    "refined": true
+  },
+  "frontend/src/components/ai/AnomalyIndicator.tsx": {
+    "hash": "88228cd9d8ee1e306e06d3639d64655f39dfc70ba63ab94ee9e3b87c228febf6",
+    "mtime": 1776019704.1756501,
+    "size": 1386,
+    "refined": true
+  },
+  "frontend/src/components/ai/NarrativeSummary.tsx": {
+    "hash": "04cd53b9161b203efcb23725d5fa3a0c3054138376db1749c8ca08e787581a40",
+    "mtime": 1776019704.173146,
+    "size": 2918,
+    "refined": true
+  },
+  "frontend/src/components/ai/ExperienceRecommendations.tsx": {
+    "hash": "b45802abf9fa58d7f31c4583312616480ccbe5b5763b73a083d7e55f0e98dc3f",
+    "mtime": 1776019704.178228,
+    "size": 3813,
+    "refined": true
+  },
+  "frontend/src/components/charts/BarChart.tsx": {
+    "hash": "21fb1e1c6124b010626d45d4fbe0b1479d4f5fcaf5e74bf6258ef17c76bb4d78",
+    "mtime": 1776019704.168623,
+    "size": 1676,
+    "refined": true
+  },
+  "frontend/src/components/ai/DataQualityPanel.tsx": {
+    "hash": "1613c4e2b4a6c9578740b5d5a60b311d68a8f6551db137772bc56ab2e3cb7182",
+    "mtime": 1776019704.1772273,
+    "size": 4016,
+    "refined": true
+  },
+  "frontend/src/components/charts/LineChart.tsx": {
+    "hash": "f4bafdc8fa8f738afa2495566b84c1e69b919ccc00004bec28181a55a4c8acfb",
+    "mtime": 1776019704.167621,
+    "size": 1432,
+    "refined": true
+  },
+  "frontend/src/components/charts/PieChart.tsx": {
+    "hash": "f01f7ae379556b1bd6a352973382c9bc44535e933cf0e998dd7703e17383df36",
+    "mtime": 1776019704.170132,
+    "size": 1286,
+    "refined": true
+  },
+  "frontend/src/components/common/ConfirmModal.tsx": {
+    "hash": "e72f19ee98dafa3517707a980f919b02a47f65ebc38b91c4e122710b8467b867",
+    "mtime": 1776019704.166617,
+    "size": 1087,
+    "refined": true
+  },
+  "frontend/src/components/common/EmptyState.tsx": {
+    "hash": "1899ac35a7b32c4569b9ae326efae03eac0f5ccfc186d0e57934cd0f5411705c",
+    "mtime": 1776019704.164617,
+    "size": 1124,
+    "refined": true
+  },
+  "frontend/src/components/common/DataTable.tsx": {
+    "hash": "d1437d6aa63302a0449c57f3f37c55e615beab43b84932f5e6caef6067c47b25",
+    "mtime": 1776019704.1573427,
+    "size": 3994,
+    "refined": true
+  },
+  "frontend/src/components/common/FilterPanel.tsx": {
+    "hash": "ff1471311d6a63b583597db829c23665b961a89fe351e05769e366a744e09cd2",
+    "mtime": 1776019704.158349,
+    "size": 2705,
+    "refined": true
+  },
+  "frontend/src/components/common/LoadingSpinner.tsx": {
+    "hash": "8648e79aa630e87c4b195d9b1dae3af0044fb1604afbb1b503c5c210e2af8f24",
+    "mtime": 1776019704.1626186,
+    "size": 980,
+    "refined": true
+  },
+  "frontend/src/components/common/Layout.tsx": {
+    "hash": "f4a78e2bc3733b0f9f95f933719f8b44fdbdbdf3a9853d75137551da26728204",
+    "mtime": 1776019704.1480787,
+    "size": 934,
+    "refined": true
+  },
+  "frontend/src/components/common/Header.tsx": {
+    "hash": "d730336c9c6be7fa81632d6d61a9908d98a634edf37b64a954f8a782fc22e341",
+    "mtime": 1776028661.605102,
+    "size": 3949,
+    "refined": true
+  },
+  "frontend/src/components/common/NotificationDropdown.tsx": {
+    "hash": "a5ae00ba339e106782f135c2b5df12109d32fdca8243dfa11e267d2886bc0d3c",
+    "mtime": 1776019704.1530886,
+    "size": 3809,
+    "refined": true
+  },
+  "frontend/src/components/common/PageHeader.tsx": {
+    "hash": "458b7dcebd44ad15e6ddcbf1cde8e5751c3051e95234af9bf76ec099aaa8a9e1",
+    "mtime": 1776019704.1563451,
+    "size": 1767,
+    "refined": true
+  },
+  "frontend/src/components/common/Sidebar.tsx": {
+    "hash": "7b780dc3c6b4b2ab9666d396b0f7a850817f6d6a6beef584294cb59b39b1fdc3",
+    "mtime": 1776028661.5979533,
+    "size": 7628,
+    "refined": true
+  },
+  "frontend/src/components/common/StatusBadge.tsx": {
+    "hash": "7c3d83491f952e7488267b7cb5831fa125cec785a9421e05269c38d4df1a66f9",
+    "mtime": 1776019704.1616192,
+    "size": 530,
+    "refined": true
+  },
+  "frontend/src/components/widgets/AnomalyAlertWidget.tsx": {
+    "hash": "a9f8eb3e42d7d9fd67b2cc6f2991cc317afb03b92a6d414de4996eac1d72234d",
+    "mtime": 1776019704.1822348,
+    "size": 2774,
+    "refined": true
+  },
+  "frontend/src/components/common/ProtectedRoute.tsx": {
+    "hash": "0df1517ac85160e7681c6949a77755872b6ca2b651f7f32b70e326ec88703ed7",
+    "mtime": 1776019704.1543462,
+    "size": 1278,
+    "refined": true
+  },
+  "frontend/src/components/widgets/RecentCalculationsWidget.tsx": {
+    "hash": "813d84adf8ea4a36a0450833c6e1d6067c8cb8259c3cbaa61ea23ab8d8573e1d",
+    "mtime": 1776019704.1812296,
+    "size": 1877,
+    "refined": true
+  },
+  "frontend/src/components/widgets/StatCard.tsx": {
+    "hash": "62a32e2badd3d152625fb7e859b3563e0cf512b040166705a8ffbc30c11c15a8",
+    "mtime": 1776019704.180228,
+    "size": 1681,
+    "refined": true
+  },
+  "context.md": {
+    "hash": "b4cfbbf765a176a3dd4c47152ae369603ac0bc38a8c97d0e35994c40df7cc1a1",
+    "mtime": 1775880668.0583625,
+    "size": 82201,
+    "refined": true
+  },
+  "QUICKSTART.md": {
+    "hash": "964f432e39049e4aa95a6ec50b07c5d78ca3dc10ec43d7d014632e3bad4e90cb",
+    "mtime": 1776095202.2463496,
+    "size": 2147,
+    "refined": true
+  },
+  "frontend/src/components/widgets/ScheduledJobsWidget.tsx": {
+    "hash": "f6fda98e381b8c5498b5b3a6b23447e23bd52f2b19a5683dbe296865fb7fdd05",
+    "mtime": 1776019704.1842325,
+    "size": 2613,
+    "refined": true
+  },
+  "README.md": {
+    "hash": "b8801574bb9970257a63797ea1ec6513f20ad4661cd4a30bba7e5af3f9bf7ca3",
+    "mtime": 1775906965.8075528,
+    "size": 3478,
+    "refined": true
+  },
+  "calculation_engine/README.md": {
+    "hash": "8edcc0609238a40ce11a2de122a726c5db024456d382f620cbe14bcbe9817238",
+    "mtime": 1776039774.4671533,
+    "size": 94,
+    "refined": true
+  },
+  "docs/api-contracts.md": {
+    "hash": "7190cb911e01651de611db4b890e48a7fe0253c5c2bda0ac340d2ad681d9b62c",
+    "mtime": 1776026951.4894469,
+    "size": 8896,
+    "refined": true
+  },
+  "backend/README.md": {
+    "hash": "55f12a9dcf707e327c401aa544af3ad397aaf9630b386aeb98abbbb526f22102",
+    "mtime": 1776039774.4671533,
+    "size": 74,
+    "refined": true
+  },
+  "docs/ai-features.md": {
+    "hash": "0f3bc41e50677f65edea1b15c6bda11220d10fb4de23f19f62856aeea480d9c0",
+    "mtime": 1775906965.8211744,
+    "size": 8059,
+    "refined": true
+  },
+  "docs/architecture.md": {
+    "hash": "261561ab8841f09d306a266e81b966fc1516f06897d1c389fbd69c2571140793",
+    "mtime": 1775906965.8176582,
+    "size": 12195,
+    "refined": true
+  },
+  "docs/onboarding-guide.md": {
+    "hash": "876f4ed985e4dbda8496f3a5919b524e1203d0554eb122bdf3e5267bb3998882",
+    "mtime": 1776026951.4964292,
+    "size": 8868,
+    "refined": true
+  },
+  "docs/automation-guide.md": {
+    "hash": "3ea9121f5b6d7e1b5f115e1d41629c87a7564870fed7cacf31d44bbce37c1b35",
+    "mtime": 1775906965.8251746,
+    "size": 7478,
+    "refined": true
+  },
+  "docs/data-model.md": {
+    "hash": "90599cc3dfed35f41e144db76f739ff5a45b087b6f116f16bf2a4aa5c1fde504",
+    "mtime": 1775906965.8191638,
+    "size": 18058,
+    "refined": true
+  },
+  "docs/calculation-engine.md": {
+    "hash": "a152d68bc6784ed083e2e98700535de4577a4aca4200e16f9e09e7c790091d43",
+    "mtime": 1775906965.8231766,
+    "size": 14871,
+    "refined": true
+  },
+  "docs/regulatory-compliance.md": {
+    "hash": "325cda2aa34f8dd22f67c0edc6cfc711bb9b9d70148a26153a05842823373f68",
+    "mtime": 1776026951.4914525,
+    "size": 7391,
+    "refined": true
+  },
+  "infrastructure/kubernetes/calculation-engine/deployment.yaml": {
+    "hash": "7be2cd191ad69ea7064b635fc9814faa88a7ac76289435016fb6a93a3fceeb67",
+    "mtime": 1776026951.499736,
+    "size": 2165,
+    "refined": true
+  },
+  "infrastructure/monitoring/grafana/grafana.yaml": {
+    "hash": "67427231d380cb9b3351b34ec9d4bfaf6ef1d61f5244dc26ede9b2f388c6e714",
+    "mtime": 1776026951.5133996,
+    "size": 2392,
+    "refined": true
+  },
+  "infrastructure/monitoring/prometheus/prometheus.yaml": {
+    "hash": "e6d761d9f7f01d69fd3e394ecc779e05215fe3f438c34d2f29f649256d9fc391",
+    "mtime": 1776026951.5108688,
+    "size": 2700,
+    "refined": true
+  },
+  "docs/user-roles-permissions.md": {
+    "hash": "63c6ad00a535f7c2a24fec956c85ac1f47da888fc62249588be7e72c5af3590d",
+    "mtime": 1776026951.4938998,
+    "size": 6727,
+    "refined": true
+  },
+  "infrastructure/kubernetes/frontend/deployment.yaml": {
+    "hash": "2de7a933f7cd6067b3dc071782a85c127cf039fcd5966a611d6e9496b20c5cb9",
+    "mtime": 1776026951.5019138,
+    "size": 1271,
+    "refined": true
+  },
+  "infrastructure/kubernetes/minio/deployment.yaml": {
+    "hash": "f6185200f1321197ed68137480194c34492eb79e90fe312192948037d84be655",
+    "mtime": 1776026951.5078275,
+    "size": 2305,
+    "refined": true
+  },
+  "infrastructure/kubernetes/redis/deployment.yaml": {
+    "hash": "0f0565ee6ee9045ecc0334b0668f0765c5f1bc16c4280b210da90aa65c8dd392",
+    "mtime": 1776026951.505813,
+    "size": 2010,
+    "refined": true
+  },
+  "infrastructure/kubernetes/postgresql/deployment.yaml": {
+    "hash": "059c6b1680605c3690e16789576b087e5fb6ffd0c02ff303b6c9d706db1e2b5a",
+    "mtime": 1776026951.5041504,
+    "size": 2222,
+    "refined": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "timestamp": "20260420T153225",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\services\\auth_service.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\031_20260420T153225\\auth_service.py"
+    }
+  ],
+  "prompt": "PS C:\\Users\\TOBI\\Desktop\\actuflow> dir scripts\\seed_db.py\n\n\n    Directory: C:\\Users\\TOBI\\Desktop\\actuflow\\scripts\n\n\nMode                 LastWriteTime         Length Name\n----                 -------------         ------ ----\n-a----         4/20/2026   3:57 PM          11152 seed_db.py\n\n\nPS C:\\Users\\TOBI\\Desktop\\actuflow> dir backend\\scripts\\seed_db.py\n\n\n    Directory: C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\scripts\n\n\nMode                 LastWriteTime         Length Name\n----                 -------------         ------ ----\n-a----         4/20/2026   4:26 PM          12244 seed_db.py\n\n\nPS C:\\Users\\TOBI\\Desktop\\actuflow> docker-compose exec backend python scripts/seed_db.py\nTraceback (most recent call last):\n  File \"/app/scripts/seed_db.py\", line 26, in <module>\n    from app.services.auth_service import get_password_hash\nModuleNotFoundError: No module named 'app.services.auth_service'\nPS C:\\Users\\TOBI\\Desktop\\actuflow> whats your problem, you dey mad"
+}

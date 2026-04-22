@@ -1,0 +1,10 @@
+{
+  "timestamp": "20260421T235506",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\Header.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\041_20260421T235506\\Header.tsx"
+    }
+  ],
+  "prompt": "there is a notification bar in the ui with a red circle with 3 in it thats not clicking,whats up"
+}

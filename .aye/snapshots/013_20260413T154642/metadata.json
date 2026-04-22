@@ -1,0 +1,102 @@
+{
+  "timestamp": "20260413T154642",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\requirements.txt",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\requirements.txt"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\requirements.txt",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\requirements.txt"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\requirements.txt",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\requirements.txt"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\Dockerfile",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\Dockerfile"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\docker-compose.yml",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\docker-compose.yml"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\QUICKSTART.md",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\QUICKSTART.md"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\main.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\main.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\celery_app.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\celery_app.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\tasks\\__init__.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\__init__.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\tasks\\calculation_task.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\calculation_task.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\calculation_engine\\tasks\\report_task.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\report_task.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\ai_service\\main.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\main.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\package.json",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\package.json"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\index.html",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\index.html"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\vite.config.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\vite.config.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\tsconfig.json",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\tsconfig.json"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\main.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\main.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\App.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\App.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\styles\\globals.css",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\globals.css"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\vite-env.d.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\013_20260413T154642\\vite-env.d.ts"
+    }
+  ],
+  "prompt": " => => # Bus error (core dumped)                                                                                          \n => [celery-beat 7/7] RUN adduser --disabled-password --gecos '' appuser &&     chown -R appuser:appuser /app         7.6s\n => [celery-beat] exporting to image                                                                                  1.8s\n => => exporting layers                                                                                               0.6s\n => => exporting manifest sha256:16ac34a89ba560c33661c94db92cc52e60954ae8cc5433885f291f15d1d93055                     0.1s\n => => exporting config sha256:1cd305199f121e67b76120f601b48afcf5a728538df7c22b732384606f1cc550                       0.1s\n => => exporting attestation manifest sha256:0daab1b642b4b24c4e6b81a672af109099168ef213a1638087b8f2a60b5392f0         0.2s\n => => exporting manifest list sha256:56b928a633c537d73b7ba2206aa00405bd7508a95b93f81dba9f1928f1ea9a12                0.1s\n[+] Running 1/2o docker.io/library/actuflow-celery-beat:latest                                                        0.0s\n \u2714 Service celery-beat  Built                                                                                        16.8s \n - Service backend      Building                                                                                   4412.3s \nfailed to receive status: rpc error: code = Unavailable desc = error reading from server: EOF\nPS C:\\Users\\TOBI\\Desktop\\actuflow>  => => # Bus error (core dumped)                                                                                          \n => [celery-beat 7/7] RUN adduser --disabled-password --gecos '' appuser &&     chown -R appuser:appuser /app         7.6s\n => [celery-beat] exporting to image                                                                                  1.8s\n => => exporting layers                                                                                               0.6s\n => => exporting manifest sha256:16ac34a89ba560c33661c94db92cc52e60954ae8cc5433885f291f15d1d93055                     0.1s\n => => exporting config sha256:1cd305199f121e67b76120f601b48afcf5a728538df7c22b732384606f1cc550                       0.1s\n => => exporting attestation manifest sha256:0daab1b642b4b24c4e6b81a672af109099168ef213a1638087b8f2a60b5392f0         0.2s\n => => exporting manifest list sha256:56b928a633c537d73b7ba2206aa00405bd7508a95b93f81dba9f1928f1ea9a12                0.1s\n[+] Running 1/2o docker.io/library/actuflow-celery-beat:latest                                                        0.0s\n \u2714 Service celery-beat  Built                                                                                        16.8s \n - Service backend      Building                                                                                   4412.3s \nfailed to receive status: rpc error: code = Unavailable desc = error reading from server: EOF\nPS C:\\Users\\TOBI\\Desktop\\actuflow>wasted so much fucking time to send me this"
+}

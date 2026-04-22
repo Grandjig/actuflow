@@ -1,0 +1,42 @@
+{
+  "timestamp": "20260421T223642",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\utils\\formatters.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\038_20260421T223642\\formatters.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\common\\StatusBadge.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\038_20260421T223642\\StatusBadge.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\schemas\\policy.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\038_20260421T223642\\policy.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\policies.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\038_20260421T223642\\policies.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\router.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\038_20260421T223642\\router.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\policyholders.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\038_20260421T223642\\policyholders.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\claims.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\038_20260421T223642\\claims.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\assumptions.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\038_20260421T223642\\assumptions.py"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\backend\\app\\api\\calculations.py",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\038_20260421T223642\\calculations.py"
+    }
+  ],
+  "prompt": "PS C:\\Users\\TOBI\\Desktop\\actuflow> docker-compose logs frontend --tail 50\nactuflow-frontend  |\nactuflow-frontend  | > actuflow-frontend@1.0.0 dev\nactuflow-frontend  | > vite --host 0.0.0.0\nactuflow-frontend  |\nactuflow-frontend  |\nactuflow-frontend  |   VITE v5.4.21  ready in 1039 ms\nactuflow-frontend  |\nactuflow-frontend  |   \u279c  Local:   http://localhost:3000/\nactuflow-frontend  |   \u279c  Network: http://172.19.0.5:3000/\nactuflow-frontend  | Error:   Failed to scan for dependencies from entries:\nactuflow-frontend  |   /app/index.html\nactuflow-frontend  |\nactuflow-frontend  |   \u2718 [ERROR] No matching export in \"src/utils/formatters.ts\" for import \"formatStatus\"\nactuflow-frontend  |\nactuflow-frontend  |     src/components/common/StatusBadge.tsx:3:9:\nactuflow-frontend  |       3 \u2502 import { formatStatus } from '@/utils/formatters';\nactuflow-frontend  |         \u2575          ~~~~~~~~~~~~\nactuflow-frontend  |\nactuflow-frontend  |\nactuflow-frontend  |     at failureErrorWithLog (/app/node_modules/esbuild/lib/main.js:1472:15)\nactuflow-frontend  |     at /app/node_modules/esbuild/lib/main.js:945:25\nactuflow-frontend  |     at runOnEndCallbacks (/app/node_modules/esbuild/lib/main.js:1315:45)\nactuflow-frontend  |     at buildResponseToResult (/app/node_modules/esbuild/lib/main.js:943:7)\nactuflow-frontend  |     at /app/node_modules/esbuild/lib/main.js:955:9\nactuflow-frontend  |     at new Promise (<anonymous>)\nactuflow-frontend  |     at requestCallbacks.on-end (/app/node_modules/esbuild/lib/main.js:954:54)\nactuflow-frontend  |     at handleRequest (/app/node_modules/esbuild/lib/main.js:647:17)\nactuflow-frontend  |     at handleIncomingPacket (/app/node_modules/esbuild/lib/main.js:672:7)\nactuflow-frontend  |     at Socket.readFromStdout (/app/node_modules/esbuild/lib/main.js:600:7)\nPS C:\\Users\\TOBI\\Desktop\\actuflow> docker-compose logs backend --tail 50\nactuflow-backend  | INFO:     Will watch for changes in these directories: ['/app']\nactuflow-backend  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)\nactuflow-backend  | INFO:     Started reloader process [1] using WatchFiles\nactuflow-backend  | Process SpawnProcess-1:\nactuflow-backend  | Traceback (most recent call last):\nactuflow-backend  |   File \"/usr/local/lib/python3.12/multiprocessing/process.py\", line 314, in _bootstrap\nactuflow-backend  |     self.run()\nactuflow-backend  |   File \"/usr/local/lib/python3.12/multiprocessing/process.py\", line 108, in run\nactuflow-backend  |     self._target(*self._args, **self._kwargs)\nactuflow-backend  |   File \"/usr/local/lib/python3.12/site-packages/uvicorn/_subprocess.py\", line 78, in subprocess_started\nactuflow-backend  |     target(sockets=sockets)\nactuflow-backend  |   File \"/usr/local/lib/python3.12/site-packages/uvicorn/server.py\", line 62, in run\nactuflow-backend  |     return asyncio.run(self.serve(sockets=sockets))\nactuflow-backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nactuflow-backend  |   File \"/usr/local/lib/python3.12/asyncio/runners.py\", line 195, in run\nactuflow-backend  |     return runner.run(main)\nactuflow-backend  |            ^^^^^^^^^^^^^^^^\nactuflow-backend  |   File \"/usr/local/lib/python3.12/asyncio/runners.py\", line 118, in run\nactuflow-backend  |     return self._loop.run_until_complete(task)\nactuflow-backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nactuflow-backend  |   File \"uvloop/loop.pyx\", line 1518, in uvloop.loop.Loop.run_until_complete\nactuflow-backend  |   File \"/usr/local/lib/python3.12/site-packages/uvicorn/server.py\", line 69, in serve\nactuflow-backend  |     config.load()\nactuflow-backend  |   File \"/usr/local/lib/python3.12/site-packages/uvicorn/config.py\", line 458, in load\nactuflow-backend  |     self.loaded_app = import_from_string(self.app)\nactuflow-backend  |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nactuflow-backend  |   File \"/usr/local/lib/python3.12/site-packages/uvicorn/importer.py\", line 21, in import_from_string\nactuflow-backend  |     module = importlib.import_module(module_str)\nactuflow-backend  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nactuflow-backend  |   File \"/usr/local/lib/python3.12/importlib/__init__.py\", line 90, in import_module\nactuflow-backend  |     return _bootstrap._gcd_import(name[level:], package, level)\nactuflow-backend  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nactuflow-backend  |   File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\nactuflow-backend  |   File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\nactuflow-backend  |   File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\nactuflow-backend  |   File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\nactuflow-backend  |   File \"<frozen importlib._bootstrap_external>\", line 999, in exec_module\nactuflow-backend  |   File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\nactuflow-backend  |   File \"/app/app/main.py\", line 10, in <module>\nactuflow-backend  |     from app.api.router import api_router\nactuflow-backend  |   File \"/app/app/api/router.py\", line 8, in <module>\nactuflow-backend  |     from app.api import (\nactuflow-backend  |   File \"/app/app/api/policies.py\", line 24, in <module>\nactuflow-backend  |     from app.schemas.policy import (\nactuflow-backend  | ImportError: cannot import name 'PolicyListItem' from 'app.schemas.policy' (/app/app/schemas/policy.py)\nPS C:\\Users\\TOBI\\Desktop\\actuflow> curl http://localhost:8000/api/v1/health\ncurl : The underlying connection was closed: The connection was closed unexpectedly.\nAt line:1 char:1\n+ curl http://localhost:8000/api/v1/health\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebException\n    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand\n\nPS C:\\Users\\TOBI\\Desktop\\actuflow>look i dont have time for this bullshit. if you dont want to fucking solve thjis, then lets close the fucking shat....what the fuck is the problem"
+}
