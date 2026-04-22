@@ -48,7 +48,7 @@ export async function cloneAssumptionSet(
   return post(`/assumption-sets/${id}/clone`, { name });
 }
 
-export async function submitForApproval(id: string): Promise<AssumptionSet> {
+export async function submitAssumptionSet(id: string): Promise<AssumptionSet> {
   return post(`/assumption-sets/${id}/submit`);
 }
 
@@ -61,9 +61,9 @@ export async function approveAssumptionSet(
 
 export async function rejectAssumptionSet(
   id: string,
-  notes: string
+  reason: string
 ): Promise<AssumptionSet> {
-  return post(`/assumption-sets/${id}/reject`, { notes });
+  return post(`/assumption-sets/${id}/reject`, { reason });
 }
 
 // Assumption Tables

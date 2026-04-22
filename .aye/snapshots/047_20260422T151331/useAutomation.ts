@@ -1,5 +1,5 @@
 /**
- * Automation hooks for scheduled jobs and rules.
+ * Automation hooks.
  */
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -19,12 +19,19 @@ import {
 } from '@/api/automation';
 import type { ScheduledJob, JobExecution, AutomationRule } from '@/types/models';
 
+interface ListParams {
+  page?: number;
+  page_size?: number;
+  search?: string;
+  [key: string]: unknown;
+}
+
 // Scheduled Jobs
 
-export function useScheduledJobs(params?: Record<string, unknown>) {
+export function useScheduledJobs(params?: ListParams) {
   return useQuery({
     queryKey: ['scheduledJobs', params],
-    queryFn: () => getScheduledJobs(params),
+    queryFn: () => getScheduledJobs(params as Record<string, unknown>),
   });
 }
 
@@ -70,7 +77,7 @@ export function useDeleteScheduledJob() {
   });
 }
 
-export function useTriggerJob() {
+export function useTriggerJobNow() {
   const queryClient = useQueryClient();
   
   return useMutation({
@@ -82,23 +89,20 @@ export function useTriggerJob() {
   });
 }
 
-// Alias for compatibility
-export const useTriggerJobNow = useTriggerJob;
-
-export function useJobExecutions(jobId: string, params?: Record<string, unknown>) {
+export function useJobExecutions(jobId: string, params?: ListParams) {
   return useQuery({
     queryKey: ['jobExecutions', jobId, params],
-    queryFn: () => getJobExecutions(jobId, params),
+    queryFn: () => getJobExecutions(jobId, params as Record<string, unknown>),
     enabled: !!jobId,
   });
 }
 
 // Automation Rules
 
-export function useAutomationRules(params?: Record<string, unknown>) {
+export function useAutomationRules(params?: ListParams) {
   return useQuery({
     queryKey: ['automationRules', params],
-    queryFn: () => getAutomationRules(params),
+    queryFn: () => getAutomationRules(params as Record<string, unknown>),
   });
 }
 

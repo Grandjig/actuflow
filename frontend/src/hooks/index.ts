@@ -25,6 +25,7 @@ export {
   useUpdateScheduledJob,
   useDeleteScheduledJob,
   useTriggerJob,
+  useTriggerJobNow,
   useJobExecutions,
   useAutomationRules,
   useAutomationRule,
