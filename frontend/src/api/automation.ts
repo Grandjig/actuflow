@@ -1,63 +1,89 @@
+/**
+ * Automation API functions.
+ */
+
 import { get, post, put, del } from './client';
-import type { PaginatedResponse, ListParams, SuccessResponse } from '@/types/api';
 import type { ScheduledJob, JobExecution, AutomationRule } from '@/types/models';
 
-export interface ScheduledJobCreate {
-  name: string;
-  description?: string;
-  job_type: string;
-  cron_expression: string;
-  config: Record<string, unknown>;
-  is_active?: boolean;
-}
-
-export interface AutomationRuleCreate {
-  name: string;
-  description?: string;
-  trigger_type: string;
-  trigger_config: Record<string, unknown>;
-  action_type: string;
-  action_config: Record<string, unknown>;
-  is_active?: boolean;
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
 }
 
 // Scheduled Jobs
-export const getScheduledJobs = (params?: ListParams & { is_active?: boolean; job_type?: string }) =>
-  get<PaginatedResponse<ScheduledJob>>('/automation/jobs', params);
 
-export const getScheduledJob = (id: string) =>
-  get<ScheduledJob>(`/automation/jobs/${id}`);
+export async function getScheduledJobs(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<ScheduledJob>> {
+  return get('/scheduled-jobs', params);
+}
 
-export const createScheduledJob = (data: ScheduledJobCreate) =>
-  post<ScheduledJob>('/automation/jobs', data);
+export async function getScheduledJob(id: string): Promise<ScheduledJob> {
+  return get(`/scheduled-jobs/${id}`);
+}
 
-export const updateScheduledJob = (id: string, data: Partial<ScheduledJobCreate>) =>
-  put<ScheduledJob>(`/automation/jobs/${id}`, data);
+export async function createScheduledJob(
+  data: Partial<ScheduledJob>
+): Promise<ScheduledJob> {
+  return post('/scheduled-jobs', data);
+}
 
-export const deleteScheduledJob = (id: string) =>
-  del<void>(`/automation/jobs/${id}`);
+export async function updateScheduledJob(
+  id: string,
+  data: Partial<ScheduledJob>
+): Promise<ScheduledJob> {
+  return put(`/scheduled-jobs/${id}`, data);
+}
 
-export const triggerJobNow = (id: string) =>
-  post<{ execution_id: string; status: string }>(`/automation/jobs/${id}/run`);
+export async function deleteScheduledJob(id: string): Promise<void> {
+  return del(`/scheduled-jobs/${id}`);
+}
 
-export const getJobExecutions = (jobId: string) =>
-  get<JobExecution[]>(`/automation/jobs/${jobId}/executions`);
+export async function triggerJobNow(id: string): Promise<JobExecution> {
+  return post(`/scheduled-jobs/${id}/run-now`);
+}
+
+export async function getJobExecutions(
+  jobId: string,
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<JobExecution>> {
+  return get(`/scheduled-jobs/${jobId}/executions`, params);
+}
 
 // Automation Rules
-export const getAutomationRules = (params?: ListParams & { is_active?: boolean }) =>
-  get<AutomationRule[]>('/automation/rules', params);
 
-export const getAutomationRule = (id: string) =>
-  get<AutomationRule>(`/automation/rules/${id}`);
+export async function getAutomationRules(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<AutomationRule>> {
+  return get('/automation-rules', params);
+}
 
-export const createAutomationRule = (data: AutomationRuleCreate) =>
-  post<AutomationRule>('/automation/rules', data);
+export async function getAutomationRule(id: string): Promise<AutomationRule> {
+  return get(`/automation-rules/${id}`);
+}
 
-export const updateAutomationRule = (id: string, data: Partial<AutomationRuleCreate>) =>
-  put<AutomationRule>(`/automation/rules/${id}`, data);
+export async function createAutomationRule(
+  data: Partial<AutomationRule>
+): Promise<AutomationRule> {
+  return post('/automation-rules', data);
+}
 
-export const deleteAutomationRule = (id: string) =>
-  del<void>(`/automation/rules/${id}`);
+export async function updateAutomationRule(
+  id: string,
+  data: Partial<AutomationRule>
+): Promise<AutomationRule> {
+  return put(`/automation-rules/${id}`, data);
+}
 
-export const testAutomationRule = (id: string) =>
-  post<{ success: boolean; message: string }>(`/automation/rules/${id}/test`);
+export async function deleteAutomationRule(id: string): Promise<void> {
+  return del(`/automation-rules/${id}`);
+}
+
+export async function testAutomationRule(
+  id: string,
+  testData: Record<string, unknown>
+): Promise<{ would_trigger: boolean; reason: string }> {
+  return post(`/automation-rules/${id}/test`, testData);
+}

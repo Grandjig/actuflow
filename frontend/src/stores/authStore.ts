@@ -1,130 +1,82 @@
+/**
+ * Authentication store using Zustand.
+ */
+
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import type { User } from '@/types/models';
 
-interface User {
-  id: string;
-  email: string;
-  full_name: string;
-  role?: {
-    id: string;
-    name: string;
-    permissions: string[];
-  };
-  department?: string;
-}
-
-interface AuthState {
+export interface AuthState {
   user: User | null;
-  token: string | null;
+  accessToken: string | null;
   refreshToken: string | null;
   isAuthenticated: boolean;
-  login: (email: string, password: string) => Promise<void>;
+  isLoading: boolean;
+  error: string | null;
+  
+  // Actions
+  setUser: (user: User | null) => void;
+  setTokens: (accessToken: string, refreshToken: string) => void;
+  setLoading: (loading: boolean) => void;
+  setError: (error: string | null) => void;
   logout: () => void;
-  setUser: (user: User) => void;
-  hasPermission: (resource: string, action: string) => boolean;
+  hasPermission: (permission: string) => boolean;
 }
 
 export const useAuthStore = create<AuthState>()(
   persist(
     (set, get) => ({
       user: null,
-      token: null,
+      accessToken: null,
       refreshToken: null,
       isAuthenticated: false,
-
-      login: async (email: string, password: string) => {
-        // For demo purposes, simulate login
-        // In production, this would call the real API
-        try {
-          const response = await fetch('http://localhost:8000/api/v1/auth/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password }),
-          });
-
-          if (!response.ok) {
-            // If API fails, use mock login for demo
-            if (email === 'admin@actuflow.com' && password === 'admin123') {
-              set({
-                user: {
-                  id: '1',
-                  email: 'admin@actuflow.com',
-                  full_name: 'System Administrator',
-                  role: { id: '1', name: 'admin', permissions: ['*'] },
-                  department: 'IT',
-                },
-                token: 'demo-token',
-                refreshToken: 'demo-refresh',
-                isAuthenticated: true,
-              });
-              return;
-            }
-            throw new Error('Invalid credentials');
-          }
-
-          const data = await response.json();
-          
-          // Fetch user profile
-          const profileResponse = await fetch('http://localhost:8000/api/v1/auth/me', {
-            headers: { Authorization: `Bearer ${data.access_token}` },
-          });
-          
-          const user = profileResponse.ok ? await profileResponse.json() : {
-            id: '1',
-            email,
-            full_name: email.split('@')[0],
-            role: { id: '1', name: 'user', permissions: [] },
-          };
-
-          set({
-            user,
-            token: data.access_token,
-            refreshToken: data.refresh_token,
-            isAuthenticated: true,
-          });
-        } catch (error) {
-          // Fallback for demo
-          if (email === 'admin@actuflow.com' && password === 'admin123') {
-            set({
-              user: {
-                id: '1',
-                email: 'admin@actuflow.com',
-                full_name: 'System Administrator',
-                role: { id: '1', name: 'admin', permissions: ['*'] },
-                department: 'IT',
-              },
-              token: 'demo-token',
-              refreshToken: 'demo-refresh',
-              isAuthenticated: true,
-            });
-            return;
-          }
-          throw error;
-        }
+      isLoading: false,
+      error: null,
+      
+      setUser: (user) => set({ 
+        user, 
+        isAuthenticated: !!user,
+        error: null,
+      }),
+      
+      setTokens: (accessToken, refreshToken) => {
+        localStorage.setItem('access_token', accessToken);
+        localStorage.setItem('refresh_token', refreshToken);
+        set({ accessToken, refreshToken });
       },
-
+      
+      setLoading: (isLoading) => set({ isLoading }),
+      
+      setError: (error) => set({ error, isLoading: false }),
+      
       logout: () => {
-        set({
-          user: null,
-          token: null,
-          refreshToken: null,
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        set({ 
+          user: null, 
+          accessToken: null, 
+          refreshToken: null, 
           isAuthenticated: false,
+          error: null,
         });
       },
-
-      setUser: (user: User) => {
-        set({ user });
-      },
-
-      hasPermission: (resource: string, action: string) => {
+      
+      hasPermission: (permission: string) => {
         const { user } = get();
         if (!user?.role?.permissions) return false;
-        if (user.role.permissions.includes('*')) return true;
-        return user.role.permissions.includes(`${resource}:${action}`);
+        
+        const [resource, action] = permission.split(':');
+        return user.role.permissions.some(
+          (p) => p.resource === resource && p.action === action
+        );
       },
     }),
     {
       name: 'auth-storage',
+      partialize: (state) => ({
+        accessToken: state.accessToken,
+        refreshToken: state.refreshToken,
+      }),
     }
   )
 );

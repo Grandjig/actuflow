@@ -1,126 +1,104 @@
-import { RouteObject, Navigate } from 'react-router-dom';
-import Layout from './components/common/Layout';
-import ProtectedRoute from './components/common/ProtectedRoute';
+/**
+ * Application routes configuration.
+ */
 
-// Pages
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import PolicyList from './pages/policies/PolicyList';
-import PolicyDetail from './pages/policies/PolicyDetail';
-import PolicyCreate from './pages/policies/PolicyCreate';
-import PolicyholderList from './pages/policyholders/PolicyholderList';
-import PolicyholderDetail from './pages/policyholders/PolicyholderDetail';
-import ClaimList from './pages/claims/ClaimList';
-import ClaimDetail from './pages/claims/ClaimDetail';
-import ClaimCreate from './pages/claims/ClaimCreate';
-import AssumptionSetList from './pages/assumptions/AssumptionSetList';
-import AssumptionSetDetail from './pages/assumptions/AssumptionSetDetail';
-import AssumptionSetCreate from './pages/assumptions/AssumptionSetCreate';
-import ModelList from './pages/models/ModelList';
-import ModelDetail from './pages/models/ModelDetail';
-import CalculationList from './pages/calculations/CalculationList';
-import CalculationDetail from './pages/calculations/CalculationDetail';
-import CalculationCreate from './pages/calculations/CalculationCreate';
-import ScenarioList from './pages/scenarios/ScenarioList';
-import ScenarioDetail from './pages/scenarios/ScenarioDetail';
-import GeneratedReportList from './pages/reports/GeneratedReportList';
-import ReportTemplateList from './pages/reports/ReportTemplateList';
-import DashboardList from './pages/dashboards/DashboardList';
-import DashboardEditor from './pages/dashboards/DashboardEditor';
-import ImportList from './pages/imports/ImportList';
-import ImportWizard from './pages/imports/ImportWizard';
-import TaskList from './pages/tasks/TaskList';
-import ScheduledJobList from './pages/automation/ScheduledJobList';
-import AutomationRuleList from './pages/automation/AutomationRuleList';
-import ExperienceStudyList from './pages/experience/ExperienceStudyList';
-import DocumentList from './pages/documents/DocumentList';
-import AuditLogList from './pages/audit/AuditLogList';
-import UserList from './pages/admin/UserList';
-import RoleList from './pages/admin/RoleList';
-import NotFound from './pages/NotFound';
+import { lazy, Suspense } from 'react';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { Spin } from 'antd';
 
-export const routes: RouteObject[] = [
+// Layouts
+import MainLayout from './layouts/MainLayout';
+
+// Lazy load pages
+const Login = lazy(() => import('./pages/auth/Login'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const PolicyList = lazy(() => import('./pages/policies/PolicyList'));
+const PolicyDetail = lazy(() => import('./pages/policies/PolicyDetail'));
+const ClaimList = lazy(() => import('./pages/claims/ClaimList'));
+const ProfileSettings = lazy(() => import('./pages/settings/ProfileSettings'));
+const GeneratedReportList = lazy(() => import('./pages/reports/GeneratedReportList'));
+const ReportTemplateList = lazy(() => import('./pages/reports/ReportTemplateList'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
+// Loading fallback
+const PageLoader = () => (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <Spin size="large" />
+  </div>
+);
+
+// Wrap lazy components with Suspense
+const withSuspense = (Component: React.ComponentType) => (
+  <Suspense fallback={<PageLoader />}>
+    <Component />
+  </Suspense>
+);
+
+export const router = createBrowserRouter([
   {
     path: '/login',
-    element: <Login />,
+    element: withSuspense(Login),
   },
   {
     path: '/',
-    element: (
-      <ProtectedRoute>
-        <Layout />
-      </ProtectedRoute>
-    ),
+    element: <MainLayout />,
     children: [
-      { index: true, element: <Dashboard /> },
-      
-      // Policies
-      { path: 'policies', element: <PolicyList /> },
-      { path: 'policies/new', element: <PolicyCreate /> },
-      { path: 'policies/:id', element: <PolicyDetail /> },
-      { path: 'policies/:id/edit', element: <PolicyCreate /> },
-      
-      // Policyholders
-      { path: 'policyholders', element: <PolicyholderList /> },
-      { path: 'policyholders/:id', element: <PolicyholderDetail /> },
-      
-      // Claims
-      { path: 'claims', element: <ClaimList /> },
-      { path: 'claims/new', element: <ClaimCreate /> },
-      { path: 'claims/:id', element: <ClaimDetail /> },
-      
-      // Assumptions
-      { path: 'assumptions', element: <AssumptionSetList /> },
-      { path: 'assumptions/new', element: <AssumptionSetCreate /> },
-      { path: 'assumptions/:id', element: <AssumptionSetDetail /> },
-      
-      // Models
-      { path: 'models', element: <ModelList /> },
-      { path: 'models/:id', element: <ModelDetail /> },
-      
-      // Calculations
-      { path: 'calculations', element: <CalculationList /> },
-      { path: 'calculations/new', element: <CalculationCreate /> },
-      { path: 'calculations/:id', element: <CalculationDetail /> },
-      
-      // Scenarios
-      { path: 'scenarios', element: <ScenarioList /> },
-      { path: 'scenarios/:id', element: <ScenarioDetail /> },
-      
-      // Reports
-      { path: 'reports', element: <GeneratedReportList /> },
-      { path: 'reports/templates', element: <ReportTemplateList /> },
-      
-      // Dashboards
-      { path: 'dashboards', element: <DashboardList /> },
-      { path: 'dashboards/:id', element: <DashboardEditor /> },
-      
-      // Imports
-      { path: 'imports', element: <ImportList /> },
-      { path: 'imports/new', element: <ImportWizard /> },
-      
-      // Tasks
-      { path: 'tasks', element: <TaskList /> },
-      
-      // Automation
-      { path: 'automation/jobs', element: <ScheduledJobList /> },
-      { path: 'automation/rules', element: <AutomationRuleList /> },
-      
-      // Experience
-      { path: 'experience', element: <ExperienceStudyList /> },
-      
-      // Documents
-      { path: 'documents', element: <DocumentList /> },
-      
-      // Audit
-      { path: 'audit', element: <AuditLogList /> },
-      
-      // Admin
-      { path: 'admin/users', element: <UserList /> },
-      { path: 'admin/roles', element: <RoleList /> },
-      
-      // 404
-      { path: '*', element: <NotFound /> },
+      {
+        index: true,
+        element: withSuspense(Dashboard),
+      },
+      {
+        path: 'policies',
+        children: [
+          {
+            index: true,
+            element: withSuspense(PolicyList),
+          },
+          {
+            path: ':id',
+            element: withSuspense(PolicyDetail),
+          },
+        ],
+      },
+      {
+        path: 'claims',
+        children: [
+          {
+            index: true,
+            element: withSuspense(ClaimList),
+          },
+        ],
+      },
+      {
+        path: 'reports',
+        children: [
+          {
+            index: true,
+            element: <Navigate to="/reports/generated" replace />,
+          },
+          {
+            path: 'generated',
+            element: withSuspense(GeneratedReportList),
+          },
+          {
+            path: 'templates',
+            element: withSuspense(ReportTemplateList),
+          },
+        ],
+      },
+      {
+        path: 'settings',
+        children: [
+          {
+            path: 'profile',
+            element: withSuspense(ProfileSettings),
+          },
+        ],
+      },
+      {
+        path: '*',
+        element: withSuspense(NotFound),
+      },
     ],
   },
-];
+]);

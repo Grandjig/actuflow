@@ -1,58 +1,79 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
-import { useAuthStore } from '@/stores/authStore';
+/**
+ * WebSocket hook for real-time updates.
+ */
 
-interface WebSocketOptions {
-  onMessage?: (data: any) => void;
-  onConnect?: () => void;
-  onDisconnect?: () => void;
+import { useEffect, useRef, useState, useCallback } from 'react';
+
+interface UseWebSocketOptions {
+  url: string;
+  onMessage?: (data: unknown) => void;
+  onOpen?: () => void;
+  onClose?: () => void;
   onError?: (error: Event) => void;
   reconnect?: boolean;
   reconnectInterval?: number;
+  reconnectAttempts?: number;
 }
 
-export function useWebSocket(path: string, options: WebSocketOptions = {}) {
-  const { token } = useAuthStore();
-  const wsRef = useRef<WebSocket | null>(null);
-  const reconnectTimeoutRef = useRef<NodeJS.Timeout>();
-  const [isConnected, setIsConnected] = useState(false);
-  const [lastMessage, setLastMessage] = useState<any>(null);
+interface UseWebSocketReturn {
+  isConnected: boolean;
+  send: (data: unknown) => void;
+  disconnect: () => void;
+  reconnect: () => void;
+}
 
+export function useWebSocket(options: UseWebSocketOptions): UseWebSocketReturn {
   const {
+    url,
     onMessage,
-    onConnect,
-    onDisconnect,
+    onOpen,
+    onClose,
     onError,
-    reconnect = true,
-    reconnectInterval = 5000,
+    reconnect: shouldReconnect = true,
+    reconnectInterval = 3000,
+    reconnectAttempts = 5,
   } = options;
 
-  const connect = useCallback(() => {
-    if (wsRef.current?.readyState === WebSocket.OPEN) return;
+  const [isConnected, setIsConnected] = useState(false);
+  const wsRef = useRef<WebSocket | null>(null);
+  const reconnectCountRef = useRef(0);
+  const reconnectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-    const wsUrl = `${import.meta.env.VITE_WS_URL || 'ws://localhost:8000'}${path}`;
-    const ws = new WebSocket(wsUrl, token ? [token] : undefined);
+  const connect = useCallback(() => {
+    if (wsRef.current?.readyState === WebSocket.OPEN) {
+      return;
+    }
+
+    const token = localStorage.getItem('access_token');
+    const wsUrl = token ? `${url}?token=${token}` : url;
+
+    const ws = new WebSocket(wsUrl);
 
     ws.onopen = () => {
       setIsConnected(true);
-      onConnect?.();
+      reconnectCountRef.current = 0;
+      onOpen?.();
     };
 
     ws.onmessage = (event) => {
       try {
         const data = JSON.parse(event.data);
-        setLastMessage(data);
         onMessage?.(data);
-      } catch (e) {
-        console.error('Failed to parse WebSocket message:', e);
+      } catch {
+        onMessage?.(event.data);
       }
     };
 
     ws.onclose = () => {
       setIsConnected(false);
-      onDisconnect?.();
+      onClose?.();
 
-      if (reconnect) {
-        reconnectTimeoutRef.current = setTimeout(connect, reconnectInterval);
+      // Attempt reconnection
+      if (shouldReconnect && reconnectCountRef.current < reconnectAttempts) {
+        reconnectTimeoutRef.current = setTimeout(() => {
+          reconnectCountRef.current += 1;
+          connect();
+        }, reconnectInterval);
       }
     };
 
@@ -61,61 +82,40 @@ export function useWebSocket(path: string, options: WebSocketOptions = {}) {
     };
 
     wsRef.current = ws;
-  }, [path, token, onMessage, onConnect, onDisconnect, onError, reconnect, reconnectInterval]);
+  }, [url, onMessage, onOpen, onClose, onError, shouldReconnect, reconnectInterval, reconnectAttempts]);
 
   const disconnect = useCallback(() => {
     if (reconnectTimeoutRef.current) {
       clearTimeout(reconnectTimeoutRef.current);
     }
+    reconnectCountRef.current = reconnectAttempts; // Prevent reconnection
     wsRef.current?.close();
-  }, []);
+  }, [reconnectAttempts]);
 
-  const send = useCallback((data: any) => {
+  const send = useCallback((data: unknown) => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
-      wsRef.current.send(JSON.stringify(data));
+      wsRef.current.send(typeof data === 'string' ? data : JSON.stringify(data));
     }
   }, []);
 
+  const manualReconnect = useCallback(() => {
+    reconnectCountRef.current = 0;
+    disconnect();
+    connect();
+  }, [connect, disconnect]);
+
   useEffect(() => {
     connect();
-    return () => disconnect();
+
+    return () => {
+      disconnect();
+    };
   }, [connect, disconnect]);
 
   return {
     isConnected,
-    lastMessage,
     send,
-    connect,
     disconnect,
+    reconnect: manualReconnect,
   };
-}
-
-// Hook for calculation progress
-export function useCalculationProgress(calculationId: string) {
-  const [progress, setProgress] = useState<{
-    status: string;
-    percent: number;
-    message: string;
-  } | null>(null);
-
-  const { isConnected } = useWebSocket(`/ws/calculations/${calculationId}`, {
-    onMessage: (data) => {
-      if (data.type === 'progress') {
-        setProgress(data.data);
-      }
-    },
-  });
-
-  return { progress, isConnected };
-}
-
-// Hook for real-time notifications
-export function useRealtimeNotifications(onNotification: (notification: any) => void) {
-  return useWebSocket('/ws/notifications', {
-    onMessage: (data) => {
-      if (data.type === 'notification') {
-        onNotification(data.data);
-      }
-    },
-  });
 }

@@ -1,26 +1,37 @@
-import { get, post } from './client';
-import type { PaginatedResponse, PaginationParams } from '@/types/api';
-import type { ExperienceAnalysis, AIRecommendation } from '@/types/models';
+/**
+ * Experience analysis API functions.
+ */
 
-export interface ExperienceStudyCreateData {
-  name: string;
-  analysis_type: string;
-  study_period_start: string;
-  study_period_end: string;
-  parameters?: Record<string, unknown>;
-  assumption_set_id?: string;
+import { get, post } from './client';
+import type { ExperienceAnalysis, ExperienceRecommendation } from '@/types/models';
+
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
 }
 
-export const experienceApi = {
-  list: (params?: PaginationParams & { analysis_type?: string }) =>
-    get<PaginatedResponse<ExperienceAnalysis>>('/experience-analysis', params),
+export async function getExperienceStudies(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<ExperienceAnalysis>> {
+  return get('/experience-analysis', params);
+}
 
-  get: (id: string) => 
-    get<ExperienceAnalysis>(`/experience-analysis/${id}`),
+export async function getExperienceStudy(
+  id: string
+): Promise<ExperienceAnalysis> {
+  return get(`/experience-analysis/${id}`);
+}
 
-  create: (data: ExperienceStudyCreateData) => 
-    post<ExperienceAnalysis>('/experience-analysis', data),
+export async function runExperienceStudy(
+  data: Record<string, unknown>
+): Promise<ExperienceAnalysis> {
+  return post('/experience-analysis', data);
+}
 
-  getRecommendations: (id: string) =>
-    get<AIRecommendation[]>(`/experience-analysis/${id}/recommendations`),
-};
+export async function getRecommendations(
+  studyId: string
+): Promise<ExperienceRecommendation[]> {
+  return get(`/experience-analysis/${studyId}/recommendations`);
+}

@@ -1,60 +1,55 @@
+/**
+ * User API functions.
+ */
+
 import { get, post, put, del } from './client';
-import type { PaginatedResponse, ListParams } from '@/types/api';
-import type { User, Role, Permission } from '@/types/models';
+import type { User, Role } from '@/types/models';
 
-export interface UserCreate {
-  email: string;
-  full_name: string;
-  password: string;
-  role_id?: string;
-  department?: string;
-  job_title?: string;
-  is_active?: boolean;
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
 }
 
-export interface UserUpdate {
-  email?: string;
-  full_name?: string;
-  password?: string;
-  role_id?: string;
-  department?: string;
-  job_title?: string;
-  is_active?: boolean;
+export async function getUsers(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<User>> {
+  return get('/users', params);
 }
 
-export const usersApi = {
-  list: (params?: ListParams) =>
-    get<PaginatedResponse<User>>('/users', params),
+export async function getUser(id: string): Promise<User> {
+  return get(`/users/${id}`);
+}
 
-  get: (id: string) =>
-    get<User>(`/users/${id}`),
+export async function createUser(data: Partial<User>): Promise<User> {
+  return post('/users', data);
+}
 
-  create: (data: UserCreate) =>
-    post<User>('/users', data),
+export async function updateUser(
+  id: string,
+  data: Partial<User>
+): Promise<User> {
+  return put(`/users/${id}`, data);
+}
 
-  update: (id: string, data: UserUpdate) =>
-    put<User>(`/users/${id}`, data),
+export async function deleteUser(id: string): Promise<void> {
+  return del(`/users/${id}`);
+}
 
-  delete: (id: string) =>
-    del<void>(`/users/${id}`),
-};
+export async function updateProfile(
+  data: Partial<User>
+): Promise<User> {
+  return put('/users/me', data);
+}
 
-export const rolesApi = {
-  list: () =>
-    get<Role[]>('/roles'),
+export async function getRoles(): Promise<Role[]> {
+  return get('/roles');
+}
 
-  get: (id: string) =>
-    get<Role>(`/roles/${id}`),
-
-  create: (data: { name: string; description?: string; permission_ids: string[] }) =>
-    post<Role>('/roles', data),
-
-  update: (id: string, data: { name?: string; description?: string; permission_ids?: string[] }) =>
-    put<Role>(`/roles/${id}`, data),
-
-  delete: (id: string) =>
-    del<void>(`/roles/${id}`),
-
-  getPermissions: () =>
-    get<Permission[]>('/roles/permissions'),
-};
+export async function updateUserRole(
+  userId: string,
+  roleId: string
+): Promise<User> {
+  return put(`/users/${userId}/role`, { role_id: roleId });
+}

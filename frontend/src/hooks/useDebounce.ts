@@ -1,18 +1,22 @@
+/**
+ * Debounce hooks for search and input optimization.
+ */
+
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 /**
- * Debounce a value - returns the value after it hasn't changed for the delay period
+ * Debounce a value.
  */
-export function useDebounce<T>(value: T, delay: number = 500): T {
+export function useDebounce<T>(value: T, delay: number): T {
   const [debouncedValue, setDebouncedValue] = useState<T>(value);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const handler = setTimeout(() => {
       setDebouncedValue(value);
     }, delay);
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(handler);
     };
   }, [value, delay]);
 
@@ -20,13 +24,19 @@ export function useDebounce<T>(value: T, delay: number = 500): T {
 }
 
 /**
- * Debounce a callback function
+ * Debounce a callback function.
  */
-export function useDebouncedCallback<T extends (...args: any[]) => any>(
+export function useDebouncedCallback<T extends (...args: unknown[]) => unknown>(
   callback: T,
-  delay: number = 500
-): (...args: Parameters<T>) => void {
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  delay: number
+): T {
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const callbackRef = useRef(callback);
+
+  // Update the callback ref when callback changes
+  useEffect(() => {
+    callbackRef.current = callback;
+  }, [callback]);
 
   const debouncedCallback = useCallback(
     (...args: Parameters<T>) => {
@@ -35,11 +45,11 @@ export function useDebouncedCallback<T extends (...args: any[]) => any>(
       }
 
       timeoutRef.current = setTimeout(() => {
-        callback(...args);
+        callbackRef.current(...args);
       }, delay);
     },
-    [callback, delay]
-  );
+    [delay]
+  ) as T;
 
   // Cleanup on unmount
   useEffect(() => {
@@ -52,47 +62,3 @@ export function useDebouncedCallback<T extends (...args: any[]) => any>(
 
   return debouncedCallback;
 }
-
-/**
- * Throttle a callback function - ensures it's called at most once per delay period
- */
-export function useThrottledCallback<T extends (...args: any[]) => any>(
-  callback: T,
-  delay: number = 500
-): (...args: Parameters<T>) => void {
-  const lastRan = useRef<number>(0);
-  const timeoutRef = useRef<NodeJS.Timeout>();
-
-  const throttledCallback = useCallback(
-    (...args: Parameters<T>) => {
-      const now = Date.now();
-
-      if (now - lastRan.current >= delay) {
-        callback(...args);
-        lastRan.current = now;
-      } else {
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current);
-        }
-
-        timeoutRef.current = setTimeout(() => {
-          callback(...args);
-          lastRan.current = Date.now();
-        }, delay - (now - lastRan.current));
-      }
-    },
-    [callback, delay]
-  );
-
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, []);
-
-  return throttledCallback;
-}
-
-export default useDebounce;

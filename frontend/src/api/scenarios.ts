@@ -1,57 +1,56 @@
+/**
+ * Scenarios API functions.
+ */
+
 import { get, post, put, del } from './client';
-import type { PaginatedResponse, PaginationParams, SuccessResponse } from '@/types/api';
 import type { Scenario, ScenarioResult } from '@/types/models';
 
-export interface ScenarioCreateData {
-  name: string;
-  description?: string;
-  scenario_type: string;
-  base_assumption_set_id: string;
-  adjustments: Record<string, unknown>;
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
 }
 
-export interface ScenarioUpdateData {
-  name?: string;
-  description?: string;
-  adjustments?: Record<string, unknown>;
-  status?: string;
+export async function getScenarios(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<Scenario>> {
+  return get('/scenarios', params);
 }
 
-export interface ScenarioRunRequest {
-  model_definition_id: string;
-  policy_filter?: Record<string, unknown>;
-  parameters?: Record<string, unknown>;
-  comparison_base_run_id?: string;
+export async function getScenario(id: string): Promise<Scenario> {
+  return get(`/scenarios/${id}`);
 }
 
-export interface ScenarioComparison {
-  scenarios: Scenario[];
-  metrics: Record<string, Record<string, number>>;
-  differences: Record<string, Record<string, number>>;
+export async function createScenario(
+  data: Partial<Scenario>
+): Promise<Scenario> {
+  return post('/scenarios', data);
 }
 
-export const scenariosApi = {
-  list: (params?: PaginationParams & { status?: string; scenario_type?: string; search?: string }) =>
-    get<PaginatedResponse<Scenario>>('/scenarios', params),
+export async function updateScenario(
+  id: string,
+  data: Partial<Scenario>
+): Promise<Scenario> {
+  return put(`/scenarios/${id}`, data);
+}
 
-  get: (id: string) => 
-    get<Scenario>(`/scenarios/${id}`),
+export async function deleteScenario(id: string): Promise<void> {
+  return del(`/scenarios/${id}`);
+}
 
-  create: (data: ScenarioCreateData) => 
-    post<Scenario>('/scenarios', data),
+export async function runScenario(id: string): Promise<ScenarioResult> {
+  return post(`/scenarios/${id}/run`);
+}
 
-  update: (id: string, data: ScenarioUpdateData) => 
-    put<Scenario>(`/scenarios/${id}`, data),
+export async function getScenarioResults(
+  id: string
+): Promise<ScenarioResult[]> {
+  return get(`/scenarios/${id}/results`);
+}
 
-  delete: (id: string) => 
-    del<SuccessResponse>(`/scenarios/${id}`),
-
-  run: (id: string, data: ScenarioRunRequest) =>
-    post<ScenarioResult>(`/scenarios/${id}/run`, data),
-
-  getResults: (id: string) =>
-    get<ScenarioResult[]>(`/scenarios/${id}/results`),
-
-  compare: (scenarioIds: string[]) =>
-    get<ScenarioComparison>('/scenarios/compare', { scenario_ids: scenarioIds.join(',') }),
-};
+export async function compareScenarios(
+  scenarioIds: string[]
+): Promise<Record<string, unknown>> {
+  return post('/scenarios/compare', { scenario_ids: scenarioIds });
+}

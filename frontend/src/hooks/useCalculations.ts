@@ -1,72 +1,77 @@
+/**
+ * Calculation hooks.
+ */
+
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { calculationsApi } from '@/api/calculations';
-import type { CalculationListParams, CalculationCreateRequest } from '@/types/api';
+import {
+  getCalculationRuns,
+  getCalculationRun,
+  createCalculationRun,
+  cancelCalculationRun,
+  getCalculationResults,
+  getCalculationProgress,
+} from '@/api/calculations';
+import type { CalculationRun, CalculationResult, CalculationProgress } from '@/types/models';
 
-export function useCalculations(params: CalculationListParams = {}) {
+export function useCalculationRuns(params?: Record<string, unknown>) {
   return useQuery({
-    queryKey: ['calculations', params],
-    queryFn: () => calculationsApi.list(params),
+    queryKey: ['calculationRuns', params],
+    queryFn: () => getCalculationRuns(params),
   });
 }
 
-export function useCalculation(id: string) {
+export function useCalculationRun(id: string) {
   return useQuery({
-    queryKey: ['calculations', id],
-    queryFn: () => calculationsApi.get(id),
+    queryKey: ['calculationRun', id],
+    queryFn: () => getCalculationRun(id),
     enabled: !!id,
   });
 }
 
-export function useCalculationProgress(id: string) {
-  return useQuery({
-    queryKey: ['calculations', id, 'progress'],
-    queryFn: () => calculationsApi.getProgress(id),
-    enabled: !!id,
-    refetchInterval: (data) => {
-      // Poll while running
-      if (data?.status === 'running' || data?.status === 'queued') {
-        return 2000;
-      }
-      return false;
-    },
-  });
-}
-
-export function useCalculationSummary(id: string) {
-  return useQuery({
-    queryKey: ['calculations', id, 'summary'],
-    queryFn: () => calculationsApi.getSummary(id),
-    enabled: !!id,
-  });
-}
-
-export function useCalculationResults(id: string, params?: Record<string, unknown>) {
-  return useQuery({
-    queryKey: ['calculations', id, 'results', params],
-    queryFn: () => calculationsApi.getResults(id, params),
-    enabled: !!id,
-  });
-}
-
-export function useCreateCalculation() {
+export function useCreateCalculationRun() {
   const queryClient = useQueryClient();
-
+  
   return useMutation({
-    mutationFn: (data: CalculationCreateRequest) => calculationsApi.create(data),
+    mutationFn: createCalculationRun,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['calculations'] });
+      queryClient.invalidateQueries({ queryKey: ['calculationRuns'] });
     },
   });
 }
 
-export function useCancelCalculation() {
+export function useCancelCalculationRun() {
   const queryClient = useQueryClient();
-
+  
   return useMutation({
-    mutationFn: calculationsApi.cancel,
-    onSuccess: (_, id) => {
-      queryClient.invalidateQueries({ queryKey: ['calculations'] });
-      queryClient.invalidateQueries({ queryKey: ['calculations', id] });
+    mutationFn: cancelCalculationRun,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['calculationRuns'] });
     },
   });
+}
+
+export function useCalculationResults(runId: string, params?: Record<string, unknown>) {
+  return useQuery({
+    queryKey: ['calculationResults', runId, params],
+    queryFn: () => getCalculationResults(runId, params),
+    enabled: !!runId,
+  });
+}
+
+export function useCalculationProgress(runId: string) {
+  const query = useQuery({
+    queryKey: ['calculationProgress', runId],
+    queryFn: () => getCalculationProgress(runId),
+    enabled: !!runId,
+    refetchInterval: (query) => {
+      const data = query.state.data as CalculationProgress | undefined;
+      // Stop polling when calculation is complete
+      if (data?.status === 'completed' || data?.status === 'failed' || data?.status === 'cancelled') {
+        return false;
+      }
+      return 2000; // Poll every 2 seconds
+    },
+  });
+
+  return query;
 }

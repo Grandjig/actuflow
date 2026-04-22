@@ -1,48 +1,63 @@
+/**
+ * Anomaly alerts dashboard widget.
+ */
+
+import { Card, List, Tag, Typography, Space, Button, Empty } from 'antd';
+import {
+  WarningOutlined,
+  ExclamationCircleOutlined,
+  RightOutlined,
+} from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import { Card, List, Typography, Tag, Button, Space, Empty } from 'antd';
-import { WarningOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
-import dayjs from 'dayjs';
-import type { AnomalyAlert } from '@/types/ai';
+import type { AnomalyAlert } from '@/types/models';
+import { formatDateTime } from '@/utils/helpers';
+
+const { Text } = Typography;
 
 interface AnomalyAlertWidgetProps {
   alerts: AnomalyAlert[];
   loading?: boolean;
 }
 
-export default function AnomalyAlertWidget({ alerts, loading = false }: AnomalyAlertWidgetProps) {
+const severityConfig: Record<string, { color: string; icon: React.ReactNode }> = {
+  low: {
+    color: 'blue',
+    icon: <WarningOutlined />,
+  },
+  medium: {
+    color: 'orange',
+    icon: <WarningOutlined />,
+  },
+  high: {
+    color: 'red',
+    icon: <ExclamationCircleOutlined />,
+  },
+};
+
+export default function AnomalyAlertWidget({
+  alerts,
+  loading,
+}: AnomalyAlertWidgetProps) {
   const navigate = useNavigate();
 
-  const getSeverityColor = (score: number) => {
-    if (score > 0.8) return 'red';
-    if (score > 0.5) return 'orange';
-    return 'gold';
+  const handleViewAll = () => {
+    navigate('/anomalies');
   };
 
-  const handleClick = (alert: AnomalyAlert) => {
-    const routes: Record<string, string> = {
-      claim: '/claims',
-      calculation_result: '/calculations',
-      policy: '/policies',
-    };
-    const basePath = routes[alert.record_type] || '/';
-    navigate(`${basePath}/${alert.record_id}`);
+  const handleAlertClick = (alert: AnomalyAlert) => {
+    // Navigate to the related resource
+    if (alert.resource_type && alert.resource_id) {
+      navigate(`/${alert.resource_type}s/${alert.resource_id}`);
+    }
   };
 
   return (
     <Card
-      title={
-        <Space>
-          <WarningOutlined style={{ color: '#faad14' }} />
-          Anomaly Alerts
-          {alerts.length > 0 && (
-            <Tag color="red">{alerts.length}</Tag>
-          )}
-        </Space>
-      }
+      title="Anomaly Alerts"
       extra={
-        <Tag color="purple" style={{ fontSize: 10 }}>
-          AI Powered
-        </Tag>
+        <Button type="link" onClick={handleViewAll}>
+          View All <RightOutlined />
+        </Button>
       }
       loading={loading}
     >
@@ -54,36 +69,41 @@ export default function AnomalyAlertWidget({ alerts, loading = false }: AnomalyA
       ) : (
         <List
           dataSource={alerts.slice(0, 5)}
-          renderItem={(alert) => (
-            <List.Item
-              style={{ cursor: 'pointer' }}
-              onClick={() => handleClick(alert)}
-            >
-              <List.Item.Meta
-                avatar={
-                  <ExclamationCircleOutlined
-                    style={{ fontSize: 20, color: getSeverityColor(alert.score) }}
-                  />
-                }
-                title={
-                  <Space>
-                    <Typography.Text>{alert.record_type}</Typography.Text>
-                    <Tag color={getSeverityColor(alert.score)}>
-                      {(alert.score * 100).toFixed(0)}%
+          renderItem={(alert) => {
+            const config = severityConfig[alert.severity] || severityConfig.medium;
+
+            return (
+              <List.Item
+                onClick={() => handleAlertClick(alert)}
+                style={{ cursor: 'pointer' }}
+              >
+                <List.Item.Meta
+                  avatar={
+                    <Tag color={config.color} icon={config.icon}>
+                      {alert.severity.toUpperCase()}
                     </Tag>
-                  </Space>
-                }
-                description={
-                  <>
-                    <div>{alert.reasons[0]}</div>
-                    <Typography.Text type="secondary" style={{ fontSize: 11 }}>
-                      {dayjs(alert.detected_at).fromNow()}
-                    </Typography.Text>
-                  </>
-                }
-              />
-            </List.Item>
-          )}
+                  }
+                  title={alert.description}
+                  description={
+                    <Space direction="vertical" size={0}>
+                      <Text type="secondary">
+                        {alert.resource_type}: {alert.resource_id}
+                      </Text>
+                      {alert.reasons && alert.reasons.length > 0 && (
+                        <Text type="secondary" style={{ fontSize: 12 }}>
+                          {alert.reasons[0]}
+                          {alert.reasons.length > 1 && ` (+${alert.reasons.length - 1} more)`}
+                        </Text>
+                      )}
+                      <Text type="secondary" style={{ fontSize: 12 }}>
+                        {formatDateTime(alert.created_at)}
+                      </Text>
+                    </Space>
+                  }
+                />
+              </List.Item>
+            );
+          }}
         />
       )}
     </Card>

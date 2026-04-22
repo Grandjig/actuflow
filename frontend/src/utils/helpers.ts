@@ -1,136 +1,194 @@
-// General utility helpers
+/**
+ * General utility helper functions.
+ */
 
-// Generate unique ID
-export function generateId(): string {
-  return Math.random().toString(36).substr(2, 9);
+import dayjs from 'dayjs';
+
+/**
+ * Format a number as currency.
+ */
+export function formatCurrency(
+  value: number | string | null | undefined,
+  currency: string = 'USD'
+): string {
+  if (value === null || value === undefined) return '-';
+  
+  const numValue = typeof value === 'string' ? parseFloat(value) : value;
+  if (isNaN(numValue)) return '-';
+  
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(numValue);
 }
 
-// Deep clone object
-export function deepClone<T>(obj: T): T {
-  return JSON.parse(JSON.stringify(obj));
+/**
+ * Format a date string.
+ */
+export function formatDate(
+  date: string | Date | null | undefined,
+  format: string = 'YYYY-MM-DD'
+): string {
+  if (!date) return '-';
+  return dayjs(date).format(format);
 }
 
-// Debounce function
-export function debounce<T extends (...args: any[]) => any>(
+/**
+ * Format a date with time.
+ */
+export function formatDateTime(
+  date: string | Date | null | undefined,
+  format: string = 'YYYY-MM-DD HH:mm'
+): string {
+  if (!date) return '-';
+  return dayjs(date).format(format);
+}
+
+/**
+ * Format a number with thousands separator.
+ */
+export function formatNumber(
+  value: number | string | null | undefined,
+  decimals: number = 0
+): string {
+  if (value === null || value === undefined) return '-';
+  
+  const numValue = typeof value === 'string' ? parseFloat(value) : value;
+  if (isNaN(numValue)) return '-';
+  
+  return new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  }).format(numValue);
+}
+
+/**
+ * Format a percentage.
+ */
+export function formatPercent(
+  value: number | string | null | undefined,
+  decimals: number = 2
+): string {
+  if (value === null || value === undefined) return '-';
+  
+  const numValue = typeof value === 'string' ? parseFloat(value) : value;
+  if (isNaN(numValue)) return '-';
+  
+  return `${(numValue * 100).toFixed(decimals)}%`;
+}
+
+/**
+ * Truncate a string.
+ */
+export function truncate(str: string, maxLength: number): string {
+  if (str.length <= maxLength) return str;
+  return `${str.substring(0, maxLength)}...`;
+}
+
+/**
+ * Debounce a function (standalone utility).
+ */
+export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout | null = null;
+  let timeout: ReturnType<typeof setTimeout> | null = null;
   
   return (...args: Parameters<T>) => {
     if (timeout) {
       clearTimeout(timeout);
     }
-    timeout = setTimeout(() => func(...args), wait);
-  };
-}
-
-// Throttle function
-export function throttle<T extends (...args: any[]) => any>(
-  func: T,
-  limit: number
-): (...args: Parameters<T>) => void {
-  let inThrottle: boolean = false;
-  
-  return (...args: Parameters<T>) => {
-    if (!inThrottle) {
+    timeout = setTimeout(() => {
       func(...args);
-      inThrottle = true;
-      setTimeout(() => (inThrottle = false), limit);
-    }
+    }, wait);
   };
 }
 
-// Get resource URL for navigation
-export function getResourceUrl(resourceType: string, resourceId: string): string {
-  const routes: Record<string, string> = {
-    policy: '/policies',
-    policyholder: '/policyholders',
-    claim: '/claims',
-    assumption_set: '/assumptions',
-    calculation_run: '/calculations',
-    scenario: '/scenarios',
-    report: '/reports',
-    task: '/tasks',
-    scheduled_job: '/automation/jobs',
-  };
-  
-  const basePath = routes[resourceType] || '/';
-  return `${basePath}/${resourceId}`;
+/**
+ * Generate a random ID.
+ */
+export function generateId(): string {
+  return Math.random().toString(36).substring(2) + Date.now().toString(36);
 }
 
-// Check if value is empty
-export function isEmpty(value: unknown): boolean {
-  if (value === null || value === undefined) return true;
-  if (typeof value === 'string') return value.trim() === '';
-  if (Array.isArray(value)) return value.length === 0;
-  if (typeof value === 'object') return Object.keys(value).length === 0;
-  return false;
+/**
+ * Deep clone an object.
+ */
+export function deepClone<T>(obj: T): T {
+  return JSON.parse(JSON.stringify(obj));
 }
 
-// Safely parse JSON
-export function safeJsonParse<T>(json: string, fallback: T): T {
+/**
+ * Check if an object is empty.
+ */
+export function isEmpty(obj: object | null | undefined): boolean {
+  if (!obj) return true;
+  return Object.keys(obj).length === 0;
+}
+
+/**
+ * Get initials from a name.
+ */
+export function getInitials(name: string): string {
+  return name
+    .split(' ')
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase()
+    .substring(0, 2);
+}
+
+/**
+ * Capitalize first letter.
+ */
+export function capitalize(str: string): string {
+  if (!str) return '';
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+/**
+ * Convert snake_case to Title Case.
+ */
+export function snakeToTitle(str: string): string {
+  return str
+    .split('_')
+    .map((word) => capitalize(word))
+    .join(' ');
+}
+
+/**
+ * Safely parse JSON.
+ */
+export function safeJsonParse<T>(str: string, fallback: T): T {
   try {
-    return JSON.parse(json);
+    return JSON.parse(str);
   } catch {
     return fallback;
   }
 }
 
-// Get initials from name
-export function getInitials(name: string): string {
-  return name
-    .split(' ')
-    .map((word) => word.charAt(0))
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
-}
-
-// Truncate text
-export function truncate(text: string, length: number): string {
-  if (text.length <= length) return text;
-  return `${text.slice(0, length)}...`;
-}
-
-// Download file
-export function downloadFile(blob: Blob, filename: string): void {
-  const url = URL.createObjectURL(blob);
+/**
+ * Download a file from a URL.
+ */
+export function downloadFile(url: string, filename: string): void {
   const link = document.createElement('a');
   link.href = url;
   link.download = filename;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-  URL.revokeObjectURL(url);
 }
 
-// Copy to clipboard
+/**
+ * Copy text to clipboard.
+ */
 export async function copyToClipboard(text: string): Promise<boolean> {
   try {
     await navigator.clipboard.writeText(text);
     return true;
   } catch {
     return false;
-  }
-}
-
-// Sleep/delay
-export function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-// Retry function
-export async function retry<T>(
-  fn: () => Promise<T>,
-  attempts: number = 3,
-  delay: number = 1000
-): Promise<T> {
-  try {
-    return await fn();
-  } catch (error) {
-    if (attempts <= 1) throw error;
-    await sleep(delay);
-    return retry(fn, attempts - 1, delay * 2);
   }
 }

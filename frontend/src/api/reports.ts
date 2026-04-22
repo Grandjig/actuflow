@@ -1,52 +1,69 @@
-import { get, post, put, del, downloadFile } from './client';
-import type { PaginatedResponse, PaginationParams, SuccessResponse } from '@/types/api';
+/**
+ * Reports API functions.
+ */
+
+import { get, post, put, del } from './client';
 import type { ReportTemplate, GeneratedReport } from '@/types/models';
 
-export interface ReportTemplateCreateData {
-  name: string;
-  code: string;
-  description?: string;
-  report_type: string;
-  regulatory_standard?: string;
-  output_format: string;
-  template_config: Record<string, unknown>;
-  include_ai_narrative?: boolean;
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
 }
 
-export interface GenerateReportRequest {
-  report_template_id: string;
-  reporting_period_start: string;
-  reporting_period_end: string;
-  parameters?: Record<string, unknown>;
+// Report Templates
+
+export async function getReportTemplates(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<ReportTemplate>> {
+  return get('/report-templates', params);
 }
 
-export const reportsApi = {
-  // Templates
-  listTemplates: (params?: PaginationParams & { report_type?: string; regulatory_standard?: string }) =>
-    get<PaginatedResponse<ReportTemplate>>('/reports/templates', params),
+export async function getReportTemplate(id: string): Promise<ReportTemplate> {
+  return get(`/report-templates/${id}`);
+}
 
-  getTemplate: (id: string) => 
-    get<ReportTemplate>(`/reports/templates/${id}`),
+export async function createReportTemplate(
+  data: Partial<ReportTemplate>
+): Promise<ReportTemplate> {
+  return post('/report-templates', data);
+}
 
-  createTemplate: (data: ReportTemplateCreateData) => 
-    post<ReportTemplate>('/reports/templates', data),
+export async function updateReportTemplate(
+  id: string,
+  data: Partial<ReportTemplate>
+): Promise<ReportTemplate> {
+  return put(`/report-templates/${id}`, data);
+}
 
-  updateTemplate: (id: string, data: Partial<ReportTemplateCreateData>) => 
-    put<ReportTemplate>(`/reports/templates/${id}`, data),
+export async function deleteReportTemplate(id: string): Promise<void> {
+  return del(`/report-templates/${id}`);
+}
 
-  deleteTemplate: (id: string) => 
-    del<SuccessResponse>(`/reports/templates/${id}`),
+// Generated Reports
 
-  // Generated Reports
-  list: (params?: PaginationParams & { template_id?: string; status?: string }) =>
-    get<PaginatedResponse<GeneratedReport>>('/reports', params),
+export async function getGeneratedReports(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<GeneratedReport>> {
+  return get('/reports', params);
+}
 
-  get: (id: string) => 
-    get<GeneratedReport>(`/reports/${id}`),
+export async function getGeneratedReport(id: string): Promise<GeneratedReport> {
+  return get(`/reports/${id}`);
+}
 
-  generate: (data: GenerateReportRequest) => 
-    post<GeneratedReport>('/reports/generate', data),
+export async function generateReport(
+  data: Record<string, unknown>
+): Promise<GeneratedReport> {
+  return post('/reports/generate', data);
+}
 
-  download: (id: string, filename: string) =>
-    downloadFile(`/reports/${id}/download`, filename),
-};
+export async function downloadReport(id: string): Promise<Blob> {
+  const response = await fetch(`/api/v1/reports/${id}/download`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+    },
+  });
+  return response.blob();
+}

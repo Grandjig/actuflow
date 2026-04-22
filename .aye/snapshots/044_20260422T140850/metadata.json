@@ -1,0 +1,122 @@
+{
+  "timestamp": "20260422T140850",
+  "files": [
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\package.json",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\package.json"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\types\\models.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\models.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\stores\\authStore.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\authStore.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useAuth.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\useAuth.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useDebounce.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\useDebounce.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useWebSocket.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\useWebSocket.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\useCalculations.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\useCalculations.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\hooks\\index.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\index.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\utils\\helpers.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\helpers.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\auth\\Login.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\Login.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\claims\\ClaimList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\ClaimList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\policies\\PolicyDetail.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\PolicyDetail.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\policies\\PolicyList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\PolicyList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\settings\\ProfileSettings.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\ProfileSettings.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\reports\\GeneratedReportList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\GeneratedReportList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\pages\\reports\\ReportTemplateList.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\ReportTemplateList.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\routes.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\routes.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\layout\\MainLayout.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\MainLayout.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\layouts\\MainLayout.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\MainLayout.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\ai\\DataQualityPanel.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\DataQualityPanel.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\ai\\ExperienceRecommendations.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\ExperienceRecommendations.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\components\\widgets\\AnomalyAlertWidget.tsx",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\AnomalyAlertWidget.tsx"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\documents.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\documents.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\automation.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\automation.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\experience.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\experience.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\scenarios.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\scenarios.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\imports.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\imports.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\reports.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\reports.ts"
+    },
+    {
+      "original": "C:\\Users\\TOBI\\Desktop\\actuflow\\frontend\\src\\api\\users.ts",
+      "snapshot": "C:\\Users\\TOBI\\Desktop\\actuflow\\.aye\\snapshots\\044_20260422T140850\\users.ts"
+    }
+  ],
+  "prompt": "what about uploading to vercel...why is there a problem there...the deploy button is not coming on and it looks like 15:01:02.048 Running build in Washington, D.C., USA (East) \u2013 iad1\n15:01:02.048 Build machine configuration: 2 cores, 8 GB\n15:01:02.185 Cloning github.com/Grandjig/actuflow (Branch: main, Commit: 5feb90a)\n15:01:02.186 Previous build caches not available.\n15:01:02.502 Cloning completed: 317.000ms\n15:01:02.637 Found .vercelignore\n15:01:02.706 Removed 794 ignored files defined in .vercelignore\n15:01:02.706   /.aye/chat_id.tmp\n15:01:02.706   /.aye/chroma_db/075e8c6e-b223-4022-bec9-6fd5f03f252b/data_level0.bin\n15:01:02.706   /.aye/chroma_db/075e8c6e-b223-4022-bec9-6fd5f03f252b/header.bin\n15:01:02.707   /.aye/chroma_db/075e8c6e-b223-4022-bec9-6fd5f03f252b/index_metadata.pickle\n15:01:02.707   /.aye/chroma_db/075e8c6e-b223-4022-bec9-6fd5f03f252b/length.bin\n15:01:02.707   /.aye/chroma_db/075e8c6e-b223-4022-bec9-6fd5f03f252b/link_lists.bin\n15:01:02.707   /.aye/file_index.json\n15:01:02.707   /.aye/snapshots/001_20260411T035618/context.md\n15:01:02.707   /.aye/snapshots/001_20260411T035618/metadata.json\n15:01:02.707   /.aye/snapshots/002_20260411T041108/context.md\n15:01:02.947 Running \"vercel build\"\n15:01:03.738 Vercel CLI 51.6.1\n15:01:04.904 Installing dependencies...\n15:02:01.227 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.\n15:02:01.305 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me\n15:02:01.685 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported\n15:02:01.917 npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead\n15:02:02.167 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead\n15:02:05.221 npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.\n15:02:07.409 \n15:02:07.409 added 381 packages in 1m\n15:02:07.409 \n15:02:07.410 69 packages are looking for funding\n15:02:07.410   run `npm fund` for details\n15:02:07.479 Running \"npm run build\"\n15:02:07.587 \n15:02:07.587 > actuflow-frontend@1.0.0 build\n15:02:07.588 > tsc && vite build\n15:02:07.588 \n15:02:12.394 src/api/automation.ts(3,29): error TS2305: Module '\"@/types/models\"' has no exported member 'JobExecution'.\n15:02:12.395 src/api/documents.ts(27,23): error TS2558: Expected 0 type arguments, but got 1.\n15:02:12.396 src/api/experience.ts(3,35): error TS2305: Module '\"@/types/models\"' has no exported member 'AIRecommendation'.\n15:02:12.396 src/api/imports.ts(39,16): error TS2558: Expected 0 type arguments, but got 1.\n15:02:12.397 src/api/scenarios.ts(3,25): error TS2305: Module '\"@/types/models\"' has no exported member 'ScenarioResult'.\n15:02:12.397 src/components/ai/DataQualityPanel.tsx(103,30): error TS2339: Property 'row' does not exist on type 'DataQualityIssue'.\n15:02:12.397 src/components/ai/DataQualityPanel.tsx(105,38): error TS2339: Property 'row' does not exist on type 'DataQualityIssue'.\n15:02:12.398 src/components/ai/DataQualityPanel.tsx(113,30): error TS2339: Property 'suggested_fix' does not exist on type 'DataQualityIssue'.\n15:02:12.398 src/components/ai/DataQualityPanel.tsx(115,45): error TS2339: Property 'suggested_fix' does not exist on type 'DataQualityIssue'.\n15:02:12.398 src/components/ai/ExperienceRecommendations.tsx(123,26): error TS2339: Property 'impact' does not exist on type 'ExperienceRecommendation'.\n15:02:12.398 src/components/ai/ExperienceRecommendations.tsx(127,53): error TS2339: Property 'impact' does not exist on type 'ExperienceRecommendation'.\n15:02:12.398 src/components/ai/ExperienceRecommendations.tsx(128,34): error TS2339: Property 'impact' does not exist on type 'ExperienceRecommendation'.\n15:02:12.398 src/components/ai/ExperienceRecommendations.tsx(129,43): error TS2339: Property 'impact' does not exist on type 'ExperienceRecommendation'.\n15:02:12.398 src/components/layout/MainLayout.tsx(34,10): error TS2739: Type '{}' is missing the following properties from type 'Props': collapsed, onToggle\n15:02:12.398 src/components/widgets/AnomalyAlertWidget.tsx(27,29): error TS2538: Type 'undefined' cannot be used as an index type.\n15:02:12.399 src/components/widgets/AnomalyAlertWidget.tsx(78,27): error TS18048: 'alert.reasons' is possibly 'undefined'.\n15:02:12.399 src/hooks/index.ts(9,1): error TS2308: Module './useCalculations' has already exported a member named 'useCalculationProgress'. Consider explicitly re-exporting to resolve the ambiguity.\n15:02:12.399 src/hooks/useAuth.ts(9,5): error TS2339: Property 'isLoading' does not exist on type 'AuthState'.\n15:02:12.399 src/hooks/useAuth.ts(10,5): error TS2339: Property 'error' does not exist on type 'AuthState'.\n15:02:12.399 src/hooks/useCalculations.ts(27,17): error TS2339: Property 'status' does not exist on type 'Query<CalculationProgress, Error, CalculationProgress, string[]>'.\n15:02:12.399 src/hooks/useCalculations.ts(27,47): error TS2339: Property 'status' does not exist on type 'Query<CalculationProgress, Error, CalculationProgress, string[]>'.\n15:02:12.399 src/hooks/useDebounce.ts(29,29): error TS2503: Cannot find namespace 'NodeJS'.\n15:02:12.399 src/hooks/useDebounce.ts(64,29): error TS2503: Cannot find namespace 'NodeJS'.\n15:02:12.399 src/hooks/useWebSocket.ts(16,38): error TS2503: Cannot find namespace 'NodeJS'.\n15:02:12.399 src/layouts/MainLayout.tsx(200,32): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.\n15:02:12.399   Type 'undefined' is not assignable to type 'string'.\n15:02:12.400 src/pages/auth/Login.tsx(17,18): error TS2339: Property 'isLoading' does not exist on type 'AuthState'.\n15:02:12.402 src/pages/auth/Login.tsx(17,29): error TS2339: Property 'error' does not exist on type 'AuthState'.\n15:02:12.402 src/pages/claims/ClaimList.tsx(44,11): error TS2322: Type 'Claim[]' is not assignable to type 'readonly (string | undefined)[]'.\n15:02:12.402   Type 'Claim' is not assignable to type 'string'.\n15:02:12.402 src/pages/claims/ClaimList.tsx(47,68): error TS18048: 'record' is possibly 'undefined'.\n15:02:12.402 src/pages/claims/ClaimList.tsx(47,75): error TS2339: Property 'id' does not exist on type 'string'.\n15:02:12.402 src/pages/policies/PolicyDetail.tsx(210,19): error TS2322: Type 'Coverage[]' is not assignable to type 'readonly (string | undefined)[]'.\n15:02:12.402   Type 'Coverage' is not assignable to type 'string'.\n15:02:12.402 src/pages/policies/PolicyList.tsx(185,11): error TS2322: Type 'PolicyListParams' is not assignable to type 'Record<string, unknown>'.\n15:02:12.402   Index signature for type 'string' is missing in type 'PolicyListParams'.\n15:02:12.402 src/pages/policies/PolicyList.tsx(193,11): error TS2322: Type '({ key: string; title: string; dataIndex: string; render: (value: string, record: Policy) => Element; width?: undefined; align?: undefined; } | { key: string; title: string; dataIndex: string; render: (ph: any) => any; width?: undefined; align?: undefined; } | ... 4 more ... | { ...; })[]' is not assignable to type '(ColumnGroupType<Policy> | ColumnType<Policy>)[]'.\n15:02:12.402   Type '{ key: string; title: string; dataIndex: string; render: (value: string, record: Policy) => Element; width?: undefined; align?: undefined; } | { key: string; title: string; dataIndex: string; render: (ph: any) => any; width?: undefined; align?: undefined; } | ... 4 more ... | { ...; }' is not assignable to type 'ColumnGroupType<Policy> | ColumnType<Policy>'.\n15:02:12.403     Type '{ key: string; title: string; dataIndex: string; render: (value: number | string | null | undefined, currency?: string) => string; align: \"right\"; width: number; }' is not assignable to type 'ColumnGroupType<Policy> | ColumnType<Policy>'.\n15:02:12.403       Type '{ key: string; title: string; dataIndex: string; render: (value: number | string | null | undefined, currency?: string) => string; align: \"right\"; width: number; }' is not assignable to type 'ColumnType<Policy>'.\n15:02:12.403         Types of property 'render' are incompatible.\n15:02:12.404           Type '(value: string | number | null | undefined, currency?: string) => string' is not assignable to type '(value: any, record: Policy, index: number) => ReactNode | RenderedCell<Policy>'.\n15:02:12.405             Types of parameters 'currency' and 'record' are incompatible.\n15:02:12.405               Type 'Policy' is not assignable to type 'string'.\n15:02:12.405 src/pages/settings/ProfileSettings.tsx(27,28): error TS2339: Property 'job_title' does not exist on type 'User'.\n15:02:12.405 src/routes.tsx(26,33): error TS2307: Cannot find module './pages/reports/GeneratedReportList' or its corresponding type declarations.\n15:02:12.405 src/routes.tsx(27,32): error TS2307: Cannot find module './pages/reports/ReportTemplateList' or its corresponding type declarations.\n15:02:12.405 src/utils/helpers.ts(18,16): error TS2503: Cannot find namespace 'NodeJS'.\n15:02:12.437 Error: Command \"npm run build\" exited with 2                        the above are vercel errors...please unfuck"
+}

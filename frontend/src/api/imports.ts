@@ -1,56 +1,64 @@
-import { get, post, del, uploadFile } from './client';
-import type { PaginatedResponse, PaginationParams, SuccessResponse } from '@/types/api';
-import type { DataImport } from '@/types/models';
-import type { ColumnMappingSuggestion, DataQualityIssue } from '@/types/ai';
+/**
+ * Data import API functions.
+ */
 
-export interface ImportUploadResponse {
-  import_id: string;
-  file_name: string;
-  total_rows: number;
-  columns: string[];
-  sample_data: Record<string, unknown>[];
+import { get, post, del } from './client';
+import type { DataImport, DataQualityIssue } from '@/types/models';
+
+interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  page_size: number;
 }
 
-export interface ColumnMappingRequest {
+export async function getImports(
+  params?: Record<string, unknown>
+): Promise<PaginatedResponse<DataImport>> {
+  return get('/imports', params);
+}
+
+export async function getImport(id: string): Promise<DataImport> {
+  return get(`/imports/${id}`);
+}
+
+export async function uploadImport(
+  file: File,
+  importType: string
+): Promise<DataImport> {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('import_type', importType);
+
+  return post('/imports/upload', formData);
+}
+
+export async function setColumnMapping(
+  id: string,
+  mapping: Record<string, string>
+): Promise<DataImport> {
+  return post(`/imports/${id}/mapping`, { column_mapping: mapping });
+}
+
+export async function validateImport(
+  id: string
+): Promise<{ valid: boolean; issues: DataQualityIssue[] }> {
+  return post(`/imports/${id}/validate`);
+}
+
+export async function commitImport(id: string): Promise<DataImport> {
+  return post(`/imports/${id}/commit`);
+}
+
+export async function cancelImport(id: string): Promise<void> {
+  return del(`/imports/${id}`);
+}
+
+export async function getAISuggestions(
+  id: string
+): Promise<{
   column_mapping: Record<string, string>;
-}
-
-export interface ValidationResult {
-  is_valid: boolean;
-  total_rows: number;
-  valid_rows: number;
-  error_rows: number;
-  errors: { row: number; column: string; error: string }[];
-}
-
-export interface AISuggestions {
-  column_mappings: ColumnMappingSuggestion[];
   data_issues: DataQualityIssue[];
+}> {
+  return get(`/imports/${id}/ai-suggestions`);
 }
-
-export const importsApi = {
-  list: (params?: PaginationParams & { status?: string; import_type?: string }) =>
-    get<PaginatedResponse<DataImport>>('/imports', params),
-
-  get: (id: string) => 
-    get<DataImport>(`/imports/${id}`),
-
-  upload: (file: File, importType: string, onProgress?: (progress: number) => void) =>
-    uploadFile<ImportUploadResponse>('/imports/upload', file, { import_type: importType }, onProgress),
-
-  setMapping: (id: string, mapping: ColumnMappingRequest) =>
-    post<DataImport>(`/imports/${id}/mapping`, mapping),
-
-  validate: (id: string) =>
-    post<ValidationResult>(`/imports/${id}/validate`),
-
-  commit: (id: string) =>
-    post<DataImport>(`/imports/${id}/commit`),
-
-  cancel: (id: string) =>
-    del<SuccessResponse>(`/imports/${id}/cancel`),
-
-  // AI suggestions
-  getAISuggestions: (id: string) =>
-    get<AISuggestions>(`/imports/${id}/ai-suggestions`),
-};

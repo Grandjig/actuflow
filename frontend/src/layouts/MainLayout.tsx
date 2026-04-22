@@ -1,34 +1,40 @@
+/**
+ * Main application layout with sidebar navigation.
+ */
+
 import { useState } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { Layout, Menu, Button, Avatar, Dropdown, Badge, Space, Input, theme } from 'antd';
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
+  Layout,
+  Menu,
+  Button,
+  Avatar,
+  Dropdown,
+  Space,
+  Typography,
+  Badge,
+} from 'antd';
+import {
   DashboardOutlined,
   FileTextOutlined,
   TeamOutlined,
   CalculatorOutlined,
-  LineChartOutlined,
+  BarChartOutlined,
   SettingOutlined,
   BellOutlined,
-  UserOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
   LogoutOutlined,
-  SearchOutlined,
-  RobotOutlined,
-  ExclamationCircleOutlined,
-  BarChartOutlined,
-  ImportOutlined,
-  CheckSquareOutlined,
-  FieldTimeOutlined,
+  UserOutlined,
+  ExperimentOutlined,
+  CloudUploadOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { useAuthStore } from '@/stores/authStore';
-import { useNotificationStore } from '@/stores/notificationStore';
-import NotificationDropdown from '@/components/common/NotificationDropdown';
-import AISearchBar from '@/components/ai/AISearchBar';
+import { useAuth } from '@/hooks/useAuth';
 import { getInitials } from '@/utils/helpers';
 
 const { Header, Sider, Content } = Layout;
+const { Text } = Typography;
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -46,52 +52,31 @@ function getItem(
   } as MenuItem;
 }
 
+const menuItems: MenuItem[] = [
+  getItem('Dashboard', '/', <DashboardOutlined />),
+  getItem('Policies', '/policies', <FileTextOutlined />),
+  getItem('Claims', '/claims', <TeamOutlined />),
+  getItem('Assumptions', '/assumptions', <ExperimentOutlined />),
+  getItem('Calculations', '/calculations', <CalculatorOutlined />),
+  getItem('Reports', '/reports', <BarChartOutlined />, [
+    getItem('Generated Reports', '/reports/generated'),
+    getItem('Templates', '/reports/templates'),
+  ]),
+  getItem('Data Import', '/imports', <CloudUploadOutlined />),
+  getItem('Settings', '/settings', <SettingOutlined />, [
+    getItem('Profile', '/settings/profile'),
+    getItem('Users', '/settings/users'),
+  ]),
+];
+
 export default function MainLayout() {
   const [collapsed, setCollapsed] = useState(false);
-  const [aiSearchOpen, setAISearchOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, logout } = useAuthStore();
-  const { unreadCount } = useNotificationStore();
-  const { token } = theme.useToken();
-
-  const menuItems: MenuItem[] = [
-    getItem('Dashboard', '/', <DashboardOutlined />),
-    getItem('Policy Data', 'policy-data', <FileTextOutlined />, [
-      getItem('Policies', '/policies'),
-      getItem('Policyholders', '/policyholders'),
-      getItem('Claims', '/claims'),
-    ]),
-    getItem('Actuarial', 'actuarial', <CalculatorOutlined />, [
-      getItem('Assumptions', '/assumptions'),
-      getItem('Models', '/models'),
-      getItem('Calculations', '/calculations'),
-      getItem('Scenarios', '/scenarios'),
-    ]),
-    getItem('Reporting', 'reporting', <BarChartOutlined />, [
-      getItem('Reports', '/reports'),
-      getItem('Experience Analysis', '/experience'),
-    ]),
-    getItem('Data Management', 'data', <ImportOutlined />, [
-      getItem('Imports', '/imports'),
-      getItem('Documents', '/documents'),
-    ]),
-    getItem('Tasks', '/tasks', <CheckSquareOutlined />),
-    getItem('Automation', 'automation', <FieldTimeOutlined />, [
-      getItem('Scheduled Jobs', '/automation/jobs'),
-      getItem('Rules', '/automation/rules'),
-    ]),
-    getItem('Settings', 'settings', <SettingOutlined />, [
-      getItem('Users', '/settings/users'),
-      getItem('Roles', '/settings/roles'),
-      getItem('Audit Log', '/audit'),
-    ]),
-  ];
+  const { user, logout } = useAuth();
 
   const handleMenuClick: MenuProps['onClick'] = (e) => {
-    if (e.key.startsWith('/')) {
-      navigate(e.key);
-    }
+    navigate(e.key);
   };
 
   const userMenuItems: MenuProps['items'] = [
@@ -99,31 +84,31 @@ export default function MainLayout() {
       key: 'profile',
       icon: <UserOutlined />,
       label: 'Profile',
+      onClick: () => navigate('/settings/profile'),
     },
     {
-      key: 'settings',
-      icon: <SettingOutlined />,
-      label: 'Settings',
-      onClick: () => navigate('/settings'),
+      type: 'divider',
     },
-    { type: 'divider' },
     {
       key: 'logout',
       icon: <LogoutOutlined />,
       label: 'Logout',
-      onClick: () => {
-        logout();
-        navigate('/login');
-      },
+      onClick: logout,
     },
   ];
 
-  // Get selected keys based on current path
+  // Find the selected key based on current path
   const selectedKeys = [location.pathname];
   const openKeys = menuItems
-    .filter((item: any) => item?.children?.some((child: any) => child?.key === location.pathname))
-    .map((item: any) => item?.key)
-    .filter(Boolean) as string[];
+    .filter((item): item is MenuItem & { children?: MenuItem[] } => 
+      item !== null && 'children' in item && Array.isArray(item.children)
+    )
+    .filter((item) => 
+      item.children?.some((child) => 
+        child !== null && 'key' in child && location.pathname.startsWith(String(child.key))
+      )
+    )
+    .map((item) => String(item.key));
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -131,10 +116,9 @@ export default function MainLayout() {
         trigger={null}
         collapsible
         collapsed={collapsed}
-        width={240}
+        theme="light"
         style={{
-          background: token.colorBgContainer,
-          borderRight: `1px solid ${token.colorBorderSecondary}`,
+          borderRight: '1px solid #f0f0f0',
         }}
       >
         <div
@@ -143,12 +127,12 @@ export default function MainLayout() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            borderBottom: `1px solid ${token.colorBorderSecondary}`,
+            borderBottom: '1px solid #f0f0f0',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: collapsed ? 18 : 22, fontWeight: 700, color: token.colorPrimary }}>
+          <Text strong style={{ fontSize: collapsed ? 16 : 20 }}>
             {collapsed ? 'AF' : 'ActuFlow'}
-          </h1>
+          </Text>
         </div>
         <Menu
           mode="inline"
@@ -159,67 +143,48 @@ export default function MainLayout() {
           style={{ borderRight: 0 }}
         />
       </Sider>
-
       <Layout>
         <Header
           style={{
             padding: '0 24px',
-            background: token.colorBgContainer,
+            background: '#fff',
+            borderBottom: '1px solid #f0f0f0',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            borderBottom: `1px solid ${token.colorBorderSecondary}`,
           }}
         >
-          <Space>
-            <Button
-              type="text"
-              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-              onClick={() => setCollapsed(!collapsed)}
-            />
-            <Input
-              placeholder="Search or ask AI (Ctrl+K)"
-              prefix={<SearchOutlined />}
-              suffix={<RobotOutlined style={{ color: '#8c8c8c' }} />}
-              style={{ width: 300 }}
-              onClick={() => setAISearchOpen(true)}
-              readOnly
-            />
-          </Space>
-
-          <Space size="middle">
-            <NotificationDropdown>
-              <Badge count={unreadCount} size="small">
-                <Button type="text" icon={<BellOutlined style={{ fontSize: 18 }} />} />
-              </Badge>
-            </NotificationDropdown>
-
-            <Dropdown menu={{ items: userMenuItems }} trigger={['click']}>
+          <Button
+            type="text"
+            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            onClick={() => setCollapsed(!collapsed)}
+          />
+          <Space size="large">
+            <Badge count={3}>
+              <Button type="text" icon={<BellOutlined />} />
+            </Badge>
+            <Dropdown menu={{ items: userMenuItems }} placement="bottomRight">
               <Space style={{ cursor: 'pointer' }}>
-                <Avatar style={{ backgroundColor: token.colorPrimary }}>
-                  {getInitials(user?.full_name)}
+                <Avatar style={{ backgroundColor: '#1890ff' }}>
+                  {user ? getInitials(user.full_name) : 'U'}
                 </Avatar>
-                <span>{user?.full_name}</span>
+                <Text>{user?.full_name || 'User'}</Text>
               </Space>
             </Dropdown>
           </Space>
         </Header>
-
         <Content
           style={{
             margin: 24,
             padding: 24,
-            background: token.colorBgContainer,
-            borderRadius: token.borderRadiusLG,
-            minHeight: 280,
-            overflow: 'auto',
+            background: '#fff',
+            borderRadius: 8,
+            minHeight: 'auto',
           }}
         >
           <Outlet />
         </Content>
       </Layout>
-
-      <AISearchBar open={aiSearchOpen} onClose={() => setAISearchOpen(false)} />
     </Layout>
   );
 }

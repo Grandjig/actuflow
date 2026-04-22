@@ -1,100 +1,121 @@
-import { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { Form, Input, Button, Alert, Checkbox } from 'antd';
+/**
+ * Login page component.
+ */
+
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Form, Input, Button, Card, Typography, Alert, Space } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { useAuth } from '@/hooks/useAuth';
 
-import { useAuthStore } from '@/stores/authStore';
+const { Title, Text } = Typography;
 
-interface LoginForm {
+interface LoginFormValues {
   email: string;
   password: string;
-  remember: boolean;
 }
 
 export default function Login() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { login, isLoading, error } = useAuthStore();
-  const [form] = Form.useForm();
+  const { login, isAuthenticated, isLoading, error } = useAuth();
+  const [form] = Form.useForm<LoginFormValues>();
 
-  const from = (location.state as any)?.from?.pathname || '/dashboard';
-
-  const handleSubmit = async (values: LoginForm) => {
-    try {
-      await login(values.email, values.password);
-      navigate(from, { replace: true });
-    } catch (err) {
-      // Error is handled by the store
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/');
     }
+  }, [isAuthenticated, navigate]);
+
+  const handleSubmit = (values: LoginFormValues) => {
+    login(values);
   };
 
   return (
-    <Form
-      form={form}
-      layout="vertical"
-      onFinish={handleSubmit}
-      initialValues={{ remember: true }}
+    <div
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      }}
     >
-      {error && (
-        <Alert
-          message={error}
-          type="error"
-          showIcon
-          style={{ marginBottom: 24 }}
-        />
-      )}
-
-      <Form.Item
-        name="email"
-        rules={[
-          { required: true, message: 'Please enter your email' },
-          { type: 'email', message: 'Please enter a valid email' },
-        ]}
+      <Card
+        style={{
+          width: 400,
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        }}
       >
-        <Input
-          prefix={<UserOutlined />}
-          placeholder="Email"
-          size="large"
-          autoComplete="email"
-        />
-      </Form.Item>
+        <Space direction="vertical" size="large" style={{ width: '100%' }}>
+          <div style={{ textAlign: 'center' }}>
+            <Title level={2} style={{ marginBottom: 8 }}>
+              ActuFlow
+            </Title>
+            <Text type="secondary">Sign in to your account</Text>
+          </div>
 
-      <Form.Item
-        name="password"
-        rules={[{ required: true, message: 'Please enter your password' }]}
-      >
-        <Input.Password
-          prefix={<LockOutlined />}
-          placeholder="Password"
-          size="large"
-          autoComplete="current-password"
-        />
-      </Form.Item>
+          {error && (
+            <Alert
+              message="Login Failed"
+              description={error}
+              type="error"
+              showIcon
+            />
+          )}
 
-      <Form.Item>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-          <a href="/forgot-password">Forgot password?</a>
-        </div>
-      </Form.Item>
+          <Form
+            form={form}
+            layout="vertical"
+            onFinish={handleSubmit}
+            autoComplete="off"
+          >
+            <Form.Item
+              name="email"
+              rules={[
+                { required: true, message: 'Please enter your email' },
+                { type: 'email', message: 'Please enter a valid email' },
+              ]}
+            >
+              <Input
+                prefix={<UserOutlined />}
+                placeholder="Email"
+                size="large"
+              />
+            </Form.Item>
 
-      <Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
-          loading={isLoading}
-          block
-          size="large"
-        >
-          Sign In
-        </Button>
-      </Form.Item>
+            <Form.Item
+              name="password"
+              rules={[
+                { required: true, message: 'Please enter your password' },
+              ]}
+            >
+              <Input.Password
+                prefix={<LockOutlined />}
+                placeholder="Password"
+                size="large"
+              />
+            </Form.Item>
 
-      <div style={{ textAlign: 'center', color: '#666', fontSize: 12 }}>
-        Demo credentials: admin@actuflow.com / admin123
-      </div>
-    </Form>
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                size="large"
+                loading={isLoading}
+                block
+              >
+                Sign In
+              </Button>
+            </Form.Item>
+          </Form>
+
+          <div style={{ textAlign: 'center' }}>
+            <Text type="secondary">
+              Demo credentials: admin@actuflow.com / admin123
+            </Text>
+          </div>
+        </Space>
+      </Card>
+    </div>
   );
 }

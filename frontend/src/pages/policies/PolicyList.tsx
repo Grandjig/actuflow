@@ -1,75 +1,73 @@
+/**
+ * Policies list page.
+ */
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Card, Tag, Space, Dropdown, message } from 'antd';
+import {
+  Card,
+  Table,
+  Button,
+  Space,
+  Input,
+  Select,
+  Tag,
+  Typography,
+} from 'antd';
 import {
   PlusOutlined,
-  MoreOutlined,
+  SearchOutlined,
   EyeOutlined,
-  EditOutlined,
-  DeleteOutlined,
-  ExportOutlined,
+  DownloadOutlined,
 } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
+import { useQuery } from '@tanstack/react-query';
+import { getPolicies } from '@/api/policies';
+import type { Policy, PolicyStatus } from '@/types/models';
+import { formatCurrency, formatDate } from '@/utils/helpers';
 
-import PageHeader from '@/components/common/PageHeader';
-import DataTable from '@/components/common/DataTable';
-import StatusBadge from '@/components/common/StatusBadge';
-import FilterPanel from '@/components/common/FilterPanel';
-import { usePolicies, useDeletePolicy, usePolicyStats } from '@/hooks/usePolicies';
-import { useAuthStore } from '@/stores/authStore';
-import { formatCurrency, formatDate } from '@/utils/formatters';
-import { POLICY_STATUSES, PRODUCT_TYPES } from '@/utils/constants';
-import type { Policy } from '@/types/models';
-import type { PolicyListParams } from '@/types/api';
+const { Title } = Typography;
+
+const statusColors: Record<PolicyStatus, string> = {
+  active: 'green',
+  lapsed: 'red',
+  surrendered: 'orange',
+  matured: 'blue',
+  claimed: 'purple',
+  pending: 'gold',
+  cancelled: 'default',
+};
+
+interface PolicyListParams {
+  search?: string;
+  status?: string;
+  product_type?: string;
+  page: number;
+  page_size: number;
+}
 
 export default function PolicyList() {
   const navigate = useNavigate();
-  const { hasPermission } = useAuthStore();
-  const [filters, setFilters] = useState<PolicyListParams>({
-    page: 1,
-    page_size: 20,
-  });
-  const [showFilters, setShowFilters] = useState(false);
+  const [search, setSearch] = useState('');
+  const [statusFilter, setStatusFilter] = useState<string | undefined>();
+  const [productTypeFilter, setProductTypeFilter] = useState<string | undefined>();
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
 
-  const { data, isLoading, refetch } = usePolicies(filters);
-  const { data: stats } = usePolicyStats();
-  const deleteMutation = useDeletePolicy();
-
-  const handleDelete = async (policy: Policy) => {
-    try {
-      await deleteMutation.mutateAsync(policy.id);
-      message.success('Policy deleted');
-    } catch (error: any) {
-      message.error(error.message || 'Failed to delete policy');
-    }
+  const params: PolicyListParams = {
+    search: search || undefined,
+    status: statusFilter,
+    product_type: productTypeFilter,
+    page,
+    page_size: pageSize,
   };
 
-  const getRowActions = (record: Policy): MenuProps['items'] => [
-    {
-      key: 'view',
-      icon: <EyeOutlined />,
-      label: 'View Details',
-      onClick: () => navigate(`/policies/${record.id}`),
-    },
-    {
-      key: 'edit',
-      icon: <EditOutlined />,
-      label: 'Edit',
-      disabled: !hasPermission('policy', 'update'),
-      onClick: () => navigate(`/policies/${record.id}/edit`),
-    },
-    { type: 'divider' },
-    {
-      key: 'delete',
-      icon: <DeleteOutlined />,
-      label: 'Delete',
-      danger: true,
-      disabled: !hasPermission('policy', 'delete'),
-      onClick: () => handleDelete(record),
-    },
-  ];
+  const { data, isLoading } = useQuery({
+    queryKey: ['policies', params],
+    queryFn: () => getPolicies(params as unknown as Record<string, unknown>),
+  });
 
-  const columns = [
+  const columns: ColumnsType<Policy> = [
     {
       key: 'policy_number',
       title: 'Policy Number',
@@ -79,137 +77,132 @@ export default function PolicyList() {
       ),
     },
     {
-      key: 'product_type',
+      key: 'product_name',
       title: 'Product',
+      dataIndex: 'product_name',
+      render: (value: string, record: Policy) => value || record.product_code,
+    },
+    {
+      key: 'product_type',
+      title: 'Type',
       dataIndex: 'product_type',
-      render: (type: string, record: Policy) => (
-        <div>
-          <div>{record.product_name || type}</div>
-          <small style={{ color: '#999' }}>{record.product_code}</small>
-        </div>
-      ),
     },
     {
       key: 'policyholder',
       title: 'Policyholder',
-      dataIndex: 'policyholder',
-      render: (ph: any) => ph?.full_name || '-',
-    },
-    {
-      key: 'status',
-      title: 'Status',
-      dataIndex: 'status',
-      render: (status: string) => <StatusBadge status={status} />,
-      width: 120,
-    },
-    {
-      key: 'sum_assured',
-      title: 'Sum Assured',
-      dataIndex: 'sum_assured',
-      render: formatCurrency,
-      align: 'right' as const,
-      width: 140,
-    },
-    {
-      key: 'premium_amount',
-      title: 'Premium',
-      dataIndex: 'premium_amount',
-      render: (v: number, r: Policy) => `${formatCurrency(v)}/${r.premium_frequency?.charAt(0)}`,
-      align: 'right' as const,
-      width: 130,
+      dataIndex: ['policyholder', 'full_name'],
+      render: (value: string) => value || '-',
     },
     {
       key: 'issue_date',
       title: 'Issue Date',
       dataIndex: 'issue_date',
-      render: formatDate,
-      width: 120,
+      render: (value: string) => formatDate(value),
+    },
+    {
+      key: 'sum_assured',
+      title: 'Sum Assured',
+      dataIndex: 'sum_assured',
+      align: 'right' as const,
+      width: 150,
+      render: (value: number, record: Policy) => formatCurrency(value, record.currency),
+    },
+    {
+      key: 'status',
+      title: 'Status',
+      dataIndex: 'status',
+      render: (status: PolicyStatus) => (
+        <Tag color={statusColors[status]}>
+          {status.toUpperCase()}
+        </Tag>
+      ),
     },
     {
       key: 'actions',
-      title: '',
-      width: 50,
+      title: 'Actions',
+      width: 100,
       render: (_: unknown, record: Policy) => (
-        <Dropdown menu={{ items: getRowActions(record) }} trigger={['click']}>
-          <Button type="text" icon={<MoreOutlined />} />
-        </Dropdown>
+        <Button
+          type="text"
+          icon={<EyeOutlined />}
+          onClick={() => navigate(`/policies/${record.id}`)}
+        />
       ),
     },
   ];
 
-  const filterConfig = [
-    {
-      key: 'status',
-      label: 'Status',
-      type: 'select' as const,
-      options: POLICY_STATUSES,
-    },
-    {
-      key: 'product_type',
-      label: 'Product Type',
-      type: 'select' as const,
-      options: PRODUCT_TYPES,
-    },
-    {
-      key: 'issue_date',
-      label: 'Issue Date',
-      type: 'dateRange' as const,
-    },
-  ];
-
   return (
-    <>
-      <PageHeader
-        title="Policies"
-        subtitle={`${stats?.active_policies || 0} active policies`}
-        breadcrumbs={[{ title: 'Policies' }]}
-        extra={
-          <Space>
-            <Button icon={<ExportOutlined />}>Export</Button>
-            {hasPermission('policy', 'create') && (
-              <Button
-                type="primary"
-                icon={<PlusOutlined />}
-                onClick={() => navigate('/policies/new')}
-              >
-                New Policy
-              </Button>
-            )}
-          </Space>
-        }
-      />
-
-      {showFilters && (
-        <FilterPanel
-          config={filterConfig}
-          values={filters}
-          onChange={(values) => setFilters({ ...filters, ...values, page: 1 })}
-          onReset={() => setFilters({ page: 1, page_size: 20 })}
-        />
-      )}
+    <div>
+      <div style={{ marginBottom: 16, display: 'flex', justifyContent: 'space-between' }}>
+        <Title level={2}>Policies</Title>
+        <Space>
+          <Button icon={<DownloadOutlined />}>Export</Button>
+          <Button
+            type="primary"
+            icon={<PlusOutlined />}
+            onClick={() => navigate('/policies/new')}
+          >
+            New Policy
+          </Button>
+        </Space>
+      </div>
 
       <Card>
-        <DataTable
+        <Space style={{ marginBottom: 16 }}>
+          <Input
+            placeholder="Search policies..."
+            prefix={<SearchOutlined />}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            style={{ width: 250 }}
+          />
+          <Select
+            placeholder="Status"
+            allowClear
+            value={statusFilter}
+            onChange={setStatusFilter}
+            style={{ width: 150 }}
+            options={[
+              { value: 'active', label: 'Active' },
+              { value: 'lapsed', label: 'Lapsed' },
+              { value: 'surrendered', label: 'Surrendered' },
+              { value: 'matured', label: 'Matured' },
+              { value: 'claimed', label: 'Claimed' },
+            ]}
+          />
+          <Select
+            placeholder="Product Type"
+            allowClear
+            value={productTypeFilter}
+            onChange={setProductTypeFilter}
+            style={{ width: 150 }}
+            options={[
+              { value: 'term_life', label: 'Term Life' },
+              { value: 'whole_life', label: 'Whole Life' },
+              { value: 'endowment', label: 'Endowment' },
+              { value: 'annuity', label: 'Annuity' },
+            ]}
+          />
+        </Space>
+
+        <Table
           columns={columns}
           dataSource={data?.items || []}
+          rowKey="id"
           loading={isLoading}
           pagination={{
-            current: filters.page,
-            pageSize: filters.page_size,
+            current: page,
+            pageSize,
             total: data?.total || 0,
-            onChange: (page, pageSize) =>
-              setFilters((f) => ({ ...f, page, page_size: pageSize })),
+            showSizeChanger: true,
+            showTotal: (total) => `Total ${total} policies`,
+            onChange: (p, ps) => {
+              setPage(p);
+              setPageSize(ps);
+            },
           }}
-          rowKey="id"
-          onSearch={(value) => setFilters((f) => ({ ...f, search: value, page: 1 }))}
-          onRefresh={refetch}
-          toolbarExtra={
-            <Button onClick={() => setShowFilters(!showFilters)}>
-              {showFilters ? 'Hide Filters' : 'Show Filters'}
-            </Button>
-          }
         />
       </Card>
-    </>
+    </div>
   );
 }
